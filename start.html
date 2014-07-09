@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Get Started</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<link rel="stylesheet" href="assert/css/bootstrap.css" />
+		<link rel="stylesheet" href="assert/css/component.css" />
+		
+		<link rel="stylesheet" href="assert/css/doc.css" />
+	</head>
+	
+	<body>
+		<!--navbar start-->
+		<section class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">Home</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="start.html">Get Started</a>
+						</li>
+						<li>
+							<a href="base.html">Css Base</a>
+						</li>
+						<li>
+							<a href="components.html">Component</a>
+						</li>
+						<li>
+							<a href="js.html">Js Utility</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+		<!--navbar end-->
+		
+		<section class="main-body get-start">
+			<div class="container">
+				<header class="jumbotron subhead">
+					<h1>Get Started</h1>
+					<p>欢迎光临，你可以从这里开始无线开发之旅。这里面为您提供了页面脚手架，h5 ui组件，以及一些常用的js组件功能（建设中）。如果你是基于移动工作平台的开发方式，<a href="#hybrid">进入这里</a>，如果你自己从头开发整个 页面，可以直接<a href="#webapp">到这里</a>.</p>
+				</header>
+				<div class="hybrid">
+					<a name="hybrid" href="javascript:;"></a>
+					<h2>一，框架开发方式</h2>
+					<h3>1,页面和静态文件目录规范</h3>
+					<div class="row">
+							<div class="col-md-4">
+								<p>该种方式，移动工作平台提供了完整个h5页面开发框架，h5相关页面mobile_server/deploy/templates/mobile/vm下，如右图；业务应用之间用文件夹隔离</p>
+							</div>
+							<div class="col-md-4">
+								<img src="assert/img/h5.png">
+							</div>
+					</div>
+					<div class="row">
+							<div class="col-md-4">
+								<p>静态文件放在mobile_server/deploy/htdocs/h5下，业务应用之间也是用文件夹隔离，每个h5页面，会在静态文件夹下唯一对应一个js或css，静态文件也可以没有。</p>
+							</div>
+							<div class="col-md-4">
+								<img src="assert/img/static.png">
+							</div>
+					</div>
+					<h3>2,h5页面脚手架</h3>
+					<p>由于框架已经将html的head部分抽出，这里应用页面可以专注写自己的逻辑。下面介绍2种典型页面结构，用户可以根据是否带滚动条选择其一。</p>
+					<div class="normal-layout">
+						<h4>2.1,普通页面框架标准
+							<small>下面设置了h5的头部和尾部组件，在hybrid应用中，每打开一个页面，你可以调用native的头部和尾部，所以需要根据需要增删。</small>
+						</h4>
+						<div class="row">
+							<div class="col-md-4">
+								
+								<div class="example scrollDemo">
+									<header class="ui-header">
+										<a href="javascript:;" class="icon-back">Back</a>
+										<h1>Page标题</h1>
+									</header>
+									<section class="main-content">
+										your code here
+									</section>
+									<footer class="ui-footer fixed-layout">
+										<div class="ui-footer-inner">
+											<button class="ui-button-primary" />Submit</button>
+										</div>
+									</footer>
+								</div>
+							</div>
+							<div class="col-md-8">
+								
+								<pre>
+&lt;header class="ui-header"&gt;
+	&lt;a href="javascript:;" class="icon-back"&gt;Back&lt;/a&gt;
+	&lt;h1&gt;Page标题&lt;/h1&gt;
+&lt;/header&gt;
+&lt;section class="main-content"&gt;
+	your code here
+&lt;/section&gt;
+&lt;footer class="ui-footer fixed-layout"&gt;
+	&lt;div class="ui-footer-inner"&gt;
+		&lt;button class=&quot;ui-button-primary&quot; /&gt;Submit&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+								</pre>
+							</div>
+						</div>
+					</div>
+					<div class="normal-layout">
+						<h4>2.2,纵向滚动页面布局
+							<small>在IOS6以下和Android4.0以下的系统中，超出屏幕部分的内容不可以滑动展示，因此目前采用了iScroll来进行兼容处理。</small>
+						</h4>
+							
+						
+						<div class="row">
+							<div class="col-md-4">
+								<div class="example scrollDemo">
+									<header class="ui-header">
+										<a href="javascript:;" class="icon-back">Back</a>
+										<h1>Page标题</h1>
+									</header>
+									<section class="ui-scroll-wrapper" id="wrapper">
+										<div class="ui-scroller">
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+											<div class="ui-loading-bar">
+												<span class="ui-loading-icon"></span>
+												<span class="ui-loading-label">Pull up to refresh...</span>
+											</div>
+										</div>
+									</section>
+									<footer class="ui-footer fixed-layout">
+										<div class="ui-footer-inner">
+											<button class="ui-button-primary" />Submit</button>
+										</div>
+									</footer>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<pre>
+&lt;header class="ui-header"&gt;
+	&lt;a href="javascript:;" class="icon-back"&gt;Back&lt;/a&gt;
+	&lt;h1&gt;Page标题&lt;/h1&gt;
+&lt;/header&gt;
+&lt;section class="ui-scroll-wrapper" id="wrapper"&gt;
+	&lt;div class="ui-scroller"&gt;
+		&lt;p>your code&lt;/p&gt;
+		&lt;p>your code&lt;/p&gt;
+		&lt;p>...&lt;/p&gt;
+		&lt;p>your code&lt;/p&gt;
+		&lt;p>your code&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+&lt;footer class="ui-footer fixed-layout"&gt;
+	&lt;div class="ui-footer-inner"&gt;
+		&lt;button class=&quot;ui-button-primary&quot; /&gt;Submit&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+								</pre>
+							</div>
+						</div>
+					</div>
+					<h3>3,css开发</h3>
+					<h4>3.1,开发目录</h4>
+					<div class="row">
+						<div class="col-md-4">
+							如右图，业务样式，在css目录下，以文件夹隔离
+						</div>
+						<div class="col-md-8">
+							<img src="assert/img/css.png">
+						</div>
+					</div>
+					<h4>3.2,开发方式</h4>
+					<div class="row">
+						<div class="col-md-4">
+							<p>推荐sass方式，及可以类似java引用包的方式，引用我们的组件库，然后使用koala工具编译，即可看到效果。具体如下：</p>
+					<p>在css下建立业务文件夹，然后在业务文件夹中开始写页面的样式，文件命名与h5相同，后缀使用.scss，内容写法类似如右侧：</p>
+						</div>
+						<div class="col-md-8">
+							<pre>
+/* 引用base */
+@import "../sass1.0/base/base.scss";
+/* 引用组件 */
+@import "../sass1.0/widget/ui-btn.scss";
+@import "../sass1.0/widget/ui-form.scss";
+
+/****************************************
+ * page style 这里在这里覆写组件的样式，和页面自身特有的样式
+ ****************************************/
+.ui-layout-header .icon-back {
+  margin-top: -44px;
+}
+.ui-paragraph {
+  .ui-form-lbl {
+    width: 66px;
+  }
+}
+					</pre>
+						</div>
+					</div>
+					<h4>3.3,工具学习&下载</h4>
+					<p>sass：<a href="http://www.sass-lang.com/" target="_blank">官网</a>&nbsp;<a href="http://www.gafish.net/api/iScroll.html" target="_blank">中文api</a></p>
+					<p>koala：<a href="http://koala-app.com/index-zh.html" target="_blank">官网</a></p>
+					<h3>4,js开发</h3>
+					<h4>4.1, 基础类库使用zepto，滚动部分使用iscroll组件，目前页面默认引入，页面开发无需再手工引入。</h4>
+					<h4>4.2, 目前js没有组件化建设，这一块待积累和改进</h4>
+					<div class="row">
+						<div class="col-md-4">
+							<h4>4.3, 页面js，目录参考css方式，书写要求闭包方式，demo如右图。</h4>
+							<h4>4.4, js调用native部分，<a href="http://docs.alibaba-inc.com/pages/viewpage.action?pageId=161556250" target="_blank">参考这里</a></h4>
+							<h4>4.5,工具学习&下载</h4>
+							<p>zepto：<a href="http://zeptojs.com/" target="_blank">官网</a></p>
+							<p>iscroll：<a href="http://cubiq.org/iscroll-4" target="_blank">官网</a></p>
+						</div>
+						<div class="col-md-8">
+							<pre>
+(function($) {
+	//your code here
+    var init = function(){
+    	//your code here
+    };
+    $(function() {
+        init();
+    });
+})(Zepto);
+							</pre>
+						</div>
+					</div>
+					
+				</div>
+				<div class="webapp">
+					<a name="webapp" href="javascript:;"></a>
+					<h2>二，完整页面开发方式</h2>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>

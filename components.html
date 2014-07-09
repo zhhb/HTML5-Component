@@ -1,0 +1,1387 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ICBU H5</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<link rel="stylesheet" href="assert/css/bootstrap.css" />
+		<link rel="stylesheet" href="assert/css/component.css" />
+		<link rel="stylesheet" href="assert/css/doc.css" />
+	</head>
+	
+	<body class="com-body">
+		<!--navbar start-->
+		<section class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">Home</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="start.html">Get Started</a>
+						</li>
+						<li>
+							<a href="base.html">Css Base</a>
+						</li>
+						<li class="active">
+							<a href="components.html">Component</a>
+						</li>
+						<li>
+							<a href="js.html">Js Utility</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+		<!--navbar end-->
+		<section class="com-list">
+			<div class="container">
+				<ul class="clearfix">
+					<li>
+						<a href="#com-header">页头组件</a>
+					</li>
+					<li>
+						<a href="#com-footer">页尾组件</a>
+					</li>
+					<li>
+						<a href="#com-scroll">滚动组件</a>
+					</li>
+					<li>
+						<a href="#com-modal">蒙板组件</a>
+					</li>
+					<li>
+						<a href="#com-button">按钮组件</a>
+					</li>
+					<li>
+						<a href="#com-tab">tab组件</a>
+					</li>
+					<li>
+						<a href="#com-form">表单组件</a>
+					</li>
+					<li>
+						<a href="#com-radio">单选组件</a>
+					</li>
+					<li>
+						<a href="#com-checkbox">复选组件</a>
+					</li>
+					<li>
+						<a href="#com-switch">switch组件</a>
+					</li>
+					<li>
+						<a href="#com-accordion">Accordion组件</a>
+					</li>
+					<li>
+						<a href="#com-list">列表组件</a>
+					</li>
+					<li>
+						<a href="#com-timeline">时间轴组件</a>
+					</li>
+					<li>
+						<a href="#com-upload">上传组件</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		
+		<div class="com-css container">
+			<!--jumbotron start-->
+			<header class="jumbotron subhead">
+				<h1>HTML组件列表</h1>
+				<p>在这里找到你需要的组件，每个组件会提供参考html代码结构和对应的css代码</p>
+			</header>
+			<!--jumbotron end-->
+			
+			<!--innernav start-->
+			<section class="innernav">
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-header"></a>
+						<h2 class='first'>页头组件<small>用于页面顶部导航</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<header class="ui-header">
+									<a href="javascript:;" class="icon-back">Back</a>
+									<h1>Page标题</h1>
+									<a href="javascript:;" class="icon-new">Create</a>
+								</header>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<pre>
+&lt;header class="ui-header"&gt;
+	&lt;a href="javascript:;" class="icon-back"&gt;Back&lt;/a&gt;
+	&lt;h1&gt;Page标题&lt;/h1&gt;
+	&lt;a href="javascript:;" class="icon-new"&gt;Create&lt;/a&gt;
+&lt;/header&gt;
+							</pre>
+							<p>如果不需要右边的按钮，请保持<code>header.ui-header > a.icon-new</code>为空。</p>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-icon';
+@import 'widget/ui-header';
+							</pre>
+							<p>上述路径根据项目写成相对路径，如1.0版本大致可以修改为<code>../../sass1.0/widget/ui-header</code></p>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-header.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-footer"></a>
+						<h2>页尾组件<small>用于页面底部，常用于固定底部</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<p>普通底部</p>
+								<footer class="ui-footer">
+									<div class="ui-footer-inner">
+										<button class="ui-button-primary" />Submit</button>
+									</div>
+								</footer>
+								<p>固定底部</p>
+								<br><br><br>
+								<footer class="ui-footer fixed-layout">
+									<div class="ui-footer-inner">
+										<div class="ui-button-group grid-flexbox-average">
+											<div class="grid-item">
+												<button class="ui-button" >保存</button>
+											</div>
+											<div class="grid-item">
+												<button class="ui-button-primary" />提交审核</button>
+											</div>
+										</div>
+									</div>
+								</footer>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<pre>
+普通底部
+&lt;footer class=&quot;ui-footer&quot;&gt;
+	&lt;div class=&quot;ui-footer-inner&quot;&gt;
+		&lt;button class=&quot;ui-button-primary&quot; /&gt;Submit&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+固定底部
+&lt;footer class=&quot;ui-footer fixed-layout&quot;&gt;
+	&lt;div class=&quot;ui-footer-inner&quot;&gt;
+		&lt;div class=&quot;ui-button-group grid-flexbox-average&quot;&gt;
+			&lt;div class=&quot;grid-item&quot;&gt;
+				&lt;button class=&quot;ui-button&quot; &gt;保存&lt;/button&gt;
+			&lt;/div&gt;
+			&lt;div class=&quot;grid-item&quot;&gt;
+				&lt;button class=&quot;ui-button-primary&quot; /&gt;提交审核&lt;/button&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-footer';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-footer.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-scroll"></a>
+						<h2>滚动组件<small>用于页面中滚动部分，多见于列表中，可以滚动加载</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<section class="ui-scroll-wrapper" id="wrapper">
+									<div class="ui-scroller">
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<p>your code</p><p>your code</p><p>your code</p><p>your code</p>
+										<div class="ui-loading-bar">
+											<span class="ui-loading-icon"></span>
+											<span class="ui-loading-label">Pull up to refresh...</span>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<pre>
+&lt;section class=&quot;ui-scroll-wrapper&quot; id=&quot;wrapper&quot;&gt;
+	&lt;div class=&quot;ui-scroller&quot;&gt;
+		&lt;ul&gt;
+                        your code here
+                &lt;/ul&gt;
+		&lt;div class=&quot;ui-loading-bar&quot;&gt;
+		        &lt;span class=&quot;ui-loading-icon&quot;&gt;&lt;/span&gt;
+			&lt;span class=&quot;ui-loading-label&quot;&gt;Pull up to refresh...&lt;/span&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-scroll';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-scroll.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-modal"></a>
+						<h2>Modal组件<small>蒙板组件，用于遮罩层</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list">
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+								</ul>
+								<div class="ui-modal"></div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;div class=&quot;your container&quot;&gt;
+        your code here
+        &lt;div class=&quot;ui-modal&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-modal';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-modal.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-button"></a>
+						<h2>按钮<small>各种状态按钮展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<div class="button-list">
+									<p>普通按钮</p>
+									<button class="ui-button" >Cancel</button>
+									<p>主按钮</p>
+									<button class="ui-button-primary" />Submit</button>
+									<p>警告按钮</p>
+									<button class="ui-button-warning" />Delete</button>
+									<p>按钮组</p>
+									<div class="ui-button-group grid-flexbox">
+										<div class="grid-item">
+											<button class="ui-button" >保存</button>
+										</div>
+										<div class="grid-item">
+											<button class="ui-button-primary" />提交审核</button>
+										</div>
+									</div>
+									<p>按钮组(均分)</p>
+									<div class="ui-button-group grid-flexbox-average">
+										<div class="grid-item">
+											<button class="ui-button" >保存</button>
+										</div>
+										<div class="grid-item">
+											<button class="ui-button-primary" />提交审核</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+普通按钮								
+&lt;button class=&quot;ui-button&quot; &gt;Cancel&lt;/button&gt;
+主按钮
+&lt;button class=&quot;ui-button-primary&quot; /&gt;Submit&lt;/button&gt;
+警告按钮
+&lt;button class=&quot;ui-button-warning&quot; /&gt;Delete&lt;/button&gt;
+按钮组
+&lt;div class=&quot;ui-button-group grid-flexbox&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;
+		&lt;button class=&quot;ui-button&quot; &gt;保存&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;
+		&lt;button class=&quot;ui-button-primary&quot; /&gt;提交审核&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+按钮组(均分)
+&lt;div class=&quot;ui-button-group grid-flexbox-average&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;
+		&lt;button class=&quot;ui-button&quot; &gt;保存&lt;/button&gt;
+	&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;
+		&lt;button class=&quot;ui-button-primary&quot; /&gt;提交审核&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-button';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-button.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-tab"></a>
+						<h2>Tab组件<small>用于页面底部展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<p>两栏式</p>
+								<ul class="ui-tab clearfix">
+									<li class="ui-tab-item current">
+										<a href="javascript:;">Tab1</a>
+									</li>
+									<li class="ui-tab-item">
+										<a href="javascript:;">Tab2</a>
+									</li>
+								</ul>
+								<p>三栏式</p>
+								<ul class="ui-tab ui-tab-3-col clearfix">
+									<li class="ui-tab-item current">
+										<a href="javascript:;">Tab1</a>
+									</li>
+									<li class="ui-tab-item">
+										<a href="javascript:;">Tab2</a>
+									</li>
+									<li class="ui-tab-item">
+										<a href="javascript:;">Tab3</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+两栏式
+&lt;ul class="ui-tab clearfix"&gt;
+	&lt;li class="ui-tab-item current"&gt;
+		&lt;a href="javascript:;">Tab1&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="ui-tab-item"&gt;
+		&lt;a href="javascript:;">Tab2&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+三栏式
+&lt;ul class="ui-tab ui-tab-3-col clearfix"&gt;
+	&lt;li class="ui-tab-item current"&gt;
+		&lt;a href="javascript:;">Tab1&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="ui-tab-item"&gt;
+		&lt;a href="javascript:;">Tab2&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="ui-tab-item"&gt;
+		&lt;a href="javascript:;">Tab2&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-tab';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-tab.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-form"></a>
+						<h2>Form表单组件<small>用于页面表单数据展示和处理</small></h2>
+						<p>表单组件中，包含通用的表单输入、选择、级联选择结构，其中文本、电话、数字的输入均采用对应的类型。</p>
+						<p>在之后的业务中，根据需要将考虑增加Email等类型。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example formDemo">
+								<div class="ui-space"></div>
+								<div class="ui-form-select-cascade">
+									<label class="ui-form-lbl">级联选择</label>
+									<div class="ui-form-item ui-form-item-operate">
+										<label for="" class="ui-form-lbl"></label>
+										<span class="ui-form-txt">类别1</span>
+									</div>
+									<div class="ui-form-item ui-form-item-operate">
+										<label for="" class="ui-form-lbl"></label>
+										<span class="ui-form-txt">类别2</span>
+									</div>
+								</div>
+								<div class="ui-space"></div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Name</label>
+									<input type="text" class="ui-form-txt" placeholder="Please enter your Address" />
+								</div>
+								<div class="ui-form-item ui-form-item-operate">
+									<label class="ui-form-lbl">Sex</label>
+									<span class="ui-form-txt">请选择</span>
+								</div>
+								<div class="ui-space"></div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Mobile</label>
+									<input type="tel" class="ui-form-txt" placeholder="Please enter your mobile number" />
+								</div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Address</label>
+									<input type="tel" class="ui-form-txt" placeholder="Please enter your address" />
+								</div>
+								<div class="ui-space"></div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Age</label>
+									<input type="number" class="ui-form-txt" placeholder="Please enter your age" />
+								</div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Mark</label>
+								</div>
+								<div class="ui-form-item ui-form-item-txt">
+									<textarea class="ui-form-txt-ta" placeholder="Please descript yourself"></textarea>
+								</div>
+								<div class="ui-space"></div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-select-cascade"&gt;
+	&lt;label class="ui-form-lbl"&gt;级联选择&lt;/label&gt;
+	&lt;div class="ui-form-item ui-form-item-operate"&gt;
+		&lt;label for="" class="ui-form-lbl"&gt;&lt;/label&gt;
+		&lt;span class="ui-form-txt"&gt;类别1&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="ui-form-item ui-form-item-operate"&gt;
+		&lt;label for="" class="ui-form-lbl"&gt;&lt;/label&gt;
+		&lt;span class="ui-form-txt"&gt;类别2&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Name&lt;/label&gt;
+	&lt;input type="text" class="ui-form-txt" placeholder="Please enter your Address" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item ui-form-item-operate"&gt;
+	&lt;label class="ui-form-lbl"&gt;Sex&lt;/label&gt;
+	&lt;span class="ui-form-txt"&gt;请选择&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Mobile&lt;/label&gt;
+	&lt;input type="tel" class="ui-form-txt" placeholder="Please enter your mobile number" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Address&lt;/label&gt;
+	&lt;input type="tel" class="ui-form-txt" placeholder="Please enter your address" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Age&lt;/label&gt;
+	&lt;input type="number" class="ui-form-txt" placeholder="Please enter your age" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Mark&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item ui-form-item-txt"&gt;
+	&lt;textarea class="ui-form-txt-ta" placeholder="Please descript yourself"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-form';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-form.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-radio"></a>
+						<h2>Radio组件</h2>
+						<p>单选提供用户在两个或多个（互斥）选项中选择的功能。用户只能精准选择一个选项，选项之间处于联动状态，点击一个未选中的单选框会导致先前选中的单选框处于未选中状态。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<div class="ui-radio">选项1</div>
+								<div class="ui-radio ui-radio-checked">选项2</div>
+								<div class="ui-radio ui-radio-disabled">选项3</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;div class="ui-radio"&gt;选项1&lt;/div&gt;
+&lt;div class="ui-radio ui-radio-checked"&gt;选项2&lt;/div&gt;
+&lt;div class="ui-radio ui-radio-disabled"&gt;选项3&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-radio';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-radio.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-checkbox"></a>
+						<h2>Checkbox组件<small>提供用户在列表中的选择功能</small></h2>
+						<p>复选框适用于选项本身的快速展示和选择，帮助用户进行选择操作，直观易懂。</p>
+						<p>使用在图片多选的场景或者列表的多选情况。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<div class="ui-checkbox"></div>
+								<div class="ui-checkbox ui-checkbox-checked"></div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;div class="ui-checkbox"&gt;&lt;/div&gt;
+&lt;div class="ui-checkbox ui-checkbox-checked"&gt;&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-checkbox';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-checkbox.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>Checkbox组件扩展<small>适用于某类属性（一段词或描述）的多选</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<a href="javascript:;" class="ui-checkitem">选项1</a>
+								<a href="javascript:;" class="ui-checkitem ui-checkitem-checked">选项2</a>
+								<a href="javascript:;" class="ui-checkitem">选项3</a>
+								<a href="javascript:;" class="ui-checkitem ui-checkitem-checked">选项4</a>
+								<a href="javascript:;" class="ui-checkitem">选项5</a>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;a href="javascript:;" class="ui-checkitem"&gt;选项1&lt;/a&gt;
+&lt;a href="javascript:;" class="ui-checkitem ui-checkitem-checked"&gt;选项2&lt;/a&gt;
+&lt;a href="javascript:;" class="ui-checkitem"&gt;选项3&lt;/a&gt;
+&lt;a href="javascript:;" class="ui-checkitem ui-checkitem-checked"&gt;选项4&lt;/a&gt;
+&lt;a href="javascript:;" class="ui-checkitem"&gt;选项5&lt;/a&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-checkbox';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-checkbox.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-switch"></a>
+						<h2>Switch组件<small>用于开启或者关闭某个功能，或者是表示选择选项本身的是否状态</small></h2>
+						<p>通过开关状态的切换动作，并且这一动作与用户实际场景开关动作交互一致，让用户直观体验开关动作。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<div class="ui-form-item clearfix">
+									<span style="position:absolute;left:12px;">关闭功能</span>
+									<div class="ui-switch right"><i></i></div>
+								</div>
+								<div class="ui-form-item clearfix">
+									<span style="position:absolute;left:12px;">开启功能</span>
+									<div class="ui-switch ui-switch-active right"><i></i></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;div class="ui-form-item clearfix"&gt;
+	&lt;span style="position:absolute;left:12px;"&gt;关闭功能&lt;/span&gt;
+	&lt;div class="ui-switch right"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item clearfix"&gt;
+	&lt;span style="position:absolute;left:12px;"&gt;开启功能&lt;/span&gt;
+	&lt;div class="ui-switch ui-switch-active right"&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;
+&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-switch';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-switch.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-accordion"></a>
+						<h2>Accordion折叠组件<small>用于下拉类型选择</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<section class="ui-accordion">
+									<div class="ui-accordion-title clearfix" data-role="tap">
+										<h3>全部状态（<span class="count">44</span>）</h3>
+										<s class="icon-down"></s>
+									</div>
+									<ul class="ui-accordion-list">
+										<li class="cur" data-role="tap" data-status="total">全部（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="new">待提交（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="audit">审核中（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="TBD">审核退回（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="success&normal">审核通过-已确认（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="success&passwaitconfirm">审核通过-待确认（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="fail&normal">审核拒绝-已确认（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="fall&reject">审核拒绝-待确认（<span class="count">0</span>）</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;section class="ui-accordion"&gt;
+	&lt;div class="ui-accordion-title clearfix" data-role="tap"&gt;
+		&lt;h3&gt;全部状态（&lt;span class="count"&gt;44&lt;/span&gt;）&lt;/h3&gt;
+		&lt;s class="icon-down"&gt;&lt;/s&gt;
+	&lt;/div&gt;
+	&lt;ul class="ui-accordion-list"&gt;
+		&lt;li class="cur" data-role="tap" data-status="total"&gt;全部（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="new"&gt;待提交（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="audit"&gt;审核中（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="TBD"&gt;审核退回（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="success&normal"&gt;审核通过-已确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="success&passwaitconfirm"&gt;审核通过-待确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="fail&normal"&gt;审核拒绝-已确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="fall&reject"&gt;审核拒绝-待确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/section&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-accordion';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-accordion.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-list"></a>
+						<h2>
+							List组件
+							<small>用于列表数据展示</small>
+						</h2>
+						<p>基础列表组件，标题+描述+时间的结构展示。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list">
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;ul class="ui-list"&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-list';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-list.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>扩展列表结构<small>用于带图片的数据列表展示</small></h2>
+						<p>左图右文的列表形式展示数据。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list ui-list-img">
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<pre>
+&lt;ul class="ui-list"&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-list';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-list.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>扩展列表结构<small>用于数据列表的多选情况</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list ui-list-checkbox">
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+										<div class="ui-checkbox"></div>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+										<div class="ui-checkbox ui-checkbox-checked"></div>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+										<div class="ui-checkbox"></div>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+										<div class="ui-checkbox ui-checkbox-checked"></div>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+										<div class="ui-checkbox"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<pre>
+&lt;ul class="ui-list ui-list-checkbox"&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+		&lt;div class="ui-checkbox"&gt;&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+		&lt;div class="ui-checkbox ui-checkbox-checked"&gt;&lt;/div&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+		&lt;div class="ui-checkbox"&gt;&lt;/div&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-list';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-list.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-timeline"></a>
+						<h2>时间轴组件<small>用于按照时间或流程排列展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<p>基础时间轴</p>
+								<ul class="ui-list-flowstep">
+									<li class="cur">
+										<div class="fa-seq"></div>
+										<p>审核中</p>
+										<p>(已进行3天4小时)</p>
+									</li>
+									<li>
+										<div class="fa-seq"></div>
+										<p>
+											<span class="fa-date">2014-01-24 17:55</span><span class="fa-status">审核中</span>
+										</p>
+										<p>客服王丽丽（工号2345）已接手审核资料</p>
+									</li>
+									<li>
+										<div class="fa-seq"></div>
+										<p>
+											<span class="fa-date">2014-01-24 17:55</span><span class="fa-status">审核中</span>
+										</p>
+										<p>客服王丽丽（工号2345）已接手审核资料</p>
+									</li>
+									<li>
+										<div class="fa-seq"></div>
+										<p>
+											<span class="fa-date">2014-01-24 17:55</span><span class="fa-status">审核中</span>
+										</p>
+										<p>客服王丽丽（工号2345）已接手审核资料</p>
+									</li>
+								</ul>
+								<p style="margin: 10px 0;">复杂时间轴</p>
+								<div class="ui-timeline">
+									<dl class="ui-timeline-item cur">
+										<dt class="ui-timeline-item-head">
+											<time>14-6-2014 11:32:23</time>
+											<h3>区域经理审批</h3>
+										</dt>
+										<dd class="ui-timeline-item-body">
+											<div class="ui-timeline-cent">
+												<label>[全国]主管</label>
+												tongyi
+											</div>
+											<div class="ui-timeline-cent">
+												<label>审批意见</label>
+												tongyi
+											</div>
+											<div class="centerfix show-more">
+												<div class="centerfix-inner">
+													<s class="icon-down"></s>
+												</div>
+											</div>
+										</dd>
+										<dd class="left-sep-ico"></dd>
+										<dd class="left-direct-ico"></dd>
+									</dl>
+									<dl class="ui-timeline-item">
+										<dt class="ui-timeline-item-head">
+											<time>14-6-2014 11:32:23</time>
+											<h3>区域经理审批</h3>
+										</dt>
+										<dd class="ui-timeline-item-body">
+											<div class="ui-timeline-cent">
+												<label>[全国]主管</label>
+												tongyi
+											</div>
+											<div class="ui-timeline-cent short-desc">
+												<label>审批意见</label>
+												tongyi
+											</div>
+											<div class="ui-timeline-cent long-desc">
+												<label>审批意见</label>
+												手的医生的浮夸手萨法实施的发生是否大是大非双方打首发
+											</div>
+											<div class="centerfix show-more" style="display: block">
+												<div class="centerfix-inner">
+													<s class="icon-down"></s>
+												</div>
+											</div>
+										</dd>
+										<dd class="left-sep-ico"></dd>
+										<dd class="left-direct-ico"></dd>
+									</dl>
+									<dl class="ui-timeline-item">
+										<dt class="ui-timeline-item-head">
+											<time>14-6-2014 11:32:23</time>
+											<h3>区域经理审批</h3>
+										</dt>
+										<dd class="ui-timeline-item-body">
+											<div class="ui-timeline-cent">
+												<label>[全国]主管</label>
+												tongyi
+											</div>
+											<div class="ui-timeline-cent">
+												<label>审批意见</label>
+												tongyi
+											</div>
+											<div class="centerfix show-more">
+												<div class="centerfix-inner">
+													<s class="icon-down"></s>
+												</div>
+											</div>
+										</dd>
+										<dd class="left-sep-ico"></dd>
+										<dd class="left-direct-ico"></dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+基础时间轴
+&lt;ul class="ui-list-flowstep"&gt;
+	&lt;li class="cur"&gt;
+		&lt;div class="fa-seq"&gt;&lt;/div&gt;
+		&lt;p&gt;审核中&lt;/p&gt;
+		&lt;p&gt;(已进行3天4小时)&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;div class="fa-seq"&gt;&lt;/div&gt;
+		&lt;p&gt;
+			&lt;span class="fa-date"&gt;2014-01-24 17:55&lt;/span&gt;&lt;span class="fa-status"&gt;审核中&lt;/span&gt;
+		&lt;/p&gt;
+		&lt;p&gt;客服王丽丽（工号2345）已接手审核资料&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+复杂时间轴
+&lt;div class=&quot;ui-timeline&quot;&gt;
+	&lt;dl class=&quot;ui-timeline-item cur&quot;&gt;
+		&lt;dt class=&quot;ui-timeline-item-head&quot;&gt;
+			&lt;time&gt;14-6-2014 11:32:23&lt;/time&gt;
+			&lt;h3&gt;区域经理审批&lt;/h3&gt;
+		&lt;/dt&gt;
+	        &lt;dd class=&quot;ui-timeline-item-body&quot;&gt;
+		        &lt;div class=&quot;ui-timeline-cent&quot;&gt;
+			        &lt;label&gt;[全国]主管&lt;/label&gt;
+			        tongyi
+		        &lt;/div&gt;
+		        &lt;div class=&quot;ui-timeline-cent short-desc&quot;&gt;
+			        &lt;label&gt;审批意见&lt;/label&gt;
+			        tongyi
+		        &lt;/div&gt;
+		       &lt;div class=&quot;ui-timeline-cent long-desc&quot;&gt;
+			         &lt;label&gt;审批意见&lt;/label&gt;
+			         手的医生的浮夸手萨法实施的发生是否大是大非双方打首发
+		        &lt;/div&gt;
+		        &lt;div class=&quot;centerfix show-more&quot;&gt;
+			        &lt;div class=&quot;centerfix-inner&quot;&gt;
+				         &lt;s class=&quot;icon-down&quot;&gt;&lt;/s&gt;
+			        &lt;/div&gt;
+		        &lt;/div&gt;
+	        &lt;/dd&gt;
+	        &lt;dd class=&quot;left-sep-ico&quot;&gt;&lt;/dd&gt;
+	        &lt;dd class=&quot;left-direct-ico&quot;&gt;&lt;/dd&gt;
+        &lt;/dl&gt;
+	&lt;dl class=&quot;ui-timeline-item cur&quot;&gt;
+		&lt;dt class=&quot;ui-timeline-item-head&quot;&gt;
+			&lt;time&gt;14-6-2014 11:32:23&lt;/time&gt;
+			&lt;h3&gt;区域经理审批&lt;/h3&gt;
+		&lt;/dt&gt;
+	        &lt;dd class=&quot;ui-timeline-item-body&quot;&gt;
+		        &lt;div class=&quot;ui-timeline-cent&quot;&gt;
+			        &lt;label&gt;[全国]主管&lt;/label&gt;
+			        tongyi
+		        &lt;/div&gt;
+		        &lt;div class=&quot;ui-timeline-cent short-desc&quot;&gt;
+			        &lt;label&gt;审批意见&lt;/label&gt;
+			        tongyi
+		        &lt;/div&gt;
+		       &lt;div class=&quot;ui-timeline-cent long-desc&quot;&gt;
+			         &lt;label&gt;审批意见&lt;/label&gt;
+			         手的医生的浮夸手萨法实施的发生是否大是大非双方打首发
+		        &lt;/div&gt;
+		        &lt;div class=&quot;centerfix show-more&quot; style=&quot;display:block&quot;&gt;
+			        &lt;div class=&quot;centerfix-inner&quot;&gt;
+				         &lt;s class=&quot;icon-down&quot;&gt;&lt;/s&gt;
+			        &lt;/div&gt;
+		        &lt;/div&gt;
+	        &lt;/dd&gt;
+	        &lt;dd class=&quot;left-sep-ico&quot;&gt;&lt;/dd&gt;
+	        &lt;dd class=&quot;left-direct-ico&quot;&gt;&lt;/dd&gt;
+        &lt;/dl&gt;
+&lt;/div&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-timeline';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-timeline.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<a name="com-upload"></a>
+						<h2>Upload上传组件<small>用于上传图片展示</small></h2>
+						<p>在业务模块中，图片上传属于通用功能，因此把该部分抽取出来作为公用组件，在各个业务中上传图片时统一采用此组件来实现。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<article class="ui-upload">
+									<h3>图片类型<span>(类型描述)</span></h3>
+									<div class="ui-upload-list">
+										<div class="ui-upload-item">
+											<a href="javascript:;" class="ui-upload-img"><img src="assert/img/2.png" alt="" /></a>
+											<p>未上传</p>
+										</div>
+										<div class="ui-upload-item">
+											<a href="javascript:;" class="ui-upload-img"><img src="assert/img/2.png" alt="" /></a>
+											<p class="ui-upload-done">已上传</p>
+										</div>
+										<a href="javascript:;" class="ui-upload-item ui-upload-item-plus"></a>
+									</div>
+								</article>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;article class="ui-upload"&gt;
+	&lt;h3&gt;图片类型&lt;span&gt;(类型描述)&lt;/span&gt;&lt;/h3&gt;
+	&lt;div class="ui-upload-list"&gt;
+		&lt;div class="ui-upload-item"&gt;
+			&lt;a href="javascript:;" class="ui-upload-img"&gt;&lt;img src="assert/img/2.png" alt="" /&gt;&lt;/a&gt;
+			&lt;p&gt;未上传&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class="ui-upload-item"&gt;
+			&lt;a href="javascript:;" class="ui-upload-img"&gt;&lt;img src="assert/img/2.png" alt="" /&gt;&lt;/a&gt;
+			&lt;p class="ui-upload-done"&gt;已上传&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;a href="javascript:;" class="ui-upload-item ui-upload-item-plus"&gt;&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/article&gt;
+							</pre>
+						</div>
+						<div class="col-md-4">
+							<h3>页面css引用方式</h3>
+							<pre>
+@import 'widget/ui-upload';
+							</pre>
+							<p>
+								<a href="http://gitlab.alibaba-inc.com/aliseller/html5-component/blob/master/assert/sass/widget/ui-upload.scss" target="_blank">查看源代码</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--innernav end-->
+			
+			<script src="assert/js/jquery.js"></script>
+			<script src="assert/js/iscroll.js"></script>
+			<script>
+				$(document).ready(function() {
+					//new iScroll('wrapper');
+					
+					var accordion = $('.ui-accordion'),
+					accordionTitle = accordion.children('.ui-accordion-title');
+					accordion.delegate('.ui-accordion-title', 'click', function() {
+						accordion.toggleClass('ui-accordion-active');
+					}).delegate('li', 'click', function() {
+						var li = $(this);
+						li.siblings().removeClass('cur');
+						li.addClass('cur');
+						accordionTitle.children('h3').text(li.text());
+						accordion.removeClass('ui-accordion-active');
+					});
+				});
+			</script>
+		</div>
+	</body>
+</html>

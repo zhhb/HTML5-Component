@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ICBU H5</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<link rel="stylesheet" href="assert/css/bootstrap.css" />
+		<link rel="stylesheet" href="assert/css/component.css" />
+		
+		<link rel="stylesheet" href="assert/css/doc.css" />
+	</head>
+	
+	<body>
+		<!--navbar start-->
+		<section class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">Home</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="start.html">Get Started</a>
+						</li>
+						<li class="active">
+							<a href="base.html">Css Base</a>
+						</li>
+						<li>
+							<a href="components.html">Component</a>
+						</li>
+						<li>
+							<a href="js.html">Js Utility</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+		<!--navbar end-->
+		
+		<section class="base-css">
+			<div class="container">
+				<header class="jumbotron subhead">
+					<h1>基础css</h1>
+					<p>crm的样式部分目前分为基础样式（base）和常用组件（widget），这里首先介绍基础样式。</p>
+					<p>本部分主要定义基础样式：包括（1）全局sass定义 (2) 重置样式，（3）全局样式，以及（4）基础的布局样式。</p>
+					<p>注意：开发组件或页面时必须引用base</p>
+				</header>
+				<div class="reset-item">
+					<div class="page-header">
+						<h2>全局sass定义<small>由于css开发使用了sass方式，所以在base中首先定义了sass的全局变量和mixin，供组件和页面开发使用</small></h2>
+					</div>
+				</div>
+				<div class="reset-item">
+					<div class="page-header">
+						<h2>重置样式<small>屏蔽一些浏览器的差异性，参考pc的reset，根据无线浏览器做适当修改。</small></h2>
+					</div>
+				</div>
+				<div class="global-item">
+					<div class="page-header">
+						<h2>全局样式、sass变量定义<small></small></h2>
+					</div>
+					<div class="row">
+							<div class="col-md-4">
+								<h3>基础样式</h3>
+								<div class="example">
+									<h1>一级标题</h1>
+									<h2>二级标题</h2>
+									<h3>三级标题</h3>
+									<h4>四级标题</h4>
+									<h5>五级标题</h5>
+									<h6>六级标题</h6>
+									<p>浮动样式</p>
+									<div class="clearfix">
+										<div class="left" style="border: 1px solid">左浮动</div>
+										<div class="right" style="border: 1px solid">右浮动</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<h3>基础DOM结构</h3>
+								<p></p>
+								<pre>
+&lt;h1&gt;一级标题&lt;/h1&gt;
+&lt;h2&gt;二级标题&lt;/h2&gt;
+&lt;h3&gt;三级标题&lt;/h3&gt;
+&lt;h4&gt;四级标题&lt;/h4&gt;
+&lt;h5&gt;五级标题&lt;/h5&gt;
+&lt;h6&gt;六级标题&lt;/h6&gt;
+&lt;p&gt;浮动样式&lt;/p&gt;
+&lt;div class=&quot;clearfix&quot;&gt;
+	&lt;div class=&quot;left&quot;&gt;左浮动&lt;/div&gt;
+	&lt;div class=&quot;right&quot;&gt;右浮动&lt;/div&gt;
+&lt;/div&gt;
+								</pre>
+							</div>
+						</div>
+				</div>
+				<div class="layout-item">
+						<div class="page-header">
+							<h2>布局样式<small>用于页面和组件布局</small></h2>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<h3>基础样式</h3>
+								<div class="example">
+									<p>百分比布局－2栏</p>
+									<div class="grid-percent grid-percent-2-col">
+										<div class="grid-item">1/2</div>
+										<div class="grid-item">1/2</div>
+									</div>
+									<p>百分比布局－3栏</p>
+									<div class="grid-percent grid-percent-3-col">
+										<div class="grid-item">1/3</div>
+										<div class="grid-item">1/3</div>
+										<div class="grid-item">1/3</div>
+									</div>
+									<p>百分比布局－4栏</p>
+									<div class="grid-percent grid-percent-4-col">
+										<div class="grid-item">1/4</div>
+										<div class="grid-item">1/4</div>
+										<div class="grid-item">1/4</div>
+										<div class="grid-item">1/4</div>
+									</div>
+									<p>弹性盒布局-2栏</p>
+									<div class="grid-flexbox">
+										<div class="grid-item">I am 1/2</div>
+										<div class="grid-item">1/2</div>
+									</div>
+									<p>弹性盒布局-均分网格-2栏</p>
+									<div class="grid-flexbox-average">
+										<div class="grid-item">I am 1/2</div>
+										<div class="grid-item">1/2</div>
+									</div>
+									<p>弹性盒布局-均分网格-3栏</p>
+									<div class="grid-flexbox-average-3-col">
+										<div class="grid-item">1/3</div>
+										<div class="grid-item">special 1/3</div>
+										<div class="grid-item">1/3</div>
+									</div>
+									<p>弹性盒子布局-4栏</p>
+									<div class="grid-flexbox">
+										<div class="grid-item">1/4</div>
+										<div class="grid-item">1/4</div>
+										<div class="grid-item">1/4</div>
+										<div class="grid-item">1/4</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<h3>基础DOM结构</h3>
+								<p>这里分为百分比布局和弹性盒布局，可以灵活运用</p>
+								<pre>
+百分比布局－2栏
+&lt;div class=&quot;grid-percent grid-percent-2-col&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/2&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/2&lt;/div&gt;
+&lt;/div&gt;
+百分比布局－3栏
+&lt;div class=&quot;grid-percent grid-percent-3-col&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/3&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/3&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/3&lt;/div&gt;
+&lt;/div&gt;
+百分比布局－4栏
+&lt;div class=&quot;grid-percent grid-percent-4-col&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+&lt;/div&gt;
+弹性盒布局-2栏
+&lt;div class=&quot;grid-flexbox&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;I am 1/2&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/2&lt;/div&gt;
+&lt;/div&gt;
+弹性盒布局-均分网格-2栏
+&lt;div class=&quot;grid-flexbox-average&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;I am 1/2&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/2&lt;/div&gt;
+&lt;/div&gt;
+弹性盒布局-均分网格-3栏(这里的间隔比2栏、4栏大一些)
+&lt;div class=&quot;grid-flexbox-average-3-col&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/3&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;special 1/3&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/3&lt;/div&gt;
+&lt;/div&gt;
+弹性盒子布局-4栏
+&lt;div class=&quot;grid-flexbox&quot;&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+	&lt;div class=&quot;grid-item&quot;&gt;1/4&lt;/div&gt;
+&lt;/div&gt;
+								</pre>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+		
+		<!--navbar start-->
+		<!--navbar start-->
+	</body>
+</html>

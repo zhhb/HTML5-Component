@@ -1,0 +1,10 @@
+/*************************************************
+ * base css for crm, including reset, global 
+ * variables,mixins and styles, basic layout
+ *************************************************/
+@import 'var';
+@import 'var_crm';
+@import 'mixin';
+@import 'reset';
+@import 'global';
+@import 'grid';

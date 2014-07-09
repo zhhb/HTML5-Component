@@ -1,0 +1,787 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>ICBU H5</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<link rel="stylesheet" href="assert/css/bootstrap.css" />
+		<link rel="stylesheet" href="assert/css/component.css" />
+		<link rel="stylesheet" href="assert/css/doc.css" />
+	</head>
+	
+	<body>
+		<!--navbar start-->
+		<section class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">Home</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="start.html">Get Started</a>
+						</li>
+						<li>
+							<a href="base.html">Css Base</a>
+						</li>
+						<li class="active">
+							<a href="components.html">Component</a>
+						</li>
+						<li>
+							<a href="js.html">Js Utility</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+		<!--navbar end-->
+		
+		<div class="container">
+			<!--jumbotron start-->
+			<header class="jumbotron subhead">
+				<h1>HTML组件</h1>
+				<p>每个组件均以结构与源码并列的结构来展示。</p>
+			</header>
+			<!--jumbotron end-->
+		
+			<!--innernav start-->
+			<section class="innernav">
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>标准头部<small>用于页面顶部导航</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<header class="ui-layout-header">
+									<a href="javascript:;" class="icon-back">Back</a>
+									<h1>Page标题</h1>
+									<a href="javascript:;" class="icon-new">Create</a>
+								</header>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p>如果不需要右边的按钮，请保持<code>header.ui-layout-header > a.icon-new</code>为空。</p>
+							<pre>
+&lt;header class="ui-layout-header"&gt;
+	&lt;a href="javascript:;" class="icon-back"&gt;Back&lt;/a&gt;
+	&lt;h1&gt;Page标题&lt;/h1&gt;
+	&lt;a href="javascript:;" class="icon-new"&gt;Create&lt;/a&gt;
+&lt;/header&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>标准尾部<small>用于页面底部展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<footer class="ui-layout-footer">
+									<div class="ui-footer-inner">
+										<input type="button" value="Submit" class="ui-button-primary" />
+									</div>
+								</footer>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;footer class="ui-layout-footer"&gt;
+	&lt;div class="ui-footer-inner"&gt;
+		&lt;input type="button" value="Submit" class="ui-button-primary" /&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>扩展尾部<small>用于表单页面操作</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<footer class="ui-layout-footer footer-multi">
+									<div class="ui-footer-inner">
+										<input type="button" value="Cancel" class="ui-button" />
+										<input type="button" value="Submit" class="ui-button-primary" />
+									</div>
+								</footer>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;footer class="ui-layout-footer"&gt;
+	&lt;div class="ui-footer-inner"&gt;
+		&lt;input type="button" value="Cancel" class="ui-button" /&gt;
+		&lt;input type="button" value="Submit" class="ui-button-primary" /&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>标准Scroll模块<small>用于页面内容部分展示</small></h2>
+						<p>在IOS6以下和Android4.0以下的系统中，超出屏幕部分的内容不可以滑动展示，因此目前采用了iScroll来进行兼容处理。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example scrollDemo">
+								<header class="ui-layout-header">
+									<h1>Page标题</h1>
+								</header>
+								<section class="ui-scroll-wrapper" id="wrapper">
+									<div class="scroller">
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p><p>iScroll Wrapper</p>
+										<div class="ui-loading-bar">
+											<span class="ui-loading-icon"></span>
+											<span class="ui-loading-label">Pull up to refresh...</span>
+										</div>
+									</div>
+								</section>
+								<footer class="ui-layout-footer fixed-layout">
+									<div class="ui-footer-inner">
+										<input type="button" value="Submit" class="ui-button-primary" />
+									</div>
+								</footer>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;header class="ui-layout-header"&gt;
+	&lt;a href="javascript:;" class="icon-back"&gt;Back&lt;/a&gt;
+	&lt;h1&gt;Page标题&lt;/h1&gt;
+&lt;/header&gt;
+&lt;section class="ui-scroll-wrapper"&gt;
+	&lt;div class="scroller"&gt;
+		&lt;p>iScroll Wrapper&lt;/p&gt;
+		&lt;p>iScroll Wrapper&lt;/p&gt;
+		&lt;p>...&lt;/p&gt;
+		&lt;p>iScroll Wrapper&lt;/p&gt;
+		&lt;p>iScroll Wrapper&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/section&gt;
+&lt;footer class="ui-layout-footer fixed-layout"&gt;
+	&lt;div class="ui-footer-inner"&gt;
+		&lt;input type="button" value="Submit" class="ui-button-primary" /&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>Tab组件<small>用于页面底部展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-tab clearfix">
+									<li class="ui-tab-item ui-tab-cur">
+										<a href="javascript:;">Tab1</a>
+									</li>
+									<li class="ui-tab-item">
+										<a href="javascript:;">Tab2</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;ul class="ui-tab clearfix"&gt;
+	&lt;li class="ui-tab-item ui-tab-cur"&gt;
+		&lt;a href="javascript:;">Tab1&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="ui-tab-item"&gt;
+		&lt;a href="javascript:;">Tab2&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>Tab组件<small>用于页面底部展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-tab ui-tab-3-col clearfix">
+									<li class="ui-tab-item ui-tab-cur">
+										<a href="javascript:;">Tab1</a>
+									</li>
+									<li class="ui-tab-item">
+										<a href="javascript:;">Tab2</a>
+									</li>
+									<li class="ui-tab-item">
+										<a href="javascript:;">Tab3</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;ul class="ui-tab clearfix"&gt;
+	&lt;li class="ui-tab-item ui-tab-cur"&gt;
+		&lt;a href="javascript:;">Tab1&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="ui-tab-item"&gt;
+		&lt;a href="javascript:;">Tab2&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li class="ui-tab-item"&gt;
+		&lt;a href="javascript:;">Tab2&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>Form表单组件<small>用于页面表单数据展示和处理</small></h2>
+						<p>表单组件中，包含通用的表单输入、选择、级联选择结构，其中文本、电话、数字的输入均采用对应的类型。</p>
+						<p>在之后的业务中，根据需要将考虑增加Email等类型。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example formDemo">
+								<div class="ui-space"></div>
+								<div class="ui-form-select-cascade">
+									<label class="ui-form-lbl">级联选择</label>
+									<div class="ui-form-item ui-form-item-operate">
+										<label for="" class="ui-form-lbl"></label>
+										<span class="ui-form-txt">类别1</span>
+									</div>
+									<div class="ui-form-item ui-form-item-operate">
+										<label for="" class="ui-form-lbl"></label>
+										<span class="ui-form-txt">类别2</span>
+									</div>
+								</div>
+								<div class="ui-space"></div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Name</label>
+									<input type="text" class="ui-form-txt" placeholder="Please enter your Address" />
+								</div>
+								<div class="ui-form-item ui-form-item-operate">
+									<label class="ui-form-lbl">Sex</label>
+									<span class="ui-form-txt">请选择</span>
+								</div>
+								<div class="ui-space"></div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Mobile</label>
+									<input type="tel" class="ui-form-txt" placeholder="Please enter your mobile number" />
+								</div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Address</label>
+									<input type="tel" class="ui-form-txt" placeholder="Please enter your address" />
+								</div>
+								<div class="ui-space"></div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Age</label>
+									<input type="number" class="ui-form-txt" placeholder="Please enter your age" />
+								</div>
+								<div class="ui-form-item">
+									<label class="ui-form-lbl">Mark</label>
+								</div>
+								<div class="ui-form-item ui-form-item-txt">
+									<textarea class="ui-form-txt-ta" placeholder="Please descript yourself"></textarea>
+								</div>
+								<div class="ui-space"></div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-select-cascade"&gt;
+	&lt;label class="ui-form-lbl"&gt;级联选择&lt;/label&gt;
+	&lt;div class="ui-form-item ui-form-item-operate"&gt;
+		&lt;label for="" class="ui-form-lbl"&gt;&lt;/label&gt;
+		&lt;span class="ui-form-txt"&gt;类别1&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;div class="ui-form-item ui-form-item-operate"&gt;
+		&lt;label for="" class="ui-form-lbl"&gt;&lt;/label&gt;
+		&lt;span class="ui-form-txt"&gt;类别2&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Name&lt;/label&gt;
+	&lt;input type="text" class="ui-form-txt" placeholder="Please enter your Address" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item ui-form-item-operate"&gt;
+	&lt;label class="ui-form-lbl"&gt;Sex&lt;/label&gt;
+	&lt;span class="ui-form-txt"&gt;请选择&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Mobile&lt;/label&gt;
+	&lt;input type="tel" class="ui-form-txt" placeholder="Please enter your mobile number" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Address&lt;/label&gt;
+	&lt;input type="tel" class="ui-form-txt" placeholder="Please enter your address" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Age&lt;/label&gt;
+	&lt;input type="number" class="ui-form-txt" placeholder="Please enter your age" /&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item"&gt;
+	&lt;label class="ui-form-lbl"&gt;Mark&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="ui-form-item ui-form-item-txt"&gt;
+	&lt;textarea class="ui-form-txt-ta" placeholder="Please descript yourself"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;div class="ui-space"&gt;&lt;/div&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>Accordion折叠组件<small>用于下拉类型选择</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<section class="ui-accordion">
+									<div class="ui-accordion-title clearfix" data-role="tap">
+										<h3>全部状态（<span class="count">44</span>）</h3>
+										<s class="icon-down"></s>
+									</div>
+									<ul class="ui-accordion-list">
+										<li class="cur" data-role="tap" data-status="total">全部（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="new">待提交（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="audit">审核中（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="TBD">审核退回（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="success&normal">审核通过-已确认（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="success&passwaitconfirm">审核通过-待确认（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="fail&normal">审核拒绝-已确认（<span class="count">0</span>）</li>
+										<li data-role="tap" data-status="fall&reject">审核拒绝-待确认（<span class="count">0</span>）</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;section class="ui-accordion"&gt;
+	&lt;div class="ui-accordion-title clearfix" data-role="tap"&gt;
+		&lt;h3&gt;全部状态（&lt;span class="count"&gt;44&lt;/span&gt;）&lt;/h3&gt;
+		&lt;s class="icon-down"&gt;&lt;/s&gt;
+	&lt;/div&gt;
+	&lt;ul class="ui-accordion-list"&gt;
+		&lt;li class="cur" data-role="tap" data-status="total"&gt;全部（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="new"&gt;待提交（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="audit"&gt;审核中（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="TBD"&gt;审核退回（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="success&normal"&gt;审核通过-已确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="success&passwaitconfirm"&gt;审核通过-待确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="fail&normal"&gt;审核拒绝-已确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+		&lt;li data-role="tap" data-status="fall&reject"&gt;审核拒绝-待确认（&lt;span class="count"&gt;0&lt;/span&gt;）&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/section&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>List组件<small>用于列表数据展示</small></h2>
+						<p>基础列表组件，标题+描述+时间的结构展示。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list">
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;ul class="ui-list"&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>扩展列表结构<small>用于带图片的数据列表展示</small></h2>
+						<p>左图右文的列表形式展示数据。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list ui-list-img">
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+									<li role="tap">
+										<a href="javascript:;">
+											<img src="assert/img/2.png" alt="" class="img" />
+											<h4>列表标题</h4>
+											<p>列表描述-列表描述-列表描述-列表描述-列表描述-列表描述</p>
+											<p class="mark">最后访问时间<span>2014.01.22</span></p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<pre>
+&lt;ul class="ui-list"&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+	&lt;li role="tap"&gt;
+		&lt;a href="javascript:;"&gt;
+			&lt;img src="assert/img/2.png" alt="" class="img" /&gt;
+			&lt;h4&gt;列表标题&lt;/h4&gt;
+			&lt;p&gt;列表描述-列表描述-列表描述-列表描述-列表描述-列表描述&lt;/p&gt;
+			&lt;p class="mark"&gt;最后访问时间&lt;span&gt;2014.01.22&lt;/span&gt;&lt;/p&gt;
+		&lt;/a&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>列表结构扩展<small>用于流程类列表数据展示</small></h2>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<ul class="ui-list-flowstep">
+									<li class="cur">
+										<div class="fa-seq"></div>
+										<p>审核中</p>
+										<p>(已进行3天4小时)</p>
+									</li>
+									<li>
+										<div class="fa-seq"></div>
+										<p>
+											<span class="fa-date">2014-01-24 17:55</span><span class="fa-status">审核中</span>
+										</p>
+										<p>客服王丽丽（工号2345）已接手审核资料</p>
+									</li>
+									<li>
+										<div class="fa-seq"></div>
+										<p>
+											<span class="fa-date">2014-01-24 17:55</span><span class="fa-status">审核中</span>
+										</p>
+										<p>客服王丽丽（工号2345）已接手审核资料</p>
+									</li>
+									<li>
+										<div class="fa-seq"></div>
+										<p>
+											<span class="fa-date">2014-01-24 17:55</span><span class="fa-status">审核中</span>
+										</p>
+										<p>客服王丽丽（工号2345）已接手审核资料</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;ul class="ui-list-flowstep"&gt;
+	&lt;li class="cur"&gt;
+		&lt;div class="fa-seq"&gt;&lt;/div&gt;
+		&lt;p&gt;审核中&lt;/p&gt;
+		&lt;p&gt;(已进行3天4小时)&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;div class="fa-seq"&gt;&lt;/div&gt;
+		&lt;p&gt;
+			&lt;span class="fa-date"&gt;2014-01-24 17:55&lt;/span&gt;&lt;span class="fa-status"&gt;审核中&lt;/span&gt;
+		&lt;/p&gt;
+		&lt;p&gt;客服王丽丽（工号2345）已接手审核资料&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;div class="fa-seq"&gt;&lt;/div&gt;
+		&lt;p&gt;
+			&lt;span class="fa-date"&gt;2014-01-24 17:55&lt;/span&gt;&lt;span class="fa-status"&gt;审核中&lt;/span&gt;
+		&lt;/p&gt;
+		&lt;p&gt;客服王丽丽（工号2345）已接手审核资料&lt;/p&gt;
+	&lt;/li&gt;
+	&lt;li&gt;
+		&lt;div class="fa-seq"&gt;&lt;/div&gt;
+		&lt;p&gt;
+			&lt;span class="fa-date"&gt;2014-01-24 17:55&lt;/span&gt;&lt;span class="fa-status"&gt;审核中&lt;/span&gt;
+		&lt;/p&gt;
+		&lt;p&gt;客服王丽丽（工号2345）已接手审核资料&lt;/p&gt;
+	&lt;/li&gt;
+&lt;/ul&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+				
+				<div class="componentMod">
+					<div class="page-header">
+						<h2>Upload上传组件<small>用于上传图片展示</small></h2>
+						<p>在业务模块中，图片上传属于通用功能，因此把该部分抽取出来作为公用组件，在各个业务中上传图片时统一采用此组件来实现。</p>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<h3>基础样式</h3>
+							<div class="example">
+								<article class="ui-upload">
+									<h3>图片类型<span>(类型描述)</span></h3>
+									<div class="ui-upload-list">
+										<div class="ui-upload-item">
+											<a href="javascript:;" class="ui-upload-img"><img src="assert/img/2.png" alt="" /></a>
+											<p>未上传</p>
+										</div>
+										<div class="ui-upload-item">
+											<a href="javascript:;" class="ui-upload-img"><img src="assert/img/2.png" alt="" /></a>
+											<p class="ui-upload-done">已上传</p>
+										</div>
+										<a href="javascript:;" class="ui-upload-item ui-upload-item-plus"></a>
+									</div>
+								</article>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<h3>基础DOM结构</h3>
+							<p></p>
+							<pre>
+&lt;article class="ui-upload"&gt;
+	&lt;h3&gt;图片类型&lt;span&gt;(类型描述)&lt;/span&gt;&lt;/h3&gt;
+	&lt;div class="ui-upload-list"&gt;
+		&lt;div class="ui-upload-item"&gt;
+			&lt;a href="javascript:;" class="ui-upload-img"&gt;&lt;img src="assert/img/2.png" alt="" /&gt;&lt;/a&gt;
+			&lt;p&gt;未上传&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;div class="ui-upload-item"&gt;
+			&lt;a href="javascript:;" class="ui-upload-img"&gt;&lt;img src="assert/img/2.png" alt="" /&gt;&lt;/a&gt;
+			&lt;p class="ui-upload-done"&gt;已上传&lt;/p&gt;
+		&lt;/div&gt;
+		&lt;a href="javascript:;" class="ui-upload-item ui-upload-item-plus"&gt;&lt;/a&gt;
+	&lt;/div&gt;
+&lt;/article&gt;
+							</pre>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--innernav end-->
+			
+			<script src="assert/js/jquery.js"></script>
+			<script src="assert/js/iscroll.js"></script>
+			<script>
+				$(document).ready(function() {
+					new iScroll('wrapper');
+					
+					var accordion = $('.ui-accordion'),
+					accordionTitle = accordion.children('.ui-accordion-title');
+					accordion.delegate('.ui-accordion-title', 'click', function() {
+						accordion.toggleClass('ui-accordion-active');
+					}).delegate('li', 'click', function() {
+						var li = $(this);
+						li.siblings().removeClass('cur');
+						li.addClass('cur');
+						accordionTitle.children('h3').text(li.text());
+						accordion.removeClass('ui-accordion-active');
+					});
+				});
+			</script>
+		</div>
+	</body>
+</html>

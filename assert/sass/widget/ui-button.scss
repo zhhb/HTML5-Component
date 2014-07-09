@@ -1,0 +1,75 @@
+/****************************************
+ * ui-button component
+ ****************************************/
+@mixin ui-button($height, $fontsize) {
+  display: block;
+  width: 100%;
+  height: $height; 
+  line-height: $height - 4;
+  background-color: $white;
+  border: 1px solid #999;
+  @include border-radius(5px);
+  text-align: center;
+  font-size: $fontsize;
+  color: $gray-3;
+}
+%ui-button {
+  @include ui-button(40px, $font-size-large);
+}
+%ui-button-small {
+  padding: 0 8px;
+  min-width: 60px;
+  @include ui-button(28px, $font-size-base);
+}
+%ui-button-primary {
+  background-color: $emphatic;
+  border-color: $emphatic;
+  color: #FFF;
+}
+// standard
+.ui-button {
+  @extend %ui-button;
+}
+.ui-button-primary {
+  @extend %ui-button;
+  @extend %ui-button-primary;
+}
+.ui-button-disabled {
+  @extend %ui-button;
+  background-color: #EEE;
+  border-color: #DDD;
+  color: #CCC;
+}
+// small
+.ui-small-button {
+  @extend %ui-button-small;
+}
+.ui-small-button-primary {
+  @extend %ui-button-small;
+  @extend %ui-button-primary;
+}
+%normal-active {
+  background-color: #DDD;
+}
+%primary-active {
+  background-color: #F40;
+  border-color: #F40;
+}
+// warning
+.ui-button-warning {
+  @extend %ui-button;
+  background-color: #F33;
+  border-color: #F33;
+  color: #FFF;
+}
+.ui-button-warning-active {
+  background-color: #900;
+  border-color: #900;
+}
+// active
+.ui-button-active {
+  @extend %normal-active;
+}
+.ui-button-primary-active {
+  @extend %primary-active;
+}

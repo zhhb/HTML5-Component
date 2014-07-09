@@ -1,0 +1,182 @@
+/*************************************************
+ * base css for crm, including reset, global 
+ * variables,mixins and styles, basic layout
+ *************************************************/
+/*************************************************
+ * common base variable
+ *************************************************/
+/*************************************************
+ * crm private variable 
+ *************************************************/
+/*************************************
+ * base mixin
+ *************************************/
+/*************************************
+ * css reset
+ *************************************/
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, blockquote, q, pre,
+a, em, img, i,
+dl, dt, dd, ol, ul, li,
+fieldset, legend, form, label, input, select,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,
+audio, video {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: text;
+  -webkit-appearance: none; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a, a:hover {
+  text-decoration: none;
+  outline: none; }
+
+:focus {
+  outline: none; }
+
+input::-webkit-input-placeholder, input::-moz-input-placeholder {
+  font-size: 14px;
+  color: #CCC; }
+
+input, select {
+  vertical-align: middle; }
+
+/*************************************
+ * global styles
+ *************************************/
+body {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #666;
+  background-color: #FFF;
+  font-family: arial, sans-serif; }
+
+.ui-layout-content {
+  padding: 0 12px; }
+
+h1 {
+  font-size: 1.875em; }
+
+h2 {
+  font-size: 1.5em; }
+
+h3 {
+  font-size: 1.375em; }
+
+h4 {
+  font-size: 1.125em; }
+
+h5 {
+  font-size: .875em; }
+
+h6 {
+  font-size: .75em; }
+
+.left, .fl {
+  float: left; }
+
+.right, .fr {
+  float: right; }
+
+.clearfix:after {
+  content: '';
+  clear: both;
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden; }
+
+.hidden {
+  display: none !important; }
+
+.invisible {
+  visibility: hidden; }
+
+.touched {
+  background-color: rgba(221, 221, 221, 0.4) !important; }
+
+/*************************************
+ * global layout
+ *************************************/
+/* percent layout */
+.grid-percent {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden; }
+
+.grid-percent .grid-item {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  display: inline-block;
+  width: 100%;
+  vertical-align: top;
+  text-align: center; }
+
+.grid-percent-2-col .grid-item {
+  width: 50%; }
+
+.grid-percent-3-col .grid-item {
+  width: 33.33333%; }
+
+.grid-percent-4-col .grid-item {
+  width: 25%; }
+
+.grid-percent-5-col .grid-item {
+  width: 20%; }
+
+/* column layout */
+/* flexbox layout */
+.grid-flexbox, .grid-flexbox-average, .grid-flexbox-average-3-col {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+  text-align: center; }
+
+.grid-flexbox .grid-item, .grid-flexbox-average .grid-item, .grid-flexbox-average-3-col .grid-item {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  margin-left: 8px;
+  min-width: 20px; }
+
+.grid-flexbox .grid-item:first-child, .grid-flexbox-average .grid-item:first-child, .grid-flexbox-average-3-col .grid-item:first-child {
+  margin-left: 0; }
+
+.grid-flexbox-average .grid-item {
+  width: 100%; }
+
+.grid-flexbox-average-3-col .grid-item {
+  width: 100%;
+  margin-left: 10px; }
