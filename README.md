@@ -93,8 +93,11 @@ Firefox浏览器内置了“自定义设计视图”的功能，可以通过“F
 (https://quirktools.com/screenfly/ "resize")
 
 媒体查询常用样式表：
-	<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" />		// 竖放加载
-	<link rel="stylesheet" media="all and (orientation:landscape)"href="landscape.css" />	// 横放加载
+
+	// 竖放加载
+	<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" />	
+	// 横放加载
+	<link rel="stylesheet" media="all and (orientation:landscape)"href="landscape.css" />
 	//竖屏时使用的样式
 	<style media="all and (orientation:portrait)" type="text/css">
 		#landscape{display:none}
