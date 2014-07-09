@@ -3,35 +3,50 @@ HTML5前端开发组件库，提供一些常用组件的DOM结构和SASS样式�
 
 
 ##工具类网站
-[HTML5与CSS3技术应用评估](http://html5please.com/ "html5与css3技术应用评估")
+[HTML5与CSS3技术应用评估]
+(http://html5please.com/ "html5与css3技术应用评估")
 
-[各种奇妙的hack](http://browserhacks.com/ "各种奇妙的hack")
+[各种奇妙的hack]
+(http://browserhacks.com/ "各种奇妙的hack")
 
-[几乎所有设备的屏幕尺寸与像素密度表](http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density "几乎所有设备的屏幕尺寸与像素密度表")
+[几乎所有设备的屏幕尺寸与像素密度表]
+(http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density "几乎所有设备的屏幕尺寸与像素密度表")
 
-[移动设备参数表](http://screensiz.es/phone "移动设备参数表")
+[移动设备参数表]
+(http://screensiz.es/phone "移动设备参数表")
 
-[ios端移动设备参数速查](http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/ "ios端移动设备参数速查")
+[ios端移动设备参数速查]
+(http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/ "ios端移动设备参数速查")
 
-[浏览器兼容表](http://www.quirksmode.org/compatibility.html "浏览器兼容表")
+[浏览器兼容表]
+(http://www.quirksmode.org/compatibility.html "浏览器兼容表")
 
-[移动设备查询器](https://deviceatlas.com/device-data/devices "移动设备查询器")
+[移动设备查询器]
+(https://deviceatlas.com/device-data/devices "移动设备查询器")
 
-[移动设备适配库](http://51degrees.codeplex.com/ "移动设备适配库")
+[移动设备适配库]
+(http://51degrees.codeplex.com/ "移动设备适配库")
 
-[移动设备适配库2](http://detectmobilebrowsers.com/ "移动设备适配库2")
+[移动设备适配库2]
+(http://detectmobilebrowsers.com/ "移动设备适配库2")
 
-[viewport与设备尺寸在线检测器](https://deviceatlas.com/device-data/devices "viewport与设备尺寸在线检测器")
+[viewport与设备尺寸在线检测器]
+(https://deviceatlas.com/device-data/devices "viewport与设备尺寸在线检测器")
 
-[html5 移动端兼容性速查](http://mobilehtml5.org/ "html5移动端兼容性速查")
+[html5 移动端兼容性速查]
+(http://mobilehtml5.org/ "html5移动端兼容性速查")
 
-[在线转换字体](http://www.fontsquirrel.com/tools/webfont-generator "在线转换字体")
+[在线转换字体]
+(http://www.fontsquirrel.com/tools/webfont-generator "在线转换字体")
 
-[css3 选择器测试](http://tools.css3.info/selectors-test/test.html "css3选择器测试")
+[css3 选择器测试]
+(http://tools.css3.info/selectors-test/test.html "css3选择器测试")
 
-[兼容性速查表](http://caniuse.com/ "兼容性速查表")
+[兼容性速查表]
+(http://caniuse.com/ "兼容性速查表")
 
-[浏览器的一些独特参数](http://www.browserscope.org/ "浏览器的一些独特参数")
+[浏览器的一些独特参数]
+(http://www.browserscope.org/ "浏览器的一些独特参数")
 
 [各种各样的媒体查询收集](http://nmsdvid.com/snippets/ "各种各样的媒体查询收集")
 
