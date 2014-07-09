@@ -683,7 +683,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	</script>
 
 ###消除transition闪屏
-两个方法：使用css3动画的时尽量利用3D加速，从而使得动画变得流畅。动画过程中的动画闪白可以通过 backface-visibility 隐藏。
+两个方法：使用css3动画的时尽量利用3D加速，从而使得动画变得流畅。动画过程中的动画闪白可以通过backface-visibility隐藏。
 
 	-webkit-transform-style: preserve-3d;
 	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
@@ -691,144 +691,179 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
 
 ###测试是否支持svg图片
-document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
+
+	document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
 	
 ##考虑兼容“隐私模式”(from <http://blog.youyo.name/archives/smarty-phones-webapp-deverlop-advance.html>)
 ios的safari提供一种“隐私模式”，如果你的webapp考虑兼容这个模式，那么在使用html5的本地存储的一种————localStorage时，可能因为“隐私模式”下没有权限读写localstorge而使代码抛出错误，导致后续的js代码都无法运行了。
+
 既然在safari的“隐私模式”下，没有调用localStorage的权限，首先想到的是先判断是否支持localStorage，代码如下：
-if('localStorage' in window){
-    //需要使用localStorage的代码写在这
-}else{
-    //不支持的提示和向下兼容代码
-}
+
+	if('localStorage' in window){
+	    //需要使用localStorage的代码写在这
+	}else{
+	    //不支持的提示和向下兼容代码
+	}
+
 测试发现，即使在safari的“隐私模式”下，’localStorage’ in window的返回值依然为true，也就是说，if代码块内部的代码依然会运行，问题没有得到解决。
+
 接下来只能相当使用try catch了，虽然这是一个不太推荐被使用的方法，使用try catch捕获错误，使后续的js代码可以继续运行，代码如下：
-try{
-    if('localStorage' in window){
-         //需要使用localStorage的代码写在这
-    }else{
-         //不支持的提示和向下兼容代码
-    }
-}catch(e){
-    // 隐私模式相关提示代码和不支持的提示和向下兼容代码
-}
+
+	try{
+	    if('localStorage' in window){
+	         //需要使用localStorage的代码写在这
+	    }else{
+	         //不支持的提示和向下兼容代码
+	    }
+	}catch(e){
+	    // 隐私模式相关提示代码和不支持的提示和向下兼容代码
+	}
+
 所以，提醒大家注意，在需要兼容ios的safari的“隐私模式”的情况下，本地存储相关的代码需要使用try catch包裹并降级兼容。
 
 ###安卓手机点击锁定页面效果问题
 有些安卓手机，页面点击时会停止页面的javascript，css3动画等的执行，这个比较蛋疼。不过可以用阻止默认事件解决。详细见
-<http://stackoverflow.com/questions/10246305/android-browser-touch-events-stop-display-being-updated-inc-canvas-elements-h>
-function touchHandlerDummy(e) {
-    e.preventDefault();
-    return false;
-}
-document.addEventListener("touchstart", touchHandlerDummy, false);
-document.addEventListener("touchmove", touchHandlerDummy, false);
-document.addEventListener("touchend", touchHandlerDummy, false);
+
+	<http://stackoverflow.com/questions/10246305/android-browser-touch-events-stop-display-being-updated-inc-canvas-elements-h>
+	function touchHandlerDummy(e) {
+	    e.preventDefault();
+	    return false;
+	}
+	document.addEventListener("touchstart", touchHandlerDummy, false);
+	document.addEventListener("touchmove", touchHandlerDummy, false);
+	document.addEventListener("touchend", touchHandlerDummy, false);
 
 ###消除ie10里面的那个叉号
 [IE Pseudo-elements](http://msdn.microsoft.com/en-us/library/windows/apps/hh767361.aspx "article4")
-input:-ms-clear{display:none;}
-	
+
+	input:-ms-clear{display:none;}
+
 ###关于ios与os端字体的优化(横竖屏会出现字体加粗不一致等)
 [mac下网页中文字体优化]
 (http://blog.sina.com.cn/s/blog_6da647a601011u4v.html "article5")
+
 [UIWebView font is thinner in portrait than landscape]
 (http://stackoverflow.com/questions/3220662/uiwebview-font-is-thinner-in-portrait-than-landscape "article5")
 
 ##判断用户是否是“将网页添加到主屏后，再从主屏幕打开这个网页”的
-navigator.standalone
+
+	navigator.standalone
 
 ###隐藏地址栏&处理事件的时候，防止滚动条出现：
-// 隐藏地址栏&处理事件的时候 ，防止滚动条出现
-addEventListener('load', function(){
-	setTimeout(function(){ 
-		window.scrollTo(0, 1);
-	}, 100);
-});
+	// 隐藏地址栏&处理事件的时候 ，防止滚动条出现
+	addEventListener('load', function(){
+		setTimeout(function(){ 
+			window.scrollTo(0, 1);
+		}, 100);
+	});
 
 ###判断是否为iPhone：
-// 判断是否为 iPhone ：
-function isAppleMobile() {
-	return (navigator.platform.indexOf('iPad') != -1);
-};
+	// 判断是否为 iPhone ：
+	function isAppleMobile() {
+		return (navigator.platform.indexOf('iPad') != -1);
+	};
 
 ###localStorage:
-var v = localStorage.getItem('n') ? localStorage.getItem('n') : "";   // 如果名称是n的数据存在，则将其读出，赋予变量v。
-localStorage.setItem('n', v);                                           // 写入名称为 n、值为v的数据
-localStorage.removeItem('n');        // 删除名称为n的数据
+	// 如果名称是n的数据存在，则将其读出，赋予变量v。
+	var v = localStorage.getItem('n') ? localStorage.getItem('n') : "";
+	// 写入名称为 n、值为v的数据
+	localStorage.setItem('n', v);
+	// 删除名称为n的数据
+	localStorage.removeItem('n');
 
 ###使用特殊链接：
 如果你关闭自动识别后，又希望某些电话号码能够链接到iPhone的拨号功能，那么可以通过这样来声明电话链接。
-<a href="tel:12345654321">打电话给我</a>
-<a href="sms:12345654321">发短信</a>
+
+	<a href="tel:12345654321">打电话给我</a>
+	<a href="sms:12345654321">发短信</a>
+
 或用于单元格：
-<td onclick="location.href='tel:122'">
+
+	<td onclick="location.href='tel:122'">
 
 ###自动大写与自动修正
 要关闭这两项功能，可以通过autocapitalize 与autocorrect 这两个选项：
-<input type="text" autocapitalize="off" autocorrect="off" />
+
+	<input type="text" autocapitalize="off" autocorrect="off" />
 
 ###不让 Android 识别邮箱
-<meta content="email=no" name="format-detection" />
+	<meta content="email=no" name="format-detection" />
 	
 ###禁止 iOS 弹出各种操作窗口
--webkit-touch-callout: none
+	-webkit-touch-callout: none
 
 ###禁止用户选中文字
--webkit-user-select:none
+	-webkit-user-select:none
 	
 ###动画效果中，使用translate比使用定位性能高
 [Why Moving Elements With Translate() Is Better Than Pos:abs Top/left]
 (http://paulirish.com/2012/why-moving-elements-with-translate-is-better-than-posabs-topleft/)
 
 ###拿到滚动条
-window.scrollY
-window.scrollX
+	window.scrollY
+	window.scrollX
+
 比如要绑定一个touchmove的事件，正常的情况下类似这样(来自呼吸二氧化碳)
-$('div').on('touchmove', function(){
-	//.….code
-});
-而如果中间的code需要处理的东西多的话，fps就会下降影响程序顺滑度，而如果改成这样
-$('div').on('touchmove', function(){
-	setTimeout(function(){
+
+	$('div').on('touchmove', function(){
 		//.….code
-	},0);
-});
+	});
+
+而如果中间的code需要处理的东西多的话，fps就会下降影响程序顺滑度，而如果改成这样
+
+	$('div').on('touchmove', function(){
+		setTimeout(function(){
+			//.….code
+		},0);
+	});
+
 把代码放在setTimeout中，会发现程序变快。
 
 ###关于 iOS 系统中，Web APP 启动图片在不同设备上的适应性设置
 <http://stackoverflow.com/questions/4687698/mulitple-apple-touch-startup-image-resolutions-for-ios-web-app-esp-for-ipad/10011893#10011893>
 
 ###position:sticky与position:fixed布局
-<http://www.zhouwenbin.com/positionsticky-%E7%B2%98%E6%80%A7%E5%B8%83%E5%B1%80/>
-<http://www.zhouwenbin.com/sticky%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98/>
+	<http://www.zhouwenbin.com/positionsticky-%E7%B2%98%E6%80%A7%E5%B8%83%E5%B1%80/>
+	<http://www.zhouwenbin.com/sticky%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98/>
 
 ###关于iOS系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格
 可以通过正则去掉 
-this.value = this.value.replace(/\u2006/g, '');
+
+	this.value = this.value.replace(/\u2006/g, '');
 
 ###关于android webview中，input元素输入时出现的怪异情况
 见下图
+
 ![怪异图](http://cdn.bielousov.com/wp-content/uploads/2012/08/android-input-label-text-issue.png)
+
 Android Web视图,至少在HTC EVO和三星的Galaxy Nexus中，文本输入框在输入时表现的就像占位符。情况为一个类似水印的东西在用户输入区域，一旦用户开始输入便会消失(见图片)。
+
 在 Android 的默认样式下当输入框获得焦点后，若存在一个绝对定位或者 fixed 的元素，布局会被破坏，其他元素与系统输入字段会发生重叠(如搜索图标将消失为搜索字段)，可以观察到布局与原始输入字段有偏差(见截图)。
+
 这是一个相当复杂的问题，以下简单布局可以重现这个问题:
-<label for="phone">Phone: *</label>
-<input type="tel" name="phone" id="phone" minlength="10" maxlength="10" inputmode="latin digits" required="required" />
+
+	<label for="phone">Phone: *</label>
+	<input type="tel" name="phone" id="phone" minlength="10" maxlength="10" inputmode="latin digits" required="required" />
+
 解决方法
--webkit-user-modify: read-write-plaintext-only
+
+	-webkit-user-modify: read-write-plaintext-only
+
 详细参考<http://www.bielousov.com/2012/android-label-text-appears-in-input-field-as-a-placeholder/>
+
 注意，该属性会导致中文不能输入词组，只能单个字。感谢鬼哥与飞（游勇飞）贡献此问题与解决方案
-另外，在position:fixed后的元素里，尽量不要使用输入框。更多的bug可参考
-<http://www.cosdiv.com/page/M0/S882/882353.html>
+
+另外，在position:fixed后的元素里，尽量不要使用输入框。更多的bug可参考<http://www.cosdiv.com/page/M0/S882/882353.html>
+
 依旧无法解决（摩托罗拉ME863手机），则使用input:text类型而非password类型，并设置其设置  -webkit-text-security: disc; 隐藏输入密码从而解决。
 
 ###JS动态生成的select下拉菜单在Android2.x版本的默认浏览器里不起作用
 解决方法删除了overflow-x:hidden; 然后在JS生成下来菜单之后focus聚焦，这两步操作之后解决了问题。(来自岛都-小Qi)
+
 参考<http://stackoverflow.com/questions/4697908/html-select-control-disabled-in-android-webview-in-emulator>
 
 ###Andriod 上去掉语音输入按钮
-input::-webkit-input-speech-button {display: none}
+	input::-webkit-input-speech-button {display: none}
 
 
 ##IE10 的特殊鼠标事件
@@ -839,65 +874,79 @@ input::-webkit-input-speech-button {display: none}
 ##iOS 输入框最佳实践
 [Mobile-friendly input of a digits + spaces string (a credit card number)]
 (http://stackoverflow.com/questions/11219242/mobile-friendly-input-of-a-digits-spaces-string-a-credit-card-number)
+
 [HTML5 input type number vs tel]
 (http://stackoverflow.com/questions/8216278/html5-input-type-number-vs-tel)
+
 [iPhone: numeric keyboard for text input]
 (http://stackoverflow.com/questions/6178556/iphone-numeric-keyboard-for-text-input)
+
 [Text Programming Guide for iOS - Managing the Keyboard]
 (https://developer.apple.com/library/ios/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/KeyboardManagement/KeyboardManagement.html)
+
 [HTML5 inputs and attribute support]
 (http://www.miketaylr.com/code/input-type-attr.html)
 
 
 ##往返缓存问题
 点击浏览器的回退，有时候不会自动执行js，特别是在mobilesafari中。这与**往返缓存(bfcache)**有关系。有很多hack的处理方法，可以参考
-<http://stackoverflow.com/questions/24046/the-safari-back-button-problem>
-<http://stackoverflow.com/questions/11979156/mobile-safari-back-button>
+	<http://stackoverflow.com/questions/24046/the-safari-back-button-problem>
+	<http://stackoverflow.com/questions/11979156/mobile-safari-back-button>
 
 
 ##不暂停的计时器
-<https://www.imququ.com/post/ios-none-freeze-timer.html> 
+	<https://www.imququ.com/post/ios-none-freeze-timer.html>
+ 
 还有一种利用work的方式，在写ing。。
 
 
 ##如何让音频跟视频在ios跟android上自动播放
-<audio autoplay ><source src="audio/alarm1.mp3" type="audio/mpeg"></audio>
+	<audio autoplay ><source src="audio/alarm1.mp3" type="audio/mpeg"></audio>
+
 系统默认情况下 audio的autoplay属性是无法生效的，这也是手机为节省用户流量做的考虑。
+
 如果必须要自动播放，有两种方式可以解决。
+
 1.捕捉一次用户输入后，让音频加载，下次即可播放。
-//play and pause it once
-document.addEventListener('touchstart', function () {
-    document.getElementsByTagName('audio')[0].play();
-    document.getElementsByTagName('audio')[0].pause();
-});
+
+	//play and pause it once
+	document.addEventListener('touchstart', function () {
+	    document.getElementsByTagName('audio')[0].play();
+	    document.getElementsByTagName('audio')[0].pause();
+	});
+
 这种方法需要捕获一次用户的点击事件来促使音频跟视频加载。当加载后，你就可以用javascript控制音频的播放了，如调用audio.play()
+
 2.利用iframe加载资源
-var ifr=document.createElement("iframe");
-ifr.setAttribute('src', "http://mysite.com/myvideo.mp4");
-ifr.setAttribute('width', '1px');
-ifr.setAttribute('height', '1px');
-ifr.setAttribute('scrolling', 'no');
-ifr.style.border="0px";
-document.body.appendChild(ifr);
+
+	var ifr=document.createElement("iframe");
+	ifr.setAttribute('src', "http://mysite.com/myvideo.mp4");
+	ifr.setAttribute('width', '1px');
+	ifr.setAttribute('height', '1px');
+	ifr.setAttribute('scrolling', 'no');
+	ifr.style.border="0px";
+	document.body.appendChild(ifr);
+
 这种方式其实跟第一种原理是一样的。当资源加载了你就可以控制播放了，但是这里使用iframe来加载，相当于直接触发资源加载。
+
 注意，使用创建audio标签并让其加载的方式是不可行的。
+
 慎用这种方法，会对用户造成很糟糕的影响。。
 
 
-##iOS 6 跟iPhone 5的那些事
-
 ###IP5 的媒体查询
-@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
-	/* iPhone 5 or iPod Touch 5th generation */
-}
+	@media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+		/* iPhone 5 or iPod Touch 5th generation */
+	}
 
 ###使用媒体查询，提供不同的启动图片：
-<link href="startup-568h.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
-<link href="startup.png" rel="apple-touch-startup-image" sizes="640x920" media="(device-height: 480px)">
+	<link href="startup-568h.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
+	<link href="startup.png" rel="apple-touch-startup-image" sizes="640x920" media="(device-height: 480px)">
 
 ###拍照上传
-<input type=file accept="video/*">
-<input type=file accept="image/*">
+	<input type=file accept="video/*">
+	<input type=file accept="image/*">
+
 不支持其他类型的文件，如音频，Pages文档或PDF文件。也没有getUserMedia摄像头的实时流媒体支持。
 
 ###可以使用的HTML5高级api
@@ -907,36 +956,60 @@ document.body.appendChild(ifr);
 
 ###智能应用程序横幅
 有了智能应用程序横幅，当网站上有一个相关联的本机应用程序时，Safari浏览器可以显示一个横幅。如果用户没有安装这个应用程序将显示“安装”按钮，或已经安装的显示“查看”按钮可打开它。
+
 在iTunes Link Maker搜索我们的应用程序和应用程序ID。
-<meta name="apple-itunes-app" content="app-id=9999999">
+
+	<meta name="apple-itunes-app" content="app-id=9999999">
+
 可以使用app-argument提供字符串值，如果参加iTunes联盟计划，可以添加元标记数据 
-<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx">
-<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx, affiliate-data=partnerId=99&siteID=XXXX">
-横幅需要156像素（设备是312 hi-dpi）在顶部，直到用户在下方点击内容或关闭按钮，你的网站才会展现全部的高度。 它就像HTML的DOM对象，但它不是一个真正的DOM。 
+
+	<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx">
+	<meta name="apple-itunes-app" content="app-id=9999999, app-argument=xxxxxx, affiliate-data=partnerId=99&siteID=XXXX">
+
+横幅需要156像素（设备是312 hi-dpi）在顶部，直到用户在下方点击内容或关闭按钮，你的网站才会展现全部的高度。 它就像HTML的DOM对象，但它不是一个真正的DOM。
+ 
 CSS3 滤镜
--webkit-filter: blur(5px) grayscale (.5) opacity(0.66) hue-rotate(100deg);
+
+	-webkit-filter: blur(5px) grayscale (.5) opacity(0.66) hue-rotate(100deg);
+
 交叉淡变
-background-image: -webkit-cross-fade(url("logo1.png"), url("logo2.png"), 50%);
+
+	background-image: -webkit-cross-fade(url("logo1.png"), url("logo2.png"), 50%);
+
 Safari中的全屏幕
+
 除了chrome-less 主屏幕meta标签，现在的iPhone和iPod Touch（而不是在iPad）支持全屏幕模式的窗口。 没有办法强制全屏模式，它需要由用户启动（工具栏上的最后一个图标）。需要引导用户按下屏幕上的全屏图标来激活全屏效果。 可以使用onresize事件检测是否用户切换到全屏幕。
+
 支持requestAnimationFrameAPI
+
 支持image-set,retina屏幕的利器
--webkit-image-set(url(low.png) 1x, url(hi.jpg) 2x)
+
+	-webkit-image-set(url(low.png) 1x, url(hi.jpg) 2x)
+
 应用程序缓存限制增加至25MB。
+
 Web View（pseudobrowsers，PhoneGap/Cordova应用程序，嵌入式浏览器）上Javascript运行比Safari慢3.3倍（或者说，Nitro引擎在Safari浏览器是Web应用程序是3.3倍速度）。
+
 autocomplete属性的输入遵循DOM规范
+
 来自DOM4的Mutation Observers已经实现。您可以使用WebKitMutationObserver构造器捕获DOM的变化
+
 Safari不再总是对用 -webkit-transform:preserve-3d 的元素创建硬件加速
+
 支持window.selection的Selection API
+
 Canvas更新：createImageData有一个参数，现在有两个新的功能做好准备，用webkitGetImageDataHD和webkitPutImageDataHD提供高分辨率图像 。
+
 更新SVG处理器和事件构造函数
 
 
 ##IOS7的大更新
 [iOS7的Safari和HTML5问题，变化和新API]
 (http://jinlong.github.io/blog/2013/09/23/safari-ios7-html5-problems-apis-review/#jtss-tsina)(张金龙翻译)
+
 [iOS7的一些坑(英文)]
 (http://www.sencha.com/blog/the-html5-scorecard-the-good-the-bad-and-the-ugly-in-ios7 "ios7的一些bug")
+
 [ios7的一些坑2(英文)]
 (http://www.mobilexweb.com/blog/safari-ios7-html5-problems-apis-review "ios7的一些bug")
 
@@ -946,51 +1019,65 @@ Canvas更新：createImageData有一个参数，现在有两个新的功能做�
 
 
 #Cache开启和设置
-browser.getSettings().setAppCacheEnabled(true);
-browser.getSettings().setAppCachePath("/data/data/[com.packagename]/cache");
-browser.getSettings().setAppCacheMaxSize(5*1024*1024); // 5MB
+	browser.getSettings().setAppCacheEnabled(true);
+	browser.getSettings().setAppCachePath("/data/data/[com.packagename]/cache");
+	browser.getSettings().setAppCacheMaxSize(5*1024*1024); // 5MB
 
 #LocalStorage相关设置
-browser.getSettings().setDatabaseEnabled(true);
-browser.getSettings().setDomStorageEnabled(true);
-String databasePath = browser.getContext().getDir("databases", Context.MODE_PRIVATE).getPath();
-browser.getSettings().setDatabasePath(databasePath);//Android　webview的LocalStorage有个问题，关闭APP或者重启后，就清楚了，所以需要browser.getSettings().setDatabase相关的操作，把LocalStoarge存到DB中
-myWebView.setWebChromeClient(new WebChromeClient(){
-	@Override
-	public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) {
-		quotaUpdater.updateQuota(estimatedSize * 2);
+	browser.getSettings().setDatabaseEnabled(true);
+	browser.getSettings().setDomStorageEnabled(true);
+	String databasePath = browser.getContext().getDir("databases", Context.MODE_PRIVATE).getPath();
+	browser.getSettings().setDatabasePath(databasePath);//Android　webview的LocalStorage有个问题，关闭APP或者重启后，就清楚了，所以需要browser.getSettings().setDatabase相关的操作，把LocalStoarge存到DB中
+	myWebView.setWebChromeClient(new WebChromeClient(){
+		@Override
+		public void onExceededDatabaseQuota(String url, String databaseIdentifier, long currentQuota, long estimatedSize, long totalUsedQuota, WebStorage.QuotaUpdater quotaUpdater) {
+			quotaUpdater.updateQuota(estimatedSize * 2);
+		}
 	}
-}
 
 #浏览器自带缩放按钮取消显示
-browser.getSettings().setBuiltInZoomControls(false);
+	browser.getSettings().setBuiltInZoomControls(false);
 
 #几个比较好的实践
 使用localstorage缓存html
+
 使用lazyload，还要记得lazyload占位图虽然小，但是最好能提前加载到缓存
+
 延时加载执行js
+
 主要原因就在于Android Webview的onPageFinished事件，Android端一般是用这个事件来标识页面加载完成并显示的，也就是说在此之前，会一直loading，但是Android的OnPageFinished事件会在Javascript脚本执行完成之后才会触发。如果在页面中使用JQuery，会在处理完DOM对象，执行完$(document).ready(function() {});事件自会后才会渲染并显示页面。
 
 ##移动端调适篇
 
 ###手机抓包与配host
 在PC上，我们可以很方便地配host，但是手机上如何配host，这是一个问题。
+
 这里主要使用fiddler和远程代理，实现手机配host的操作，具体操作如下：
+
 首先，保证PC和移动设备在同一个局域网下；
+
 PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
+
 1. 首先，保证PC和移动设备在同一个局域网下；
+
 2. PC上开启fiddler，并在设置中勾选“allow remote computers to connect”
+
 ![fiddler]
 (https://github.com/hoosin/mobile-web-favorites/raw/master/img/01.png)
+
 3. 手机上设置代理，代理IP为PC的IP地址，端口为8888（这是fiddler的默认端口）。通常手机上可以直接设置代理，如果没有，可以去下载一个叫ProxyDroid的APP来实现代理的设置。
+
 4. 此时你会发现，用手机上网，走的其实是PC上的fiddler，所有的请求包都会在fiddler中列出来，配合willow使用，即可实现配host，甚至是反向代理的操作。
+
 也可以用CCProxy之类软件，还有一种方法就是买一个随身wifi，然后手机连接就可以了！
 
 ###高级抓包
 [iPhone上使用Burp Suite捕捉HTTPS通信包方法]
 (http://danqingdani.blog.163.com/blog/static/1860941952012112353515306/?suggestedreading&wumii "iPhone上使用Burp Suite捕捉HTTPS通信包方法")
+
 [mobile app 通信分析方法小议（iOS/Android)]
 (http://danqingdani.blog.163.com/blog/static/1860941952012101331848980/ "mobile app 通信分析方法小议（iOS/Android)")
+
 [实时抓取移动设备上的通信包(ADVsock2pipe+Wireshark+nc+tcpdump)]
 (http://danqingdani.blog.163.com/blog/static/1860941952012111954741585/ "实时抓取移动设备上的通信包(ADVsock2pipe+Wireshark+nc+tcpdump)")
 
@@ -1001,58 +1088,81 @@ charles选择静态的html页面文件-saveResponse。之后把这个文件保�
 
 ###微信浏览器
 因为微信浏览器屏蔽了一部分链接图片，所以需要引导用户去打开新页面，可以用以下方式判断微信浏览器的ua
-function is_weixn(){
-    var ua = navigator.userAgent.toLowerCase();
-    if(ua.match(/MicroMessenger/i)=="micromessenger") {
-        return true;
-    } else {
-        return false;
-    }
-}
+
+	function is_weixn(){
+	    var ua = navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	}
+
 后端判断也很简单，比如php
-function is_weixin(){
-    if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
-            return true;
-    }  
-    return false;
-}
+
+	function is_weixin(){
+	    if ( strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+	            return true;
+	    }  
+	    return false;
+	}
 	
 ###【UC浏览器】video标签脱离文档流
 场景：<video>标签的父元素(祖辈元素)设置transform样式后，<video>标签会脱离文档流。
+
 测试环境：UC浏览器 8.7/8.6 + Android 2.3/4.0 。
-Demo：<http://t.cn/zj3xiyu>
+
+	Demo：<http://t.cn/zj3xiyu>
+
 解决方案：不使用transform属性。translate用top、margin等属性替代。
 
 ###【UC浏览器】video标签总在最前
 场景：<video>标签总是在最前（可以理解为video标签的z-index属性是Max）。
+
 测试环境：UC浏览器 8.7/8.6 + Android 2.3/4.0 。
 
 ###【UC浏览器】position:fixed 属性在UC浏览器的奇葩现象
 场景：设置了position: fixed 的元素会遮挡z-index值更高的同辈元素。
+
 在8.6的版本,这个情况直接出现。
+
 在8.7之后的版本,当同辈元素的height大于713这个「神奇」的数值时,才会被遮挡。
+
 测试环境：UC浏览器 8.8_beta/8.7/8.6 + Android 2.3/4.0 。
-Demo：<http://t.cn/zYLTSg6>
+
+	Demo：<http://t.cn/zYLTSg6>
 
 ###【QQ手机浏览器】不支持HttpOnly
 场景：带有HttpOnly属性的Cookie，在QQ手机浏览器版本从4.0开始失效。JavaScript可以直接读取设置了HttpOnly的Cookie值。
+
 测试环境：QQ手机浏览器 4.0/4.1/4.2 + Android 4.0 。
 
 ###【MIUI原生浏览器】浏览器地址栏hash不改变
 场景：location.hash 被赋值后，地址栏的地址不会改变。
+
 但实际上 location.href 已经更新了，通过JavaScript可以顺利获取到更新后的地址。
+
 虽然不影响正常访问，但用户无法将访问过程中改变hash后的地址存为书签。
+
 测试环境：MIUI 4.0
 
 ###【Chrome Mobile】fixed元素无法点击
 场景：父元素设置position: fixed;
+
 子元素设置position: absolute;
+
 此时，如果父元素/子元素还设置了overflow: hidden 则出现“父元素遮挡该子元素“的bug。
+
 视觉(view)层并没有出现遮挡，只是无法触发绑定在该子元素上的事件。可理解为：「看到点不到」。
+
 补充：页面往下滚动，触发position: fixed;的特性时，才会出现这个bug，在最顶不会出现。
+
 测试平台：小米1S，Android4.0的Chrome18
-demo：<http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
+
+	demo：<http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
+
 解决办法：把父元素和子元素的overflow: hidden去掉。
+
 以上来源于 <http://www.cnblogs.com/maplejan/archive/2013/04/26/3045928.html>
 
 ##库的使用实践
@@ -1060,8 +1170,10 @@ demo：<http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 ###zepto.js
 [zepto的一篇使用注意点讲解]
 (http://chaoskeh.com/blog/some-experience-of-using-zepto.html "zepto")
+
 [zepto的著名的tap“点透”bug]
 (http://blog.youyo.name/archives/zepto-tap-click-through-research.html "zepto")
+
 [zepto源码注释]
 (http://www.cnblogs.com/sky000/archive/2013/03/29/2988952.html "zepto")
 
@@ -1070,58 +1182,82 @@ demo：<http://maplejan.sinaapp.com/demo/fixed_chromemobile.html>
 
 ###iscroll4
 iscroll4 的几个bug(来自 <http://www.mansonchor.com/blog/blog_detail_64.html> 内有详细讲解)
+
 1.滚动容器点击input框、select等表单元素时没有响应】
-onBeforeScrollStart: function (e) {
-	e.preventDefault();
-}
-改为
-onBeforeScrollStart: function (e) {
-	var nodeType = e.explicitOriginalTarget © e.explicitOriginalTarget.nodeName.toLowerCase():(e.target © e.target.nodeName.toLowerCase():'');
-	if(nodeType !='select'&& nodeType !='option'&& nodeType !='input'&& nodeType!='textarea'){
+
+	onBeforeScrollStart: function (e) {
 		e.preventDefault();
 	}
-}
+
+改为
+
+	onBeforeScrollStart: function (e) {
+		var nodeType = e.explicitOriginalTarget © e.explicitOriginalTarget.nodeName.toLowerCase():(e.target © e.target.nodeName.toLowerCase():'');
+		if(nodeType !='select'&& nodeType !='option'&& nodeType !='input'&& nodeType!='textarea'){
+			e.preventDefault();
+		}
+	}
+
 2.往iscroll容器内添加内容时，容器闪动的bug
+
 源代码的
-has3d = 'WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()
+
+	has3d = 'WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix()
+
 改成
-has3d = false
+
+	has3d = false
+
 在配置iscroll时，useTransition设置成false
+
 3.过长的滚动内容，导致卡顿和app直接闪退
+
 1). 不要使用checkDOMChanges。虽然checkDOMChanges很方便，定时检测容器长度是否变化来refresh，但这也意味着你要消耗一个Interval的内存空间
+
 2). 隐藏iscroll滚动条，配置时设置hScrollbar和vScrollbar为false。
+
 3). 不得已的情况下，去掉各种效果，momentum、useTransform、useTransition都设置为false
+
 4.左右滚动时，不能正确响应正文上下拉动
+
 iscroll的闪动问题也与渲染有关系，可以参考
+
 [运用webkit绘制渲染页面原理解决iscroll4闪动的问题]
 (http://www.iunbug.com/archives/2012/09/19/411.html "iscroll4")
+
 [iscroll4升级到5要注意的问题]
 (http://blog.csdn.net/gcz564539969/article/details/9156141 "iscroll5")
 
 
 ###iscroll或者滚动类框架滚动时不点击的方法
 可以使用以下的解决方案(利用data-setapi)
-<a ontouchmove="this.s=1" ontouchend="this.s || window.open(this.dataset.href),this.s=0" target="_blank" data-href="http://www.hao123.com/topic/pig">黄浦江死猪之谜</a>
+
+	<a ontouchmove="this.s=1" ontouchend="this.s || window.open(this.dataset.href),this.s=0" target="_blank" data-href="http://www.hao123.com/topic/pig">黄浦江死猪之谜</a>
+
 也可以用这种方法
-$(document).delegate('[data-target]', 'touchmove', function () {
-	$(this).attr('moving','moving');
-});
-$(document).delegate('[data-target]', 'touchend', function () {
-	if ($(this).attr('moving') !== 'moving') {
-	 	//做你想做的。。
-		$(this).attr('moving', 'notMoving');
-	} else {
-		$(this).attr('moving', 'notMoving');
-	}
-});
+
+	$(document).delegate('[data-target]', 'touchmove', function () {
+		$(this).attr('moving','moving');
+	});
+	$(document).delegate('[data-target]', 'touchend', function () {
+		if ($(this).attr('moving') !== 'moving') {
+		 	//做你想做的。。
+			$(this).attr('moving', 'notMoving');
+		} else {
+			$(this).attr('moving', 'notMoving');
+		}
+	});
 
 ##移动端字体问题
 [知乎专栏 - [无线手册-4]dp、sp、px傻傻分不清楚[完整]]
 (http://zhuanlan.zhihu.com/zhezhexiong/19565895)
+
 [Resolution Independent Mobile UI]
 (http://www.sencha.com/blog/resolution-independent-mobile-ui)
+
 [Pixel density, retina display and font-size in CSS]
 (http://stackoverflow.com/questions/12058574/pixel-density-retina-display-and-font-size-in-css)
+
 [Device pixel density tests]
 (http://bjango.com/articles/min-device-pixel-ratio/)
 
@@ -1129,13 +1265,19 @@ $(document).delegate('[data-target]', 'touchend', function () {
 ##跨域问题 
 手机浏览器也是浏览器，在ajax调用外部api的时候也存在跨域问题。当然利用 PhoneGap 打包后，由于协议不一样就不存在跨域问题了。
 但页面通常是需要跟后端进行调试的。一般会报类似
-XMLHttpRequest cannot load XXX 
-Origin null is not allowed by Access-Control-Allow-Origin.
+
+	XMLHttpRequest cannot load XXX 
+	Origin null is not allowed by Access-Control-Allow-Origin.
+
 以及
-XMLHttpRequest cannot load http://. Request header field Content-Type is not allowed by Access-Control-Allow-Headers."
+
+	XMLHttpRequest cannot load http://. Request header field Content-Type is not allowed by Access-Control-Allow-Headers."
+
 这时候可以让后端加上两个http头
-Access-Control-Allow-Origin "*"
-Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+
+	Access-Control-Allow-Origin "*"
+	Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+
 第一个头可以避免跨域问题，第二个头可以方便ajax请求设置content-type等配置项
 这个会存在一些安全问题，可以参考这个问题的讨论 <http://www.zhihu.com/question/22992229>
 
@@ -1144,24 +1286,28 @@ Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
 
 ###Should not happen: no rect-based-test nodes found 
 在Android项目中的assets中的HTML页面中加入以下代码，便可解决问题
-window,html,body{
-    overflow-x:hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    overflow: scroll !important;
-}
+
+	window,html,body{
+	    overflow-x:hidden !important;
+	    -webkit-overflow-scrolling: touch !important;
+	    overflow: scroll !important;
+	}
+
 参考：
 <http://stackoverflow.com/questions/12090899/android-webview-jellybean-should-not-happen-no-rect-based-test-nodes-found>
 
 ###拿联系人的时候报ContactFindOptions is not defined
 出现这个问题可能是因为 Navigator 取 contacts 时绑定的 window.onload
+
 注意使用 PhoneGap 的 API 时，一定要在 devicereay 事件的处理函数中使用 API
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {    
-    callFetchContacts();
-}
-function callFetchContacts(){
-    var options = new ContactFindOptions();
-    options.multiple = true;
-    var fields = ["displayName", "name","phoneNumbers"];
-    navigator.contacts.find(fields, onSuccess, onError,options);  
-}
+
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {    
+	    callFetchContacts();
+	}
+	function callFetchContacts(){
+	    var options = new ContactFindOptions();
+	    options.multiple = true;
+	    var fields = ["displayName", "name","phoneNumbers"];
+	    navigator.contacts.find(fields, onSuccess, onError,options);  
+	}
