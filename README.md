@@ -284,6 +284,7 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 (http://ued.ctrip.com/blog/wp-content/webkitcss/index.html)，全面、方便查询，下面为常用属性。
 
 ①“盒模型”的具体描述性质的包围盒块内容，包括边界，填充等等。
+
 	-webkit-border-bottom-left-radius: radius;
 	-webkit-border-top-left-radius: horizontal_radius vertical_radius;
 	-webkit-border-radius: radius;		//容器圆角
@@ -296,10 +297,12 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 	-webkit-appearance: push-button;		//内置的CSS表现，暂时只支持push-button
 
 ②“视觉格式化模型”描述性质，确定了位置和大小的块元素。
+
 	direction: rtl
 	unicode-bidi: bidi-override; 常量：bidi-override/embed/normal
 
 ③“视觉效果”描述属性，调整的视觉效果块内容，包括溢出行为，调整行为，能见度，动画，变换，和过渡。
+
 	clip: rect(10px, 5px, 10px, 5px)
 	resize: auto; 常量：auto/both/horizontal/none/vertical
 	visibility: visible; 常量: collapse/hidden/visible
@@ -316,6 +319,7 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 	-webkit-transform-style: preserve-3d; 常量：flat/preserve-3d;(2D 与3D)
 
 ④“生成的内容，自动编号，并列出”描述属性，允许您更改内容的一个组成部分，创建自动编号的章节和标题，和操纵的风格清单的内容。
+
 	content: “Item” counter(section) ” “;
 	This resets the counter.
 	First section
@@ -325,19 +329,23 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 	counter-reset: section;
 
 ⑤“分页媒体”描述性能与外观的属性，控制印刷版本的网页，如分页符的行为。
+
 	page-break-after: auto; 常量：always/auto/avoid/left/right
 	page-break-before: auto; 常量：always/auto/avoid/left/right
 	page-break-inside: auto; 常量：auto/avoid
 
 ⑥“颜色和背景”描述属性控制背景下的块级元素和颜色的文本内容的组成部分。
+
 	-webkit-background-clip: content; 常量：border/content/padding/text
 	-webkit-background-origin: padding; 常量：border/content/padding/text
 	-webkit-background-size: 55px; 常量：length/length_x/length_y
 
 ⑦ “字型”的具体描述性质的文字字体的选择范围内的一个因素。报告还描述属性用于下载字体定义。
+
 	unicode-range: U+00-FF, U+980-9FF;
 
 ⑧“文本”描述属性的特定文字样式，间距和自动滚屏。
+
 	text-shadow: #00FFFC 10px 10px 5px;
 	text-transform: capitalize; 常量：capitalize/lowercase/none/uppercase
 	word-wrap: break-word; 常量：break-word/normal
@@ -359,6 +367,7 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 	-webkit-user-select: text; 常量：text/auto/none
 
 ⑨“表格”描述的布局和设计性能表的具体内容。
+
 	-webkit-border-horizontal-spacing: 2px;
 	-webkit-border-vertical-spacing: 2px;
 	-webkit-column-break-after: right; 常量：always/auto/avoid/left/right
@@ -368,8 +377,8 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 	-webkit-column-rule: 1px solid #fff;
 	style:dashed,dotted,double,groove,hidden,inset,none,outset,ridge,solid
 
-⑩“用户界面”描述属性，涉及到用户界面元素在浏览器中，如滚动文字区，滚动条，等等。报告还描述属性，范围以外的网页内容，如光标的标注样式和显示当您按住触摸触摸
-目标，如在iPhone上的链接。
+⑩“用户界面”描述属性，涉及到用户界面元素在浏览器中，如滚动文字区，滚动条，等等。报告还描述属性，范围以外的网页内容，如光标的标注样式和显示当您按住触摸触摸目标，如在iPhone上的链接。
+
 	-webkit-box-align: baseline,center,end,start,stretch 常量：baseline/center/end/start/stretch
 	-webkit-box-direction: normal;常量：normal/reverse
 	-webkit-box-flex: flex_valuet
@@ -382,9 +391,11 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 动画过渡
 
 这是 Webkit 中最具创新力的特性：使用过渡函数定义动画。
+
 	-webkit-animation: title infinite ease-in-out 3s;
 
 animation 有这几个属性：
+
 	-webkit-animation-name： //属性名，就是我们定义的keyframes
 	-webkit-animation-duration：3s //持续时间
 	-webkit-animation-timing-function： //过渡类型：ease/ linear(线性) /ease-in(慢到快)/ease-out(快到慢) /ease-in-out(慢到快再到慢) /cubic-bezier
@@ -393,6 +404,7 @@ animation 有这几个属性：
 	-webkit-animation-direction： //动画方式：normal(默认 正向播放)； alternate(交替方向，第偶数次正向播放，第奇数次反向播放)
 
 这些同样是可以简写的。但真正让我觉的很爽的是keyframes，它能定义一个动画的转变过程供调用，过程为0%到100%或from(0%)到to(100%)。简单点说，只要你有想法，你想让元素在这个过程中以什么样的方式改变都是很简单的。
+
 	-webkit-transform: 类型（缩放scale/旋转rotate/倾斜skew/位移translate）
 	scale(num,num) 放大倍率。scaleX 和 scaleY(3)，可以简写为：scale(* , *)
 	rotate(*deg) 转动角度。rotateX 和 rotateY，可以简写为：rotate(* , *)
