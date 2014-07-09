@@ -1,113 +1,146 @@
 #HTML5-Component
 HTML5前端开发组件库，提供一些常用组件的DOM结构和SASS样式。
 
-
 ##工具类网站
 [HTML5与CSS3技术应用评估]
 (http://html5please.com/ "html5与css3技术应用评估")
+
 [各种奇妙的hack]
 (http://browserhacks.com/ "各种奇妙的hack")
+
 [几乎所有设备的屏幕尺寸与像素密度表]
 (http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density "几乎所有设备的屏幕尺寸与像素密度表")
+
 [移动设备参数表]
 (http://screensiz.es/phone "移动设备参数表")
+
 [ios端移动设备参数速查]
 (http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/ "ios端移动设备参数速查")
+
 [浏览器兼容表]
 (http://www.quirksmode.org/compatibility.html "浏览器兼容表")
+
 [移动设备查询器]
 (https://deviceatlas.com/device-data/devices "移动设备查询器")
+
 [移动设备适配库]
 (http://51degrees.codeplex.com/ "移动设备适配库")
+
 [移动设备适配库2]
 (http://detectmobilebrowsers.com/ "移动设备适配库2")
+
 [viewport与设备尺寸在线检测器]
 (https://deviceatlas.com/device-data/devices "viewport与设备尺寸在线检测器")
+
 [html5 移动端兼容性速查]
 (http://mobilehtml5.org/ "html5移动端兼容性速查")
+
 [在线转换字体]
 (http://www.fontsquirrel.com/tools/webfont-generator "在线转换字体")
+
 [css3 选择器测试]
 (http://tools.css3.info/selectors-test/test.html "css3选择器测试")
+
 [兼容性速查表]
 (http://caniuse.com/ "兼容性速查表")
+
 [浏览器的一些独特参数]
 (http://www.browserscope.org/ "浏览器的一些独特参数")
+
 [各种各样的媒体查询收集]
 (http://nmsdvid.com/snippets/ "各种各样的媒体查询收集")
+
 [css3 动画在线制作器]
 (http://ecd.tencent.com/css3/tools.html "css3动画在线制作器")
+
 [css3 渐变在线制作器]
 (http://www.colorzilla.com/gradient-editor/ "css3渐变在线制作器")
+
 [移动端手势表]
 (http://ww1.sinaimg.cn/bmiddle/c2c57f68jw1e4fh7dmw12j20fi2w6qe1.jpg "移动端手势表")
+
 [webkit独有的样式分析]
 (http://ued.ctrip.com/blog/wp-content/webkitcss/ "webkit独有的样式分析")
+
 [HTML5 Cross Browser Polyfills]
 (https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills)
+
 [HTML5 POLYFILLS]
 (http://html5polyfill.com/ "HTML5 POLYFILLS")
 
-
 ##响应式测试工具
 Firefox浏览器内置了“自定义设计视图”的功能，可以通过“Firefox->Web开发者->自定义设计视图”（或者摁下“Shift+Ctrl+m”）。相比网络工具，运行更加流畅，无需联网。
+
 [判断iPad和iPhone的版本和状态的CSS媒体查询代码]
 (http://yujiangshui.com/document/css-media-queries-for-ipads-and-iphones-chinese-version/ 判断iPad和iPhone的版本和状态的CSS媒体查询代码)
+
 [Viewport Resizer]
 (http://lab.maltewassermann.com/viewport-resizer/ "resize")
+
 [http://beta.screenqueri.es/]
 (http://beta.screenqueri.es/ "resize")
+
 [http://responsivepx.com]
 (http://responsivepx.com "resize")
+
 [http://www.responsinator.com/]
 (http://www.responsinator.com/ "resize")
+
 [http://resizemybrowser.com/]
 (http://resizemybrowser.com/ "resize")
+
 [https://quirktools.com/screenfly/]
 (https://quirktools.com/screenfly/ "resize")
-媒体查询常用样式表：
-// 竖放加载
-<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" />
-// 横放加载
-<link rel="stylesheet" media="all and (orientation:landscape)"href="landscape.css" />
-//竖屏时使用的样式
-<style media="all and (orientation:portrait)" type="text/css">
-	#landscape{display:none}
-</style>
-//横屏时使用的样式
-<style media="all and (orientation:landscape)" type="text/css">
-	#portrait{display:none}
-</style>
 
+媒体查询常用样式表：
+	<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" />		// 竖放加载
+	<link rel="stylesheet" media="all and (orientation:landscape)"href="landscape.css" />	// 横放加载
+	//竖屏时使用的样式
+	<style media="all and (orientation:portrait)" type="text/css">
+		#landscape{display:none}
+	</style>
+	//横屏时使用的样式
+	<style media="all and (orientation:landscape)" type="text/css">
+		#portrait{display:none}
+	</style>
 
 ##Web app开发的最佳实践与中文总结
 [It’s not a web app. It’s an app you install from the web.]
 (http://blog.forecast.io/its-not-a-web-app-its-an-app-you-install-from-the-web/)
+
 [当前WEB APP开发的最佳实践]
 (http://lyric.im/best-practice-for-web-app-development/)
 
 ##来自[maxzhang](https://github.com/maxzhang "ava")的一些移动端经验总结干货
+
 [移动Web单页应用开发实践——页面结构化]
 (https://github.com/maxzhang/maxzhang.github.com/issues/8 "ava")
+
 [移动Web产品前端开发口诀——“快”]
 (https://github.com/maxzhang/maxzhang.github.com/issues/1 "ava")
+
 [移动Web开发，4行代码检测浏览器是否支持position:fixed]
 (https://github.com/maxzhang/maxzhang.github.com/issues/7 "ava")
+
 [使用border-image实现类似iOS7的1px底边]
 (https://github.com/maxzhang/maxzhang.github.com/issues/4 "ava")
+
 [移动端web页面使用position:fixed问题总结]
 (https://github.com/maxzhang/maxzhang.github.com/issues/2 "ava")
+
 [移动Web开发实践——解决position:fixed自适应BUG]
 (https://github.com/maxzhang/maxzhang.github.com/issues/11 "ava")
+
 [移动手机浏览器m3u8格式视频流播放支持程度测试]
 (https://github.com/maxzhang/maxzhang.github.com/issues/19 "ava")
-
 
 ##本资料很多引用了指尖上的js系列
 [指尖下的js ——多触式web前端开发之一：对于Touch的处理]
 (http://www.cnblogs.com/pifoo/archive/2011/05/23/webkit-touch-event-1.html "article1")
+
 [指尖下的js ——多触式web前端开发之二：处理简单手势]
 (http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-2.html "article2")
+
 [指尖下的js —— 多触式web前端开发之三：处理复杂手势]
 (http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-3.html "article3")
 
