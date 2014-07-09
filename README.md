@@ -4,13 +4,15 @@ HTML5前端开发组件库，提供一些常用组件的DOM结构和SASS样式�
 ##工具类网站
 [HTML5与CSS3技术应用评估]
 (http://html5please.com/ "html5与css3技术应用评估")
+
 [各种奇妙的hack]
 (http://browserhacks.com/ "各种奇妙的hack")
+
 [几乎所有设备的屏幕尺寸与像素密度表]
 (http://en.wikipedia.org/wiki/List_of_displays_by_pixel_density "几乎所有设备的屏幕尺寸与像素密度表")
+
 [移动设备参数表]
-(http://screensiz.es/phone "移动设备参数表")
-[ios端移动设备参数速查]
+(http://screensiz.es/phone "移动设备参数表")[ios端移动设备参数速查]
 (http://ivomynttinen.com/blog/the-ios-design-cheat-sheet-volume-2/ "ios端移动设备参数速查")
 
 [浏览器兼容表]
@@ -33,12 +35,15 @@ HTML5前端开发组件库，提供一些常用组件的DOM结构和SASS样式�
 
 [在线转换字体]
 (http://www.fontsquirrel.com/tools/webfont-generator "在线转换字体")
+
 [css3 选择器测试]
 (http://tools.css3.info/selectors-test/test.html "css3选择器测试")
+
 [兼容性速查表]
 (http://caniuse.com/ "兼容性速查表")
 [浏览器的一些独特参数]
 (http://www.browserscope.org/ "浏览器的一些独特参数")
+
 
 [各种各样的媒体查询收集]
 (http://nmsdvid.com/snippets/ "各种各样的媒体查询收集")
@@ -66,31 +71,35 @@ HTML5前端开发组件库，提供一些常用组件的DOM结构和SASS样式�
 Firefox浏览器内置了“自定义设计视图”的功能，可以通过“Firefox->Web开发者->自定义设计视图”（或者摁下“Shift+Ctrl+m”）。相比网络工具，运行更加流畅，无需联网。
 [判断iPad和iPhone的版本和状态的CSS媒体查询代码]
 (http://yujiangshui.com/document/css-media-queries-for-ipads-and-iphones-chinese-version/ 判断iPad和iPhone的版本和状态的CSS媒体查询代码)
+
 [Viewport Resizer]
 (http://lab.maltewassermann.com/viewport-resizer/ "resize")
+
 [http://beta.screenqueri.es/]
 (http://beta.screenqueri.es/ "resize")
+
 [http://responsivepx.com]
 (http://responsivepx.com "resize")
+
 [http://www.responsinator.com/]
 (http://www.responsinator.com/ "resize")
+
 [http://resizemybrowser.com/]
 (http://resizemybrowser.com/ "resize")
+
 [https://quirktools.com/screenfly/]
 (https://quirktools.com/screenfly/ "resize")
 媒体查询常用样式表：
-// 竖放加载
-<link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" />
-// 横放加载
-<link rel="stylesheet" media="all and (orientation:landscape)"href="landscape.css" />
+ <link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css" />		// 竖放加载
+ <link rel="stylesheet" media="all and (orientation:landscape)"href="landscape.css" />	// 横放加载
 //竖屏时使用的样式
-<style media="all and (orientation:portrait)" type="text/css">
-	#landscape{display:none}
-</style>
+ <style media="all and (orientation:portrait)" type="text/css">
+ 	#landscape{display:none}
+ </style>
 //横屏时使用的样式
-<style media="all and (orientation:landscape)" type="text/css">
-	#portrait{display:none}
-</style>
+ <style media="all and (orientation:landscape)" type="text/css">
+ 	#portrait{display:none}
+ </style>
 
 
 ##Web app开发的最佳实践与中文总结
