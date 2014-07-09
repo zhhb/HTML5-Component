@@ -68,6 +68,8 @@ HTML5前端开发组件库，提供一些常用组件的DOM结构和SASS样式�
 [HTML5 POLYFILLS]
 (http://html5polyfill.com/ "HTML5 POLYFILLS")
 
+
+
 ##响应式测试工具
 Firefox浏览器内置了“自定义设计视图”的功能，可以通过“Firefox->Web开发者->自定义设计视图”（或者摁下“Shift+Ctrl+m”）。相比网络工具，运行更加流畅，无需联网。
 
@@ -106,6 +108,8 @@ Firefox浏览器内置了“自定义设计视图”的功能，可以通过“F
 	<style media="all and (orientation:landscape)" type="text/css">
 		#portrait{display:none}
 	</style>
+
+
 
 ##Web app开发的最佳实践与中文总结
 [It’s not a web app. It’s an app you install from the web.]
@@ -148,34 +152,46 @@ Firefox浏览器内置了“自定义设计视图”的功能，可以通过“F
 (http://www.cnblogs.com/pifoo/archive/2011/05/22/webkit-touch-event-3.html "article3")
 
 
-##基础知识
 
+##基础知识
 ###meta标签
 meta标签，这些meta标签在开发webapp时起到非常重要的作用
-<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
-<meta content="yes" name="apple-mobile-web-app-capable" />
-<meta content="black" name="apple-mobile-web-app-status-bar-style" />
-<meta content="telephone=no" name="format-detection" />
+
+	<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+
 第一个meta标签表示：强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；
 尤其要注意的是content里多个属性的设置一定要用分号+空格来隔开，如果不规范将不会起作用。
+
 注意根据[public_00](http://www.weibo.com/avajayam "ava")提供的资料补充，content使用分号作为分隔，在老的浏览器是支持的，但不是规范写法。
 规范的写法应该是使用逗号分隔，参考[Safari HTML Reference - Supported Meta Tags](http://developer.apple.com/library/safari/#documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html)和[Android - Supporting Different Screens in Web Apps](http://developer.android.com/guide/webapps/targeting.html)
 其中：
+
 * width - viewport的宽度
 * height - viewport的高度
 * initial-scale - 初始的缩放比例
 * minimum-scale - 允许用户缩放到的最小比例
 * maximum-scale - 允许用户缩放到的最大比例
 * user-scalable - 用户是否可以手动缩放
+
 第二个meta标签是iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；
+
 第三个meta标签也是iphone的私有标签，它指定的iphone中safari顶端的状态条的样式；
+
 第四个meta标签表示：告诉设备忽略将页面中的数字识别为电话号码
+
 在设置了initial-scale=1 之后，我们终于可以以1:1 的比例进行页面设计了。
+
 关于viewport，还有一个很重要的概念是：iphone 的safari 浏览器完全没有滚动条，而且不是简单的“隐藏滚动条”，
 是根本没有这个功能。iphone 的safari 浏览器实际上从一开始就完整显示了这个网页，然后用viewport 查看其中的一部分。
 当你用手指拖动时，其实拖的不是页面，而是viewport。浏览器行为的改变不止是滚动条，交互事件也跟普通桌面不一样。
+
 (请参考：指尖的下JS 系列文章)
+
 更详细的 viewport 相关的知识也可以参考
+
 [此像素非彼像素]
 (http://www.w3cplus.com/css/A-pixel-is-not-a-pixel-is-not-a-pixel.html "pixel")
 
@@ -216,46 +232,49 @@ meta标签，这些meta标签在开发webapp时起到非常重要的作用
 * 屏幕旋转事件：onorientationchange
 
 ###判断屏幕是否旋转
-function orientationChange() {
-	switch(window.orientation) {
-	　　case 0:
-			alert("肖像模式 0,screen-width: " + screen.width + "; screen-height:" + screen.height);
-			break;
-	　　case -90:
-			alert("左旋 -90,screen-width: " + screen.width + "; screen-height:" + screen.height);
-			break;
-	　　case 90:
-			alert("右旋 90,screen-width: " + screen.width + "; screen-height:" + screen.height);
-			break;
-	　　case 180:
-		　　alert("风景模式 180,screen-width: " + screen.width + "; screen-height:" + screen.height);
-		　　break;
+	function orientationChange() {
+		switch(window.orientation) {
+		　　case 0:
+				alert("肖像模式 0,screen-width: " + screen.width + "; screen-height:" + screen.height);
+				break;
+		　　case -90:
+				alert("左旋 -90,screen-width: " + screen.width + "; screen-height:" + screen.height);
+				break;
+		　　case 90:
+				alert("右旋 90,screen-width: " + screen.width + "; screen-height:" + screen.height);
+				break;
+		　　case 180:
+			　　alert("风景模式 180,screen-width: " + screen.width + "; screen-height:" + screen.height);
+			　　break;
+		};
 	};
-};
 
 ###添加事件监听
-addEventListener('load', function(){
-	orientationChange();
-	window.onorientationchange = orientationChange;
-});
+	addEventListener('load', function(){
+		orientationChange();
+		window.onorientationchange = orientationChange;
+	});
 
 ###双手指滑动事件：
-// 双手指滑动事件
-addEventListener('load', function(){
-		window.onmousewheel = twoFingerScroll;
-	}, false // 兼容各浏览器，表示在冒泡阶段调用事件处理程序 (true捕获阶段)
-);
-function twoFingerScroll(ev) {
-	// 对delta值进行判断(比如正负)，而后执行相应操作
-	var delta =ev.wheelDelta/120;
-	return true;
-};
+	// 双手指滑动事件
+	addEventListener('load', function(){
+			window.onmousewheel = twoFingerScroll;
+		}, false // 兼容各浏览器，表示在冒泡阶段调用事件处理程序 (true捕获阶段)
+	);
+	function twoFingerScroll(ev) {
+		// 对delta值进行判断(比如正负)，而后执行相应操作
+		var delta =ev.wheelDelta/120;
+		return true;
+	};
 
 ###JS单击延迟
 click事件因为要等待单击确认，会有300ms的延迟，体验并不是很好。
+
 开发者大多数会使用封装的tap事件来代替click事件，所谓的tap事件由touchstart事件+touchmove判断+touchend事件封装组成。
+
 [Creating Fast Buttons for Mobile Web Applications]
 (https://developers.google.com/mobile/articles/fast_buttons?hl=de-DE "article5")
+
 [Eliminate 300ms delay on click events in mobile Safari]
 (http://stackoverflow.com/questions/12238587/eliminate-300ms-delay-on-click-events-in-mobile-safari "article5")
 
@@ -263,121 +282,137 @@ click事件因为要等待单击确认，会有300ms的延迟，体验并不是�
 ##WebKit CSS:
 [携程UED整理的Webkit CSS文档]
 (http://ued.ctrip.com/blog/wp-content/webkitcss/index.html)，全面、方便查询，下面为常用属性。
+
 ①“盒模型”的具体描述性质的包围盒块内容，包括边界，填充等等。
--webkit-border-bottom-left-radius: radius;
--webkit-border-top-left-radius: horizontal_radius vertical_radius;
--webkit-border-radius: radius;		//容器圆角
--webkit-box-sizing: sizing_model; 边框常量值：border-box/content-box
--webkit-box-shadow: hoff voff blur color;	//容器阴影（参数分别为：水平X方向偏移量；垂直Y方向偏移量；高斯模糊半径值；阴影颜色值）
--webkit-margin-bottom-collapse: collapse_behavior; 常量值：collapse/discard/separate
--webkit-margin-start: width;
--webkit-padding-start: width;
--webkit-border-image: url(borderimg.gif) 25 25 25 25 round/stretch round/stretch;
--webkit-appearance: push-button;		//内置的CSS表现，暂时只支持push-button
+	-webkit-border-bottom-left-radius: radius;
+	-webkit-border-top-left-radius: horizontal_radius vertical_radius;
+	-webkit-border-radius: radius;		//容器圆角
+	-webkit-box-sizing: sizing_model; 边框常量值：border-box/content-box
+	-webkit-box-shadow: hoff voff blur color;	//容器阴影（参数分别为：水平X方向偏移量；垂直Y方向偏移量；高斯模糊半径值；阴影颜色值）
+	-webkit-margin-bottom-collapse: collapse_behavior; 常量值：collapse/discard/separate
+	-webkit-margin-start: width;
+	-webkit-padding-start: width;
+	-webkit-border-image: url(borderimg.gif) 25 25 25 25 round/stretch round/stretch;
+	-webkit-appearance: push-button;		//内置的CSS表现，暂时只支持push-button
+
 ②“视觉格式化模型”描述性质，确定了位置和大小的块元素。
-direction: rtl
-unicode-bidi: bidi-override; 常量：bidi-override/embed/normal
+	direction: rtl
+	unicode-bidi: bidi-override; 常量：bidi-override/embed/normal
+
 ③“视觉效果”描述属性，调整的视觉效果块内容，包括溢出行为，调整行为，能见度，动画，变换，和过渡。
-clip: rect(10px, 5px, 10px, 5px)
-resize: auto; 常量：auto/both/horizontal/none/vertical
-visibility: visible; 常量: collapse/hidden/visible
--webkit-transition: opacity 1s linear; 动画效果 ease/linear/ease-in/ease-out/ease-in-out
--webkit-backface-visibility: visibler; 常量：visible(默认值)/hidden
--webkit-box-reflect: right 1px; 镜向反转
--webkit-box-reflect: below 4px -webkit-gradient(linear, left top, left bottom,
-from(transparent), color-stop(0.5, transparent), to(white));
--webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));		//CSS 遮罩/蒙板效果
--webkit-mask-attachment: fixed; 常量：fixed/scroll
--webkit-perspective: value; 常量：none(默认)
--webkit-perspective-origin: left top;
--webkit-transform: rotate(5deg);
--webkit-transform-style: preserve-3d; 常量：flat/preserve-3d;(2D 与3D)
+	clip: rect(10px, 5px, 10px, 5px)
+	resize: auto; 常量：auto/both/horizontal/none/vertical
+	visibility: visible; 常量: collapse/hidden/visible
+	-webkit-transition: opacity 1s linear; 动画效果 ease/linear/ease-in/ease-out/ease-in-out
+	-webkit-backface-visibility: visibler; 常量：visible(默认值)/hidden
+	-webkit-box-reflect: right 1px; 镜向反转
+	-webkit-box-reflect: below 4px -webkit-gradient(linear, left top, left bottom,
+	from(transparent), color-stop(0.5, transparent), to(white));
+	-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));		//CSS 遮罩/蒙板效果
+	-webkit-mask-attachment: fixed; 常量：fixed/scroll
+	-webkit-perspective: value; 常量：none(默认)
+	-webkit-perspective-origin: left top;
+	-webkit-transform: rotate(5deg);
+	-webkit-transform-style: preserve-3d; 常量：flat/preserve-3d;(2D 与3D)
+
 ④“生成的内容，自动编号，并列出”描述属性，允许您更改内容的一个组成部分，创建自动编号的章节和标题，和操纵的风格清单的内容。
-content: “Item” counter(section) ” “;
-This resets the counter.
-First section
->two section
-three section
-counter-increment: section 1;
-counter-reset: section;
+	content: “Item” counter(section) ” “;
+	This resets the counter.
+	First section
+	>two section
+	three section
+	counter-increment: section 1;
+	counter-reset: section;
+
 ⑤“分页媒体”描述性能与外观的属性，控制印刷版本的网页，如分页符的行为。
-page-break-after: auto; 常量：always/auto/avoid/left/right
-page-break-before: auto; 常量：always/auto/avoid/left/right
-page-break-inside: auto; 常量：auto/avoid
+	page-break-after: auto; 常量：always/auto/avoid/left/right
+	page-break-before: auto; 常量：always/auto/avoid/left/right
+	page-break-inside: auto; 常量：auto/avoid
+
 ⑥“颜色和背景”描述属性控制背景下的块级元素和颜色的文本内容的组成部分。
--webkit-background-clip: content; 常量：border/content/padding/text
--webkit-background-origin: padding; 常量：border/content/padding/text
--webkit-background-size: 55px; 常量：length/length_x/length_y
+	-webkit-background-clip: content; 常量：border/content/padding/text
+	-webkit-background-origin: padding; 常量：border/content/padding/text
+	-webkit-background-size: 55px; 常量：length/length_x/length_y
+
 ⑦ “字型”的具体描述性质的文字字体的选择范围内的一个因素。报告还描述属性用于下载字体定义。
-unicode-range: U+00-FF, U+980-9FF;
+	unicode-range: U+00-FF, U+980-9FF;
+
 ⑧“文本”描述属性的特定文字样式，间距和自动滚屏。
-text-shadow: #00FFFC 10px 10px 5px;
-text-transform: capitalize; 常量：capitalize/lowercase/none/uppercase
-word-wrap: break-word; 常量：break-word/normal
--webkit-marquee: right large infinite normal 10s; 常量：direction(方向) increment(迭代次数) repetition(重复) style(样式) speed(速度);
--webkit-marquee-direction: ahead/auto/backwards/down/forwards/left/reverse/right/up
--webkit-marquee-incrementt: 1-n/infinite(无穷次)
--webkit-marquee-speed: fast/normal/slow
--webkit-marquee-style: alternate/none/scroll/slide
--webkit-text-fill-color: #ff6600; 常量：capitalize, lowercase, none, uppercase
--webkit-text-security: circle; 常量：circle/disc/none/square
--webkit-text-size-adjust: none; 常量:auto/none;
--webkit-text-stroke: 15px #fff;
--webkit-line-break: after-white-space; 常量：normal/after-white-space
--webkit-appearance: caps-lock-indicator;
--webkit-nbsp-mode: space; 常量： normal/space
--webkit-rtl-ordering: logical; 常量：visual/logical
--webkit-user-drag: element; 常量：element/auto/none
--webkit-user-modify: read- only; 常量：read-write-plaintext-only/read-write/read-only
--webkit-user-select: text; 常量：text/auto/none
+	text-shadow: #00FFFC 10px 10px 5px;
+	text-transform: capitalize; 常量：capitalize/lowercase/none/uppercase
+	word-wrap: break-word; 常量：break-word/normal
+	-webkit-marquee: right large infinite normal 10s; 常量：direction(方向) increment(迭代次数) repetition(重复) style(样式) speed(速度);
+	-webkit-marquee-direction: ahead/auto/backwards/down/forwards/left/reverse/right/up
+	-webkit-marquee-incrementt: 1-n/infinite(无穷次)
+	-webkit-marquee-speed: fast/normal/slow
+	-webkit-marquee-style: alternate/none/scroll/slide
+	-webkit-text-fill-color: #ff6600; 常量：capitalize, lowercase, none, uppercase
+	-webkit-text-security: circle; 常量：circle/disc/none/square
+	-webkit-text-size-adjust: none; 常量:auto/none;
+	-webkit-text-stroke: 15px #fff;
+	-webkit-line-break: after-white-space; 常量：normal/after-white-space
+	-webkit-appearance: caps-lock-indicator;
+	-webkit-nbsp-mode: space; 常量： normal/space
+	-webkit-rtl-ordering: logical; 常量：visual/logical
+	-webkit-user-drag: element; 常量：element/auto/none
+	-webkit-user-modify: read- only; 常量：read-write-plaintext-only/read-write/read-only
+	-webkit-user-select: text; 常量：text/auto/none
+
 ⑨“表格”描述的布局和设计性能表的具体内容。
--webkit-border-horizontal-spacing: 2px;
--webkit-border-vertical-spacing: 2px;
--webkit-column-break-after: right; 常量：always/auto/avoid/left/right
--webkit-column-break-before: right; 常量：always/auto/avoid/left/right
-–webkit-column-break-inside: logical; 常量：avoid/auto
--webkit-column-count: 3; //分栏
--webkit-column-rule: 1px solid #fff;
-style:dashed,dotted,double,groove,hidden,inset,none,outset,ridge,solid
+	-webkit-border-horizontal-spacing: 2px;
+	-webkit-border-vertical-spacing: 2px;
+	-webkit-column-break-after: right; 常量：always/auto/avoid/left/right
+	-webkit-column-break-before: right; 常量：always/auto/avoid/left/right
+	–webkit-column-break-inside: logical; 常量：avoid/auto
+	-webkit-column-count: 3; //分栏
+	-webkit-column-rule: 1px solid #fff;
+	style:dashed,dotted,double,groove,hidden,inset,none,outset,ridge,solid
+
 ⑩“用户界面”描述属性，涉及到用户界面元素在浏览器中，如滚动文字区，滚动条，等等。报告还描述属性，范围以外的网页内容，如光标的标注样式和显示当您按住触摸触摸
 目标，如在iPhone上的链接。
--webkit-box-align: baseline,center,end,start,stretch 常量：baseline/center/end/start/stretch
--webkit-box-direction: normal;常量：normal/reverse
--webkit-box-flex: flex_valuet
--webkit-box-flex-group: group_number
--webkit-box-lines: multiple; 常量：multiple/single
--webkit-box-ordinal-group: group_number
--webkit-box-orient: block-axis; 常量：block-axis/horizontal/inline-axis/vertical/orientation
-–webkit-box-pack: alignment; 常量：center/end/justify/start
+	-webkit-box-align: baseline,center,end,start,stretch 常量：baseline/center/end/start/stretch
+	-webkit-box-direction: normal;常量：normal/reverse
+	-webkit-box-flex: flex_valuet
+	-webkit-box-flex-group: group_number
+	-webkit-box-lines: multiple; 常量：multiple/single
+	-webkit-box-ordinal-group: group_number
+	-webkit-box-orient: block-axis; 常量：block-axis/horizontal/inline-axis/vertical/orientation
+	–webkit-box-pack: alignment; 常量：center/end/justify/start
 
 动画过渡
+
 这是 Webkit 中最具创新力的特性：使用过渡函数定义动画。
--webkit-animation: title infinite ease-in-out 3s;
+	-webkit-animation: title infinite ease-in-out 3s;
+
 animation 有这几个属性：
--webkit-animation-name： //属性名，就是我们定义的keyframes
--webkit-animation-duration：3s //持续时间
--webkit-animation-timing-function： //过渡类型：ease/ linear(线性) /ease-in(慢到快)/ease-out(快到慢) /ease-in-out(慢到快再到慢) /cubic-bezier
--webkit-animation-delay：10ms //动画延迟(默认0)
--webkit-animation-iteration-count： //循环次数(默认1)，infinite 为无限
--webkit-animation-direction： //动画方式：normal(默认 正向播放)； alternate(交替方向，第偶数次正向播放，第奇数次反向播放)
+	-webkit-animation-name： //属性名，就是我们定义的keyframes
+	-webkit-animation-duration：3s //持续时间
+	-webkit-animation-timing-function： //过渡类型：ease/ linear(线性) /ease-in(慢到快)/ease-out(快到慢) /ease-in-out(慢到快再到慢) /cubic-bezier
+	-webkit-animation-delay：10ms //动画延迟(默认0)
+	-webkit-animation-iteration-count： //循环次数(默认1)，infinite 为无限
+	-webkit-animation-direction： //动画方式：normal(默认 正向播放)； alternate(交替方向，第偶数次正向播放，第奇数次反向播放)
+
 这些同样是可以简写的。但真正让我觉的很爽的是keyframes，它能定义一个动画的转变过程供调用，过程为0%到100%或from(0%)到to(100%)。简单点说，只要你有想法，你想让元素在这个过程中以什么样的方式改变都是很简单的。
--webkit-transform: 类型（缩放scale/旋转rotate/倾斜skew/位移translate）
-scale(num,num) 放大倍率。scaleX 和 scaleY(3)，可以简写为：scale(* , *)
-rotate(*deg) 转动角度。rotateX 和 rotateY，可以简写为：rotate(* , *)
-Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
-translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
+	-webkit-transform: 类型（缩放scale/旋转rotate/倾斜skew/位移translate）
+	scale(num,num) 放大倍率。scaleX 和 scaleY(3)，可以简写为：scale(* , *)
+	rotate(*deg) 转动角度。rotateX 和 rotateY，可以简写为：rotate(* , *)
+	Skew(*deg) 倾斜角度。skewX 和skewY，可简写为：skew(* , *)
+	translate(*,*) 坐标移动。translateX 和translateY，可简写为：translate(* , *)。
  
 ###页面描述
-<link rel="apple-touch-icon-precomposed" href="http://www.xxx.com/App_icon_114.png" />
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.xxx.com/App_icon_72.png" />
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
+	<link rel="apple-touch-icon-precomposed" href="http://www.xxx.com/App_icon_114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.xxx.com/App_icon_72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
+
 这个属性是当用户把连接保存到手机桌面时使用的图标，如果不设置，则会用网页的截图。有了这，就可以让你的网页像APP一样存在手机里了
-<link rel="apple-touch-startup-image" href="/img/startup.png" />
+	<link rel="apple-touch-startup-image" href="/img/startup.png" />
+
 这个是APP启动画面图片，用途和上面的类似，如果不设置，启动画面就是白屏，图片像素就是手机全屏的像素
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 这个描述是表示打开的web app的最上面的时间、信号栏是黑色的，当然也可以设置其它参数，详细参数说明请参照：[Safari HTML Reference - Supported Meta Tags](https://developer.apple.com/library/safari/documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html)
-<meta name="apple-touch-fullscreen" content="yes" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
 
 
 ##常见的 iPhone 和 Android 屏幕参数。
