@@ -417,12 +417,15 @@ animation 有这几个属性：
 	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.xxx.com/App_icon_114.png" />
 
 这个属性是当用户把连接保存到手机桌面时使用的图标，如果不设置，则会用网页的截图。有了这，就可以让你的网页像APP一样存在手机里了
+
 	<link rel="apple-touch-startup-image" href="/img/startup.png" />
 
 这个是APP启动画面图片，用途和上面的类似，如果不设置，启动画面就是白屏，图片像素就是手机全屏的像素
+
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 这个描述是表示打开的web app的最上面的时间、信号栏是黑色的，当然也可以设置其它参数，详细参数说明请参照：[Safari HTML Reference - Supported Meta Tags](https://developer.apple.com/library/safari/documentation/appleapplications/reference/SafariHTMLRef/Articles/MetaTags.html)
+
 	<meta name="apple-touch-fullscreen" content="yes" />
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 
@@ -433,106 +436,134 @@ animation 有这几个属性：
 * Iphone 3 & Android MDPI	320×480	1
 * Android HDPI	480×800	1.5
 * Iphone 4	960×640	2.0
+
 iPhone4的一个CSS像素实际上表现为一块2×2的像素。所以图片像是被放大2倍一样，模糊不清晰。
+
 解决办法：
+
 1、页面引用
-<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 0.75)" href="ldpi.css" />
-<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
-<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
-<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 2.0)" href="retina.css" />
+
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 0.75)" href="ldpi.css" />
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 2.0)" href="retina.css" />
+
 2、CSS文件里
-#header {
-	background:url(mdpi/bg.png);
-}
-@media screen and (-webkit-device-pixel-ratio: 1.5) {
-	/*CSS for high-density screens*/
+
 	#header {
-		background:url(hdpi/bg.png);
+		background:url(mdpi/bg.png);
 	}
-}
+	@media screen and (-webkit-device-pixel-ratio: 1.5) {
+		/*CSS for high-density screens*/
+		#header {
+			background:url(hdpi/bg.png);
+		}
+	}
 
 
 ##移动 Web 开发经验技巧
-
 ###点击与click事件
 对于a标记的点击导航，默认是在onclick事件中处理的。而移动客户端对onclick的响应相比PC浏览器有着明显的几百毫秒延迟。
-在移动浏览器中对触摸事件的响应顺序应当是： 
-ontouchstart -> ontouchmove -> ontouchend -> onclick
+在移动浏览器中对触摸事件的响应顺序应当是：
+
+	ontouchstart -> ontouchmove -> ontouchend -> onclick
+
 因此，如果确实要加快对点击事件的响应，就应当绑定ontouchend事件。
+
 使用click会出现绑定点击区域闪一下的情况，解决：给该元素一个样式如下
--webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
 如果不使用click，也不能简单的用touchstart或touchend替代，需要用touchstart的模拟一个click事件，并且不能发生touchmove事件，或者用zepto中的tap（轻击）事件。
-body
-{
-	-webkit-overflow-scrolling: touch;
-}
+
+	body
+	{
+		-webkit-overflow-scrolling: touch;
+	}
+
 用iphone或ipad浏览很长的网页滚动时的滑动效果很不错吧？不过如果是一个div，然后设置 `height:200px;overflow:auto;`的话，可以滚动但是完全没有那滑动效果，很郁闷吧？
 我看到很多网站为了实现这一效果，用了第三方类库，最常用的是iscroll（包括新浪手机页，百度等）
+
 我一开始也使用，不过自从用了`-webkit-overflow-scrolling: touch;`样式后，就完全可以抛弃第三方类库了，把它加在body{}区域，所有的overflow需要滚动的都可以生效了。
 
 
 ###锁定 viewport
-//锁定viewport，任何屏幕操作不移动用户界面（弹出键盘除外）。
-ontouchmove="event.preventDefault()"
+	//锁定viewport，任何屏幕操作不移动用户界面（弹出键盘除外）。
+	ontouchmove="event.preventDefault()"
 
 ###利用 Media Query监听
 Media Query相信大部分人已经使用过了。其实JavaScript可以配合Media Query这么用：
-var mql = window.matchMedia("(orientation: portrait)");
-mql.addListener(handleOrientationChange);
-handleOrientationChange(mql); 
-function handleOrientationChange(mql) {
-  if (mql.matches) {
-    alert('The device is currently in portrait orientation ')
-  } else {
-    alert('The device is currently in landscape orientation')
-  }
-}
+
+	var mql = window.matchMedia("(orientation: portrait)");
+	mql.addListener(handleOrientationChange);
+	handleOrientationChange(mql); 
+	function handleOrientationChange(mql) {
+	  if (mql.matches) {
+	    alert('The device is currently in portrait orientation ')
+	  } else {
+	    alert('The device is currently in landscape orientation')
+	  }
+	}
+
 借助了Media Query接口做的事件监听，所以很强大！
+
 也可以通过获取CSS值来使用Media Query判断设备情况，详情请看：[JavaScript 依据 CSS Media Queries 判断设备的方法](http://yujiangshui.com/use-javascript-css-media-queries-detect-device-state/)。
 
 ###rem最佳实践
 rem是非常好用的一个属性，可以根据html来设定基准值，而且兼容性也很不错。不过有的时候还是需要对一些莫名其妙的浏览器优雅降级。以下是两个实践
+
 1. <http://jsbin.com/vaqexuge/4/edit>这有个demo，发现chrome当font-size小于12时，rem会按照12来计算。因此设置基准值要考虑这一点
+
 2. 可以用以下的代码片段保证在低端浏览器下也不会出问题
-html { font-size: 62.5%; } 
-body { font-size: 14px; font-size: 1.4rem; } /* =14px */
-h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
+
+	html { font-size: 62.5%; } 
+	body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
 ###被点击元素的外观变化，可以使用样式来设定：
--webkit-tap-highlight-color: 颜色
+	-webkit-tap-highlight-color: 颜色
 
 ###检测判断 iPhone/iPod
 开发特定设备的移动网站，首先要做的就是设备侦测了。下面是使用Javascript侦测iPhone/iPod的UA，然后转向到专属的URL。
-if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
-　　if (document.cookie.indexOf("iphone_redirect=false") == -1) {
-　　　　window.location = "http://m.example.com";
-　　}
-}
+
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+	　　if (document.cookie.indexOf("iphone_redirect=false") == -1) {
+	　　　　window.location = "http://m.example.com";
+	　　}
+	}
+
 虽然Javascript是可以在水果设备上运行的，但是用户还是可以禁用。它也会造成客户端刷新和额外的数据传输，所以下面是服务器端侦测和转向：
-if(strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
-　　header('Location: http://yoursite.com/iphone');
-　　exit();
-}
+
+	if(strstr($_SERVER['HTTP_USER_AGENT'],'iPhone') || strstr($_SERVER['HTTP_USER_AGENT'],'iPod')) {
+	　　header('Location: http://yoursite.com/iphone');
+	　　exit();
+	}
 
 ###阻止旋转屏幕时自动调整字体大小
-html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
+	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
 
 ###模拟:hover伪类
 因为iPhone并没有鼠标指针，所以没有hover事件。那么CSS :hover伪类就没用了。但是iPhone有Touch事件，onTouchStart类似onMouseOver，onTouchEnd类似onMouseOut。所以我们可以用它来模拟hover。使用Javascript：
-var myLinks = document.getElementsByTagName('a');
-for(var i = 0; i < myLinks.length; i++){
-　　myLinks[i].addEventListener(’touchstart’, function(){this.className = “hover”;}, false);
-　　myLinks[i].addEventListener(’touchend’, function(){this.className = “”;}, false);
-}
+
+	var myLinks = document.getElementsByTagName('a');
+	for(var i = 0; i < myLinks.length; i++){
+	　　myLinks[i].addEventListener(’touchstart’, function(){this.className = “hover”;}, false);
+	　　myLinks[i].addEventListener(’touchend’, function(){this.className = “”;}, false);
+	}
+
 然后用CSS增加hover效果：
-a:hover, a.hover { /* 你的hover效果 */ }
+
+	a:hover, a.hover { /* 你的hover效果 */ }
+
 这样设计一个链接，感觉可以更像按钮。并且，这个模拟可以用在任何元素上。
 
 ###Flexbox 布局
 [Flex 模板和实例]
 (http://jsbin.com/ibuwol/2/edit "article5")
+
 [深入了解 Flexbox 伸缩盒模型]
 (http://www.w3cplus.com/blog/666.html "article6")
+
 [CSS Flexbox Intro]
 (http://yehao.diandian.com/post/2013-09-15/40052216426)
 <http://www.w3.org/TR/css3-flexbox/>
@@ -540,43 +571,59 @@ a:hover, a.hover { /* 你的hover效果 */ }
 ###居中问题
 居中是移动端跟pc端共同的噩梦。这里有两种兼容性比较好的新方案。
 - table布局法
-.box{
-  text-align:center; 
-  display:table-cell;
-  vertical-align:middle;
-}
+
+	.box{
+	  text-align:center; 
+	  display:table-cell;
+	  vertical-align:middle;
+	}
+
 - 老版本flex布局法
-.box{
-  display:-webkit-box;
-  -webkit-box-pack: center;
-  -webkit-box-align: center; 
-  text-align:center;
-}
+	
+	.box{
+	  display:-webkit-box;
+	  -webkit-box-pack: center;
+	  -webkit-box-align: center; 
+	  text-align:center;
+	}
+
 以上两种其实分别是retchat跟ionic的布局基石。
+
 这里有更详细的更多的选择<http://www.zhouwenbin.com/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/> 来自周文彬的博客
  
 ###处理 Retina 双倍屏幕
 [（经典）Using CSS Sprites to optimize your website for Retina Displays]
 (http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
+
 [使用CSS3的background-size优化苹果的Retina屏幕的图像显示]
 (http://www.w3cplus.com/css/css-background-size-graphics.html "article5") 
+
 [使用 CSS sprites 来优化你的网站在 Retina 屏幕下显示]
 (http://www.w3cplus.com/css/using-css-sprites-to-optimize-your-website-for-retina-displays.html "article5") 
+
 [（案例）CSS IMAGE SPRITES FOR RETINA (HIRES) DEVICES]
 (http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
  
 ###input类型为date情况下不支持placeholder（来自于江水）
 这其实是浏览器自己的处理。因为浏览器会针对此类型input增加datepicker模块。
+
 对input type date使用placeholder的目的是为了让用户更准确的输入日期格式，iOS上会有datepicker不会显示placeholder文字，但是为了统一表单外观，往往需要显示。Android部分机型没有datepicker也不会显示placeholder文字。
+
 桌面端（Mac）
+
 - Safari 不支持 datepicker，placeholder 正常显示。
 - Firefox 不支持 datepicker，placeholder 正常显示。
 - Chrome 支持 datepicker，显示 年、月、日 格式，忽略 placeholder。
+
 移动端
+
 - iPhone5 iOS7 有 datepicker 功能，但是不显示 placeholder。
 - Andorid 4.0.4 无 datepicker 功能，不显示 placeholder
+
 解决方法：
-<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> 
+
+	<input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"> 
+
 因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了
 
 ###Android上当viewport的width大于device-width时出现文字无故折行的解决办法
@@ -587,53 +634,61 @@ a:hover, a.hover { /* 你的hover效果 */ }
 通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页）、etao://scan（一淘扫描）);
 如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
 如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
+
 大概实现代码如下	
-goToNative:function(){
-	if(!body) {
-        setTimeout(function(){
-            doc.body.appendChild(iframe);
-        }, 0);
-    } else {
-        body.appendChild(iframe);
-    }
-	setTimeout(function() {
-        doc.body.removeChild(iframe);
-        gotoDownload(startTime);//去下载，下载链接一般是itunes app store或者apk文件链接
-        /**
-         * 测试时间设置小于800ms时，在android下的UC浏览器会打开native app时并下载apk，
-         * 测试android+UC下打开native的时间最好大于800ms;
-         */
-    }, 800);
-}
+
+	goToNative:function(){
+		if(!body) {
+	        setTimeout(function(){
+	            doc.body.appendChild(iframe);
+	        }, 0);
+	    } else {
+	        body.appendChild(iframe);
+	    }
+		setTimeout(function() {
+	        doc.body.removeChild(iframe);
+	        gotoDownload(startTime);//去下载，下载链接一般是itunes app store或者apk文件链接
+	        /**
+	         * 测试时间设置小于800ms时，在android下的UC浏览器会打开native app时并下载apk，
+	         * 测试android+UC下打开native的时间最好大于800ms;
+	         */
+	    }, 800);
+	}
+
 需要注意的是如果是android chrome 25版本以后，在iframe src不会发送请求，
+
 原因如下<https://developers.google.com/chrome/mobile/docs/intents>，通过location href使用intent机制拉起客户端可行并且当前页面不跳转。
-window.location = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
+
+	window.location = 'intent://' + schemeUrl + '#Intent;scheme=' + scheme + ';package=' + self.package + ';end';
+
 补充一个来自三水清的详细讲解<http://js8.in/2013/12/16/ios%E4%BD%BF%E7%94%A8schema%E5%8D%8F%E8%AE%AE%E8%B0%83%E8%B5%B7app/>
 	
 ###active的兼容
 今天发现，要让a链接的CSS active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功
-<style>
-a {
-	color: #000;
-}
-a:active {
-	color: #fff;
-}
-</style>
-<a herf=”asdasd”>asdasd</a>
-<script>
-var a=document.getElementsByTagName(‘a’);
-for(var i=0;i<a.length;i++){
-	a[i].addEventListener(‘touchstart’, function(){}, false);
-}
-</script>
+
+	<style>
+	a {
+		color: #000;
+	}
+	a:active {
+		color: #fff;
+	}
+	</style>
+	<a herf=”asdasd”>asdasd</a>
+	<script>
+	var a=document.getElementsByTagName(‘a’);
+	for(var i=0;i<a.length;i++){
+		a[i].addEventListener(‘touchstart’, function(){}, false);
+	}
+	</script>
 
 ###消除transition闪屏
 两个方法：使用css3动画的时尽量利用3D加速，从而使得动画变得流畅。动画过程中的动画闪白可以通过 backface-visibility 隐藏。
--webkit-transform-style: preserve-3d;
-/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
--webkit-backface-visibility: hidden;
-/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
+
+	-webkit-transform-style: preserve-3d;
+	/*设置内嵌的元素在 3D 空间如何呈现：保留 3D*/
+	-webkit-backface-visibility: hidden;
+	/*（设置进行转换的元素的背面在面对用户时是否可见：隐藏）*/
 
 ###测试是否支持svg图片
 document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1")
