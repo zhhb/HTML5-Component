@@ -545,6 +545,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	body { font-size: 14px; font-size: 1.4rem; } /* =14px */
 	h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
 
+
 ###被点击元素的外观变化，可以使用样式来设定：
 	-webkit-tap-highlight-color: 颜色
 
@@ -564,8 +565,10 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	　　exit();
 	}
 
+
 ###阻止旋转屏幕时自动调整字体大小
 	html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {-webkit-text-size-adjust:none;}
+
 
 ###模拟:hover伪类
 因为iPhone并没有鼠标指针，所以没有hover事件。那么CSS :hover伪类就没用了。但是iPhone有Touch事件，onTouchStart类似onMouseOver，onTouchEnd类似onMouseOut。所以我们可以用它来模拟hover。使用Javascript：
@@ -603,6 +606,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	  vertical-align:middle;
 	}
 
+
 - 老版本flex布局法
 	
 	.box{
@@ -612,10 +616,12 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 	  text-align:center;
 	}
 
+
 以上两种其实分别是retchat跟ionic的布局基石。
 
 这里有更详细的更多的选择<http://www.zhouwenbin.com/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/> 来自周文彬的博客
- 
+
+
 ###处理 Retina 双倍屏幕
 [（经典）Using CSS Sprites to optimize your website for Retina Displays]
 (http://miekd.com/articles/using-css-sprites-to-optimize-your-website-for-retina-displays/ "article5")
@@ -629,6 +635,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 [（案例）CSS IMAGE SPRITES FOR RETINA (HIRES) DEVICES]
 (http://alexthorpe.com/uncategorized/css-sprites-for-retina-display-devices/683/ "article5") 
  
+
 ###input类型为date情况下不支持placeholder（来自于江水）
 这其实是浏览器自己的处理。因为浏览器会针对此类型input增加datepicker模块。
 
@@ -655,10 +662,7 @@ rem是非常好用的一个属性，可以根据html来设定基准值，而且�
 <http://www.iunbug.com/archives/2013/04/23/798.html>
 
 ###如何实现打开已安装的app，若未安装则引导用户安装?
-来自<http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile
-通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页）、etao://scan（一淘扫描）);
-如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；
-如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
+来自<http://gallery.kissyui.com/redirectToNative/1.2/guide/index.html> kissy mobile 通过iframe src发送请求打开app自定义url scheme，如taobao://home（淘宝首页）、etao://scan（一淘扫描）);如果安装了客户端则会直接唤起，直接唤起后，之前浏览器窗口（或者扫码工具的webview）推入后台；如果在指定的时间内客户端没有被唤起，则js重定向到app下载地址。
 
 大概实现代码如下	
 
