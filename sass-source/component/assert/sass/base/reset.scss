@@ -1,0 +1,53 @@
+/*************************************
+ * css reset
+ *************************************/
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p, blockquote, q, pre,
+a, em, img, i,
+dl, dt, dd, ol, ul, li,
+fieldset, legend, form, label, input, select,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary,
+audio, video {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+	-webkit-text-size-adjust: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select: text;
+	-webkit-appearance: none;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a, a:hover {
+	text-decoration: none;
+	outline: none;
+}
+:focus {
+	outline: none;
+}
+input::-webkit-input-placeholder, input::-moz-input-placeholder {
+	font-size: 14px;
+	color: #CCC;
+}
+input, select {
+	vertical-align: middle;
+}

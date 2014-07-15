@@ -1,0 +1,21 @@
+@import 'base/base';
+@import 'widget/ui-accordion';
+@import 'widget/ui-button';
+@import 'widget/ui-form';
+@import 'widget/ui-icon';
+@import 'widget/ui-radio';
+@import 'widget/ui-checkbox';
+@import 'widget/ui-switch';
+@import 'widget/ui-list';
+@import 'widget/ui-header';
+@import 'widget/ui-footer';
+@import 'widget/ui-modal';
+@import 'widget/ui-scroll';
+@import 'widget/ui-tab';
+@import 'widget/ui-timeline';
+@import 'widget/ui-upload';
+
+// overwrite style 
+.ui-list-flowstep li .fa-seq {
+  box-sizing: content-box;
+}
