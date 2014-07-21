@@ -1,0 +1,88 @@
+/****************************************
+ * ui-list component
+ ****************************************/
+.ui-list {
+  li {
+    padding: 5px 12px;
+    min-height: 34px;
+    background-color: $white;
+    border-bottom: $baseBorder;
+    text-align: left;
+    a {
+      position: relative;
+      display: block;
+      color: $grayDarker;
+      font-size: $baseFontSize;
+    }
+    h4 {
+      max-height: 72px;
+      line-height: 24px;
+      overflow: hidden;
+    }
+    p {
+      line-height: 18px;
+      font-size: $font-size-small;
+      color: $gray-9;
+      span {
+        padding-left: 20px;
+      }
+    }
+    .status {
+      color: $emphatic;
+    }
+  }
+}
+.ui-list-img {
+  li {
+    min-height: 52px;
+  }
+  a {
+    padding-left: 52px;
+    .img {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      display: block;
+      width: 44px;
+      height: 44px;
+      overflow: hidden;
+    }
+  }
+}
+.ui-list-bubble {
+  li {
+    margin-bottom: 12px;
+    height: 56px;
+    background-color: $white;
+    border: $baseBorder;
+    border-radius: 5px;
+    text-align: center;
+    a {
+      display: block;
+      padding-top: 12px;
+      font-size: $font-size-middle;
+      color: $grayDarker;
+      .sub {
+        display: block;
+        font-size: $baseFontSize;
+        color: $gray-9;
+      }
+    }
+    &:first-child {
+      a {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+.ui-list-checkbox {
+  li {
+    position: relative;
+    padding-left: 42px;
+    .ui-checkbox {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+/****************************************
+ * ui-tab component
+ ****************************************/
+.ui-tab {
+  clear: both;
+  position: relative;
+  height: 40px;
+  background-color: $white;
+  border-bottom: $baseBorder;
+  .ui-tab-item {
+    float: left;
+    padding: $basePadding;
+    padding-bottom: 7px;
+    width: 50%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    a {
+      display: block;
+      border-right: $baseBorder;
+      font-size: $baseFontSize;
+      color: $gray-6;
+    }
+    &:last-child {
+      a {
+        border-right: none;
+      }
+    }
+  }
+  .current {
+    border-bottom: 2px solid $nav-active;
+    a {
+      color: $nav-active;
+    }
+  }
+}
+.ui-tab-3-col {
+  .ui-tab-item {
+    width: 33%;
+    &:nth-child(2) {
+      width: 34%;
+    }
+  }
+}
+.ui-tab-4-col {
+  .ui-tab-item {
+    width: 25%;
+  }
+}
+.ui-tab-5-col {
+  .ui-tab-item {
+    width: 20%;
+  }
+}
+.ui-tab-panel {
+  .ui-tab-content {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: $white
+  }
+}

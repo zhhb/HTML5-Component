@@ -1,0 +1,50 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// ui-triangle component
+//-----------------------------------------------------
+// 方案1
+// $baseTriangleSize: 12px;
+// $baseTriangleColor: #AAA;
+// $baseTriangleClass: "ui-triangle";
+// $triangleDirections: top, right, bottom, left;
+// 
+// @each $direction in $triangleDirections {
+//   .#{$baseTriangleClass}-#{$direction} {
+//     @extend %inline-block;
+//     @include triangle($direction, $baseTriangleSize, $baseTriangleColor);
+//   }
+// }
+// 由于定义了$baseTriangleSize，以上代码生成的三角都是同一大小的。
+// 在使用中，若想改变大小，可以在使用前重置$baseTriangleSize，如下：
+// $baseTriangleSize: 8px;
+
+
+// 方案2
+// 当多种size同时存在时，则需要单独引用了，如下：
+// .triangle-1 {
+//   @include triangle($direction1, $size1, $color1);
+// }
+// .triangle-2 {
+//   @include triangle($direction2, $size2, $color2);
+// }
+// .triangle-3 {
+//   @include triangle($direction3, $size3, $color3);
+// }
+// 此种情况下不建议单个执行，采用方案三是最佳实现方式。
+
+
+// 方案3
+// 全局设置，适用于当前页面中存在多种不同大小的情况，各个方向，以（方向，大小，颜色）的方式进行组合
+// 具体方向有八种：top, right, bottom, left, top-right, bottom-right, bottom-left, top-left
+// 有其他特殊需求时，单独考虑
+$baseTriangleClass: 'ui-triangle';
+$triangleClass: (top 12px #AAA) (bottom 12px #AAA);
+@each $triangle in $triangleClass {
+  .#{$baseTriangleClass}-#{nth($triangle, 1)} {
+    $direction: nth($triangle, 1);
+    $size: nth($triangle, 2);
+    $color: nth($triangle, 3);
+    @extend %inline-block;
+    @include triangle($direction, $size, $color);
+  }
+}

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// ui-header component
+//-----------------------------------------------------
+$baseHeaderHight: 44px;
+
+.ui-header {
+  position: relative;
+  width: 100%;
+  height: $baseHeaderHight;
+  background-color: $baseBgColor;
+  border-bottom: $borderDark;
+  text-align: center;
+  h1 {
+    line-height: $baseHeaderHight;
+    font-size: $fontSizeLarger;
+  }
+  .icon-back {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .icon-new {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &-fixed {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: $zindexFixedTopbar;
+  }
+}
