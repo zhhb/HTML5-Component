@@ -1,10 +1,12 @@
-/****************************************
- * ui-form component
- ****************************************/
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------
+// ui-form component
+//-----------------------------------------------------
 .ui-form-lbl {
   display: inline-block;
   font-size: $baseFontSize;
-  color: $gray-9;
+  color: $grayDark9;
 }
 .ui-form-txt {
   padding: 10px 0;
@@ -69,7 +71,7 @@
   .ui-form-txt {
     padding-right: 15px;
     width: calc(68% - 15px);
-    color: $gray-9;
+    color: $grayDark9;
     text-align: right;
   }
 }
@@ -93,6 +95,6 @@
 }
 .ui-space {
   height: 34px;
-  background-color: $background-color-default;
+  background-color: $bodyBgColor;
   border-bottom: $baseBorder;
 }

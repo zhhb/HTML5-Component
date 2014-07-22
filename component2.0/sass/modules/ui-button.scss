@@ -1,6 +1,8 @@
-/****************************************
- * ui-button component
- ****************************************/
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------
+// ui-button component
+//-----------------------------------------------------
 @mixin ui-button($height, $fontsize) {
   display: block;
   width: 100%;
@@ -14,7 +16,7 @@
   color: $grayDarker;
 }
 %ui-button {
-  @include ui-button(40px, $font-size-large);
+  @include ui-button(40px, $fontSizeLarge);
 }
 %ui-button-small {
   padding: 0 8px;
@@ -36,9 +38,9 @@
 }
 .ui-button-disabled {
   @extend %ui-button;
-  background-color: #EEE;
-  border-color: #DDD;
-  color: #CCC;
+  background-color: $grayE;
+  border-color: $grayD;
+  color: $gray;
 }
 // small
 .ui-small-button {
@@ -49,7 +51,7 @@
   @extend %ui-button-primary;
 }
 %normal-active {
-  background-color: #DDD;
+  background-color: $grayD;
 }
 %primary-active {
   background-color: #F40;
@@ -58,9 +60,9 @@
 // warning
 .ui-button-warning {
   @extend %ui-button;
-  background-color: #F33;
-  border-color: #F33;
-  color: #FFF;
+  background-color: $arrestive;
+  border-color: $arrestive;
+  color: $arrestive;
 }
 .ui-button-warning-active {
   background-color: #900;

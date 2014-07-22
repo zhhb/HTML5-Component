@@ -1,15 +1,15 @@
 @charset "UTF-8";
+@import '../function';
 //-----------------------------------------------------
 // ui-tab component
 //-----------------------------------------------------
-$baseTabClass: 'ui-tab';
-.#{$baseTabClass} {
+.ui-tab {
   @extend %clearfix;
   position: relative;
   height: 40px;
   background-color: $white;
   border-bottom: $baseBorder;
-  .#{$baseTabClass}-item {
+  .ui-tab-item {
     @include float;
     padding: $basePadding;
     padding-bottom: 7px;
@@ -36,7 +36,7 @@ $baseTabClass: 'ui-tab';
     }
   }
   &-3-col {
-    .#{$baseTabClass}-item {
+    .ui-tab-item {
       width: 33%;
       &:nth-child(2) {
         width: 34%;
@@ -44,17 +44,17 @@ $baseTabClass: 'ui-tab';
     }
   }
   &-4-col {
-    .#{$baseTabClass}-item {
+    .ui-tab-item {
       width: 25%;
     }
   }
-  &-4-col {
-    .#{$baseTabClass}-item {
+  &-5-col {
+    .ui-tab-item {
       width: 20%;
     }
   }
   &-panel {
-    .#{$baseTabClass}-content {
+    .ui-tab-content {
       width: 100%;
       height: 100%;
       overflow: hidden;

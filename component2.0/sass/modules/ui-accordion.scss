@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import '../function';
 //-----------------------------------------------------
 // ui-accordion component
 //-----------------------------------------------------
@@ -51,14 +52,14 @@ $baseHeight: 44px;
       background-size: 16px 13px;
     }
   }
-}
-.ui-accordion-active {
-  .ui-accordion-title {
-    .icon-down {
-      @include transform(rotate(-180deg));
+  &-active {
+    .ui-accordion-title {
+      .icon-down {
+        @include transform(rotate(-180deg));
+      }
     }
-  }
-  .ui-accordion-list {
-    display: block;
+    .ui-accordion-list {
+      display: block;
+    }
   }
 }
