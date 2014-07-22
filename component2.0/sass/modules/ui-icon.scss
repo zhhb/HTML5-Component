@@ -5,7 +5,7 @@
 $baseIconClass: 'icon';
 $iconNames: back, search, filter, new, down, up, left, right;
 
-%icon {
+%iconBasic {
   display: block;
   width: 55px;
   height: 44px;
@@ -14,7 +14,7 @@ $iconNames: back, search, filter, new, down, up, left, right;
 }
 @each $iconName in $iconNames {
   .#{$baseIconClass}-#{$iconName} {
-    @extend %icon;
+    @extend %iconBasic;
     
     @if $iconName == back {
       width: 35px;

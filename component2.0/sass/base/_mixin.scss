@@ -351,11 +351,6 @@
   color: $textColor;
   background-color: $bgColor;
   border:0 none;
-
-  &:hover{
-    color: $textColor;
-    background-color: darken($bgColor,5%);
-  }
 }
 
 // table

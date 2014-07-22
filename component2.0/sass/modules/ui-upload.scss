@@ -1,40 +1,41 @@
-
-/****************************************
- * ui-upload component
- ****************************************/
-$upload-item-width: 68px;
-.ui-upload {
+@charset "UTF-8";
+//-----------------------------------------------------
+// ui-upload component
+//-----------------------------------------------------
+$baseUploadClass: 'ui-upload';
+$uploadItemWidth: 68px;
+.#{$baseUploadClass} {
   h3 {
     padding: $basePadding;
     padding-top: 22px;
     min-height: 26px;
     line-height: 22px;
     overflow: hidden;
-    background-color: $background-color-default;
+    background-color: $baseBgColor;
     border-bottom: $baseBorder;
     font-size: $baseFontSize;
-    color: $gray-9;
+    color: $grayDark9;
     span {
-      font-size: $font-size-small;
+      font-size: $fontSizeSmaller;
       color: $emphatic;
     }
   }
-  .ui-upload-list {
+  .#{$baseUploadClass}-list {
     padding: 4px;
     background-color: $white;
-    border-bottom: $border-dark;
+    border-bottom: $borderDark;
     text-align: left;
     line-height: 0;
     font-size: 0;
-    .ui-upload-item {
-      display: inline-block;
+    .#{$baseUploadClass}-item {
+      @include inline-block;
       margin: 4px;
       overflow: hidden;
       text-align: center;
-      .ui-upload-img {
+      .#{$baseUploadClass}-img {
         display: block;
-        width: $upload-item-width;
-        height: $upload-item-width;
+        width: $uploadItemWidth;
+        height: $uploadItemWidth;
         overflow: hidden;
         border: $baseBorder;
         img {
@@ -47,16 +48,16 @@ $upload-item-width: 68px;
         max-width: 70px;
         line-height: 18px;
         overflow: hidden;
-        font-size: $font-size-small;
+        font-size: $fontSizeSmaller;
         color: #F33;
       }
-      .ui-upload-done {
-        color: $gray-6;
+      .#{$baseUploadClass}-done {
+        color: $grayDark6;
       }
     }
-    .ui-upload-item-plus {
-      width: $upload-item-width;
-      height: $upload-item-width;
+    .#{$baseUploadClass}-item-plus {
+      width: $uploadItemWidth;
+      height: $uploadItemWidth;
       background: $white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1NURGNERCQkExMjExRTM4MjM4RUFGMjRCRkU1QzQwIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1NURGNERDQkExMjExRTM4MjM4RUFGMjRCRkU1QzQwIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU1REY0RDlCQTEyMTFFMzgyMzhFQUYyNEJGRTVDNDAiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU1REY0REFCQTEyMTFFMzgyMzhFQUYyNEJGRTVDNDAiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6q1kgkAAAAgklEQVR42uzasQ3AIAwAQTti/8m8k9NDHTkS9x0dOgENzqqKoXpb58Qmnrg8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3NGK85d2qnYCAAAYeQPyJ3fehAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfNUrwABsowbntQqzzQAAAABJRU5ErkJggg==) no-repeat center;
       background-size: 32px;
       border: $baseBorder;

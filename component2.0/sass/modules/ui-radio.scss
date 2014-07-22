@@ -1,5 +1,9 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// ui-radio component
+//-----------------------------------------------------
 .ui-radio {
-  display: inline-block;
+  @include inline-block;
   padding: $basePadding;
   min-width: 60px;
   height: 26px;
@@ -7,16 +11,16 @@
   overflow: hidden;
   background-color: $white;
   border: 1px solid #999;
-  @include border-radius(3px);
+  @include border-radius($smallRadius);
   text-align: center;
   font-size: $baseFontSize;
   color: $grayDarker;
-}
-.ui-radio-checked {
-  border-color: $active;
-}
-.ui-radio-disabled {
-  background-color: #EEE;
-  border-color: $gray-d;
-  color: #CCC;
+  &-checked {
+    border-color: $active;
+  }
+  &-disabled {
+    background-color: $grayE;
+    border-color: $grayD;
+    color: $gray;
+  }
 }

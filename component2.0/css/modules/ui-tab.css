@@ -1,0 +1,55 @@
+.ui-tab:before, .ui-tab:after {
+	content: "";
+	display: table
+}
+.ui-tab:after {
+	clear: both
+}
+.ui-tab {
+	position: relative;
+	height: 40px;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd
+}
+.ui-tab .ui-tab-item {
+	float: left;
+	padding: 0 12px;
+	padding-bottom: 7px;
+	width: 50%;
+	height: 20px;
+	line-height: 20px;
+	text-align: center
+}
+.ui-tab .ui-tab-item a {
+	display: block;
+	border-right: 1px solid #ddd;
+	font-size: 14px;
+	color: #666
+}
+.ui-tab .ui-tab-item:last-child a {
+	border-right: none
+}
+.ui-tab .current {
+	border-bottom: 2px solid #f60
+}
+.ui-tab .current a {
+	color: #f60
+}
+.ui-tab-3-col .ui-tab-item {
+	width: 33%
+}
+.ui-tab-3-col .ui-tab-item:nth-child(2) {
+	width: 34%
+}
+.ui-tab-4-col .ui-tab-item {
+	width: 25%
+}
+.ui-tab-4-col .ui-tab-item {
+	width: 20%
+}
+.ui-tab-panel .ui-tab-content {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: #fff
+}

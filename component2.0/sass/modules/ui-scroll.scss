@@ -1,4 +1,8 @@
-$base-width: 40px;
+@charset "UTF-8";
+//-----------------------------------------------------
+// ui-scroll component
+//-----------------------------------------------------
+$baseWidth: 40px;
 .ui-scroll-wrapper {
   position: absolute;
   left: 0;
@@ -13,40 +17,35 @@ $base-width: 40px;
   }
 }
 .ui-loading-bar {
-  box-sizing: content-box;
+  @include box-sizing(content-box);
 	padding: 5px 12px;
-	height: $base-width;
-	line-height: $base-width;
+	height: $baseWidth;
+	line-height: $baseWidth;
 	background-color: $white;
-	border-bottom: 1px solid #ccc;
+	border-bottom: $borderDark;
 	font-weight: bold;
 	font-size: $baseFontSize;
-	color: $gray-9;
+	color: $grayDark9;
 	.ui-loading-icon {
-		float: left;
-		width: $base-width;
-		height: $base-width;
+		@include float;
+		width: $baseWidth;
+		height: $baseWidth;
 		background: url(../img/pull-icon@2x.png) 0 0 no-repeat;
-		background-size: $base-width $base-width*2;
-		-webkit-transition-property: -webkit-transform;
-		-webkit-transition-duration: 250ms;
-		-webkit-transform: rotate(-180deg) translateZ(0);
-		transition-property: transform;
-		transition-duration: 250ms;
-		transform: rotate(-180deg) translateZ(0);
+		background-size: $baseWidth $baseWidth*2;
+		@include transition-property(transform);
+		@include transition-duration(250ms);
+		@include transform(rotate(-180deg) translateZ(0));
 	}
 }
 .ui-loading-flip {
 	.ui-loading-icon {
-		-webkit-transform: rotate(0) translateZ(0);
-		transform: rotate(0) translateZ(0);
+		@include transform(rotate(0) translateZ(0));
 	}
 }
 .ui-loading {
 	.ui-loading-icon {
 		background-position: 0 100%;
-		-webkit-transform: -webkit-rotate(0) -webkit-translateZ(0);
-		transform: rotate(0) translateZ(0);
+		@include transform(rotate(0) translateZ(0));
 		@include animation(loading 2s linear infinite);
 	}
 }

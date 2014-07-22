@@ -1,6 +1,8 @@
-/****************************************
- * ui-timeline component
- ****************************************/
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------
+// ui-timeline component
+//-----------------------------------------------------
 //simple flow or timeline
 .ui-list-flowstep {
   position: relative;
@@ -25,7 +27,7 @@
     padding: 10px 0;
     border-bottom: $baseBorder;
     font-size: $baseFontSize;
-    color: $gray-9;
+    color: $grayDark9;
     &:last-child {
       border-bottom: 0 none;
     }
@@ -113,8 +115,8 @@
     dt{
       position: relative;
       time{
-        color: $gray-9;
-        font-size: $font-size-small;
+        color: $grayDark9;
+        font-size: $fontSizeSmaller;
       }
       h3{
         font-size: $baseFontSize;
@@ -128,7 +130,7 @@
       }
       label{
         margin-right: 16px;
-        color: $gray-9;
+        color: $grayDark9;
       }
       .short-desc, .long-desc{
         margin-bottom: 0;

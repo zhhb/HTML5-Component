@@ -1,13 +1,15 @@
-/****************************************
- * ui-modal component
- ****************************************/
+@charset "UTF-8";
+
+//-----------------------------------------------------
+// ui-modal component
+//-----------------------------------------------------
 .ui-modal {
   position: absolute;
-  background: $background-color-modal;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
   left: 0;
   top: 0;
+  z-index: $zindexModal;
   display: none;
+  width: 100%;
+  height: 100%;
+  background-color: $modalBgColorAlpha;
 }

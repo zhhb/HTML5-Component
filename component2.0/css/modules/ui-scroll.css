@@ -1,0 +1,65 @@
+.ui-scroll-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	width: 100%;
+	overflow: hidden
+}
+.ui-scroll-wrapper .ui-scroller {
+	position: relative;
+	z-index: 10
+}
+.ui-loading-bar {
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	padding: 5px 12px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	font-size: 14px;
+	color: #999
+}
+.ui-loading-bar .ui-loading-icon {
+	float: left;
+	width: 40px;
+	height: 40px;
+	background: url(../img/pull-icon@2x.png) 0 0 no-repeat;
+	background-size: 40px 80px;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 250ms;
+	transition-duration: 250ms;
+	-webkit-transform: rotate(-180deg) translateZ(0);
+	transform: rotate(-180deg) translateZ(0)
+}
+.ui-loading-flip .ui-loading-icon {
+	-webkit-transform: rotate(0) translateZ(0);
+	transform: rotate(0) translateZ(0)
+}
+.ui-loading .ui-loading-icon {
+	background-position: 0 100%;
+	-webkit-transform: rotate(0) translateZ(0);
+	transform: rotate(0) translateZ(0);
+	-webkit-animation: loading 2s linear infinite;
+	animation: loading 2s linear infinite
+}
+@-webkit-keyframes loading{
+	from {
+		-webkit-transform: rotate(0) translateZ(0)
+	}
+	to {
+		-webkit-transform: rotate(360deg) translateZ(0)
+	}
+}
+@-keyframes loading {
+	from{
+		transform: rotate(0) translateZ(0)
+	}
+	to {
+		transform: rotate(360deg) translateZ(0)
+	}
+}

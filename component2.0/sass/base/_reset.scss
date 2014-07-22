@@ -84,29 +84,18 @@ audio:not([controls]) {
 
 /**
  * 1. Remove the gray background color from active links in IE 10.
- * 2. Improve readability when focused and also mouse hovered in all browsers.
  * 0. sassCore's style.
  */
 
 a {
   background: transparent; /* 1 */
 
-  &:active, &:hover {
-    outline: 0; /* 2 */
-  }
-
   /* 0 */
   text-decoration:none;
   @if length($linkColor) > 1{
       color:nth($linkColor,1);
-      &:hover{
-        color:nth($linkColor,2);
-      }
   } @else {
     color:$linkColor;
-    &:hover{
-      color:darken($linkColor,10%);
-    }
   }
 }
 
