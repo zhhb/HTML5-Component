@@ -1,5 +1,8 @@
 @import '../../../sass-source/sassCore/_base';
 
+body {
+  font-family: $fontYaHei, Arial, "MS Trebuchet", sans-serif;
+}
 %baseIcon {
   @include inline-block;
   line-height: 100px;
@@ -37,7 +40,7 @@ header {
   border-bottom: 1px solid $gray;
 }
 nav {
-  padding: 16px;
+  padding: 16px 0;
   ul {
     @include clearfix;
     li {
@@ -60,6 +63,9 @@ nav {
       }
       .icon-mobile {
         margin-right: 5px;
+      }
+      &:first-child {
+        padding-left: 0;
       }
     }
   }
@@ -94,13 +100,15 @@ nav {
   display: block;
   margin-bottom: 20px;
   width: 180px;
-  height: 54px;
+  height: 52px;
+  line-height: 52px;
   @include border-radius(5px);
   text-align: center;
   font-size: 16px;
   color: $white;
 }
 .download-wrap {
+  padding-left: 50px;
   font-size: 18px;
   color: $grayDark;
   h2 {
@@ -123,28 +131,26 @@ nav {
   }
   .btnAndroid {
     @extend %downloadBtn;
-    line-height: 54px;
     background-color: #98c40f;
+    border: 1px solid #98c40f;
     .icon-android {
       margin-right: 10px;
     }
     &:hover {
       background-color: darken(#98c40f, 10%);
+      border-color: darken(#98c40f, 10%);
     }
   }
   .btnIOS {
     @extend %downloadBtn;
     position: relative;
     padding-left: 40px;
-    width: 140px;
-    line-height: 38px;
-    background-color: #4c4c4c;
-    span {
-      display: block;
-      margin-top: -10px;
-      font-size: 10px;
-      line-height: 18px;
-    }
+    width: 138px;
+    height: 50px;
+    line-height: 50px;
+    background-color: transparent;
+    border: 2px dashed rgba(255,255,255,0.5);
+    cursor: default;
     .icon-ios {
       position: absolute;
       left: 18px;
@@ -153,14 +159,11 @@ nav {
     &:after {
       content: '';
       position: absolute;
-      right: -60px;
-      top: -38px;
+      right: -58px;
+      top: -40px;
       width: 63px;
       height: 40px;
       background: url(../img/bg03.png) no-repeat 0 -120px;
-    }
-    &:hover {
-      background-color: darken(#4c4c4c, 10%);
     }
   }
 }

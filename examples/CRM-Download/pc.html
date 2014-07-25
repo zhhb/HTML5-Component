@@ -48,7 +48,7 @@
 					<p>为销售人员随身打造的移动化办公平台</p>
 					<div class="download">
 						<a href="" class="btnAndroid"><i class="icon-android"></i>Android版下载</a>
-						<a href="" class="btnIOS"><i class="icon-ios"></i>IOS版下载<span>扫描二维码下载</span></a>
+						<a href="javascript:;" class="btnIOS"><i class="icon-ios"></i>IOS版扫描下载</a>
 						<img src="img/qr-code.png" alt="" class="QRCode" />
 					</div>
 				</div>
@@ -57,5 +57,35 @@
 				</div>
 			</div>
 		</section>
+		
+		<script src="js/zepto.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				if (browser.versions.mobile || browser.versions.ios || browser.versions.android) {
+					window.location.href = 'mobile.html';
+				}
+			});
+
+			var browser = {
+				versions : function() {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					
+					//移动终端浏览器版本信息
+					return {
+						trident : u.indexOf('Trident') > -1,						//IE内核
+						presto : u.indexOf('Presto') > -1,						//opera内核
+						webKit : u.indexOf('AppleWebKit') > -1,					//苹果、谷歌内核
+						gecko : u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,					//火狐内核
+						mobile : !!u.match(/AppleWebKit.*Mobile.*/) || !!u.match(/AppleWebKit/),		//是否为移动终端
+						ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),		//ios终端
+						android : u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,				//android终端或者uc浏览器
+						iPhone : u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,					//是否为iPhone或者QQHD浏览器
+						iPad : u.indexOf('iPad') > -1,							//是否iPad
+						webApp : u.indexOf('Safari') == -1 						//是否web应该程序，没有头部与底部
+					};
+				}(),
+				language : (navigator.browserLanguage || navigator.language).toLowerCase()
+			}
+		</script>
 	</body>
 </html>

@@ -24,11 +24,28 @@
 			<img src="img/qr-code.png" alt="" />
 			<p>扫描二维码下载</p>
 		</section>
+		<footer>
+			<p>Copyright &copy;2014 Alibaba.com Hong Kong Limited.</p>
+			<p>All rights reserved.</p>
+		</footer>
 		
-		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script src="js/zepto.min.js"></script>
 		<script>
 			$(document).ready(function() {
-				
+				$('.download').children('a').each(function() {
+					var btn = $(this), tabClass = btn.attr('class') + '-tap'
+					
+					btn.on('touchstart', function(e) {
+						e.preventDefault();
+						btn.addClass(tabClass);
+					}).on('touchend', function(e) {
+						e.preventDefault();
+						btn.removeClass(tabClass);
+					}).on('touchcancel', function(e) {
+						e.preventDefault();
+						btn.removeClass(tabClass);
+					});
+				});
 			});
 		</script>
 	</body>
