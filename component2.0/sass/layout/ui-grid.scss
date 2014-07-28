@@ -1,0 +1,61 @@
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------  
+// grid scss
+//----------------------------------------------------- 
+$gridClass: 'grid';
+$gridMargin: false !default;    // 默认输出有间距的grid网格，若要生成无间距的grid，将此变量置为false
+$gridGutter: 8px !default;      // 默认网格间距为8px
+$gridColumns: 4 !default;       // grid columns
+$gridSystemWidth: 320px;        // 默认为320网格
+$gridPaddingWidth: 12px;        // 默认网格左右间距为12px
+
+// gird wrap
+.grid-wrap {
+  @extend %clearfix;
+  @include box-sizing;
+  @include display-flex(flex);
+  padding: $basePadding;
+}
+
+// grid item width
+//----------------------------------------------------- 
+@function getWidth($i) {
+  @if $gridMargin == true {
+    @return $gridSystemWidth/$i;
+  } @else {
+    @return ($gridSystemWidth - ($gridPaddingWidth*2 + ($i - 1)*$gridGutter))/$i;
+  }
+}
+
+// grid item common style
+%gridItem {
+  @include float;
+  min-height: 20px;
+  overflow: hidden;
+}
+%gridItemClear {
+  margin-right: 0;
+}
+
+// grid item
+//----------------------------------------------------- 
+@for $i from 1 through $gridColumns {
+  .#{$gridClass}-#{$i} {
+    @extend %gridItem;
+    @if $i > 1 {
+      @if $i == 3 {
+        $gridGutter: 10px;
+      } @else {
+        $gridGutter: 8px;
+      }
+      @if $gridMargin == false {
+        margin-right: $gridGutter;
+        &:last-child {
+          @extend %gridItemClear;
+        }
+      }
+    }
+    width: getWidth($i);
+  }
+}
