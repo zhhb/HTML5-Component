@@ -7,14 +7,19 @@
 
 // 变量
 //----------------------------------
-$btnBaseClass:           btn !default; //按钮的基本class
-$btnFormBaseClass:       formbtn !default; //form中input和button元素按钮的class
-$btnNormalSize:          16px 28px 14px !default; //默认按钮的左右padding，高度，字体大小，圆角
-$btnSizeClass:           () !default; //(small 5px 21px 12px) 每个括号为一组，里面四个参数分别为：class 左右padding，高度，字体大小
-$btnColorClass:          () !default; //(primary $primary #fff) 每个括号为一组，里面三个参数分别为：class 背景色 文本色
+//按钮的基本class
+$btnBaseClass: btn !default;
+//form中input和button元素按钮的class
+$btnFormBaseClass: formbtn !default;
+//默认按钮的左右padding，高度，字体大小，圆角
+$btnNormalSize: 16px 28px 14px !default;
+//(small 5px 21px 12px) 每个括号为一组，里面四个参数分别为：class，左右padding，高度，字体大小
+$btnSizeClass: () !default;
+//(primary $primary #fff) 每个括号为一组，里面三个参数分别为：class 背景色 文本色
+$btnColorClass: () !default;
 
 // 开关按钮
-$btnBgGradientSwitch:    false !default;//是否启用渐变背景
+$btnBgGradientSwitch: false !default;//是否启用渐变背景
 
 
 
@@ -23,11 +28,11 @@ $btnBgGradientSwitch:    false !default;//是否启用渐变背景
 
 // btn common style
 // 按钮基本样式，联合申明
-%btn-basic{
+%btn-basic {
   @include inline-block;
+  border: 0 none;
   cursor: pointer;
   text-align: center;
-  border: 0 none;
 }
 
 // btn-gradient
@@ -38,9 +43,9 @@ $btnBgGradientSwitch:    false !default;//是否启用渐变背景
 }
 
 // btn-size
-@mixin btn-size($padding:nth($btnNormalSize,1), $height:nth($btnNormalSize,2), $fontSize:nth($btnNormalSize,3), $formbtn: false){
+@mixin btn-size($padding:nth($btnNormalSize,1), $height:nth($btnNormalSize,2), $fontSize:nth($btnNormalSize,3), $formbtn:false) {
   padding:0 $padding;
-  font-size:$fontSize;
+  font-size: $fontSize;
 
   @if $formbtn{
     // form元素按钮（如button,input:submit），设置height来反应其高度
@@ -53,9 +58,9 @@ $btnBgGradientSwitch:    false !default;//是否启用渐变背景
 
 // btn-color
 // 包括按钮背景，文本色，是否有边框
-@mixin btn-color($bgColor:#e6e6e6, $textColor:#333){
-  color: $textColor;
+@mixin btn-color($bgColor:#e6e6e6, $textColor:#333) {
   background-color: $bgColor;
+  color: $textColor;
   @if $btnBgGradientSwitch {
     border: 1px solid darken($bgColor, 5%);
     border-color: lighten($bgColor, 2%) darken($bgColor, 5%) darken($bgColor, 5%) lighten($bgColor, 2%);
@@ -71,14 +76,14 @@ $btnBgGradientSwitch:    false !default;//是否启用渐变背景
 // 两种类别按钮，普通的和form表单元素的
 //----------------------------------
 
-.#{$btnBaseClass}{
+.#{$btnBaseClass} {
   @extend %btn-basic;
   @include btn-size;
   @include btn-color;
 }
-.#{$btnFormBaseClass}{
+.#{$btnFormBaseClass} {
   @extend %btn-basic;
-  @include btn-size($formbtn: true);
+  @include btn-size($formbtn:true);
   @include btn-color;
 }
 
@@ -99,7 +104,7 @@ $btnBgGradientSwitch:    false !default;//是否启用渐变背景
 
 // 如果输出多个大小按钮，则直接调用下面的mixin
 // @include btn-size-multi();
-@mixin btn-size-multi($sizeLists: $btnSizeClass){
+@mixin btn-size-multi($sizeLists:$btnSizeClass) {
   @each $size in $sizeLists{
     $class:     nth($size, 1);
     $padding:   nth($size, 2);

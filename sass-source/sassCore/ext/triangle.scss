@@ -1,3 +1,9 @@
+@charset "UTF-8";
+//----------------------------------------------------- 
+// triangle
+// triangle初始化提供八个方向：
+// up、down、left、right、up-right、up-left、down-right、down-left
+//-----------------------------------------------------
 @mixin triangle ($size, $color, $direction) {
   width: 0;
   height: 0;
