@@ -1,0 +1,75 @@
+.ui-list li {
+  padding: 5px 12px;
+  min-height: 34px;
+  background-color: white;
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+}
+.ui-list li a {
+  position: relative;
+  display: block;
+  color: #333333;
+  font-size: 14px;
+}
+.ui-list li h4 {
+  max-height: 72px;
+  line-height: 24px;
+  overflow: hidden;
+}
+.ui-list li p {
+  line-height: 18px;
+  font-size: 12px;
+  color: #999999;
+}
+.ui-list li p span {
+  padding-left: 20px;
+}
+.ui-list li .status {
+  color: #ff6600;
+}
+.ui-list-img li {
+  min-height: 52px;
+}
+.ui-list-img a {
+  padding-left: 52px;
+}
+.ui-list-img a .img {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  display: block;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+}
+.ui-list-bubble li {
+  margin-bottom: 12px;
+  height: 56px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  text-align: center;
+}
+.ui-list-bubble li a {
+  display: block;
+  padding-top: 12px;
+  font-size: 16px;
+  color: #333333;
+}
+.ui-list-bubble li a .sub {
+  display: block;
+  font-size: 14px;
+  color: #999999;
+}
+.ui-list-bubble li:first-child a {
+  padding-top: 20px;
+}
+.ui-list-checkbox li {
+  position: relative;
+  padding-left: 42px;
+}
+.ui-list-checkbox li .ui-checkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

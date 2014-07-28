@@ -1,0 +1,174 @@
+@import '../../../sass-source/sassCore/_base';
+
+body {
+  font-family: $fontYaHei, Arial, "MS Trebuchet", sans-serif;
+}
+%baseIcon {
+  @include inline-block;
+  line-height: 100px;
+  background: url(../img/bg03.png) no-repeat;
+  overflow: hidden;
+  vertical-align: middle;
+}
+$baseIconClass: 'icon';
+$icons: mobile, android, ios;
+@each $icon in $icons {
+  .#{$baseIconClass}-#{$icon} {
+    @extend %baseIcon;
+    @if $icon == mobile {
+      width: 11px;
+      height: 14px;
+    } @else if $icon == android {
+      width: 28px;
+      height: 31px;
+      background-position: 0 -30px;
+    } @else if $icon == ios {
+      width: 24px;
+      height: 28px;
+      background-position: 0 -80px;
+    }
+  }
+}
+
+.area {
+  margin: 0 auto;
+  width: 960px;
+}
+header {
+  height: 50px;
+  background-color: $white;
+  border-bottom: 1px solid $gray;
+}
+nav {
+  padding: 16px 0;
+  ul {
+    @include clearfix;
+    li {
+      @include float;
+      padding: 0 10px;
+      a {
+        font-size: 12px;
+        color: $grayDarker;
+        &:hover {
+          color: $blue;
+        }
+      }
+      span {
+        display: block;
+        margin-top: 8px;
+        height: 9px;
+        border-left: 1px solid #838383;
+        border-right: 1px solid $white;
+        vertical-align: middle;
+      }
+      .icon-mobile {
+        margin-right: 5px;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+    }
+  }
+}
+.bodyContent {
+  min-height: 541px;
+  background: url(../img/bg02.png) no-repeat center top;
+  .area {
+    position: relative;
+  }
+}
+.logo {
+  @extend %clearfix;
+  padding: 40px 0;
+  a {
+    @include float;
+    margin-right: 10px;
+    img {
+      display: block;
+      width: 134px;
+      height: 32px;
+    }
+  }
+  h1 {
+    @include float;
+    margin-top: -12px;
+    font-size: 25px;
+    color: #ff6600;
+  }
+}
+%downloadBtn {
+  display: block;
+  margin-bottom: 20px;
+  width: 180px;
+  height: 52px;
+  line-height: 52px;
+  @include border-radius(5px);
+  text-align: center;
+  font-size: 16px;
+  color: $white;
+}
+.download-wrap {
+  padding-left: 50px;
+  font-size: 18px;
+  color: $grayDark;
+  h2 {
+    font-weight: bold;
+    font-size: 48px;
+    color: $grayDarker;
+  }
+  .download {
+    position: relative;
+    margin-top: 60px;
+    padding-left: 5px;
+    .QRCode {
+      position: absolute;
+      top: 0;
+      left: 250px;
+      display: block;
+      width: 128px;
+      height: 128px;
+    }
+  }
+  .btnAndroid {
+    @extend %downloadBtn;
+    background-color: #98c40f;
+    border: 1px solid #98c40f;
+    .icon-android {
+      margin-right: 10px;
+    }
+    &:hover {
+      background-color: darken(#98c40f, 10%);
+      border-color: darken(#98c40f, 10%);
+    }
+  }
+  .btnIOS {
+    @extend %downloadBtn;
+    position: relative;
+    padding-left: 40px;
+    width: 138px;
+    height: 50px;
+    line-height: 50px;
+    background-color: transparent;
+    border: 2px dashed rgba(255,255,255,0.5);
+    cursor: default;
+    .icon-ios {
+      position: absolute;
+      left: 18px;
+      top: 12px;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      right: -58px;
+      top: -40px;
+      width: 63px;
+      height: 40px;
+      background: url(../img/bg03.png) no-repeat 0 -120px;
+    }
+  }
+}
+.mobileIcon {
+  position: absolute;
+  right: 0;
+  top: 100px;
+}

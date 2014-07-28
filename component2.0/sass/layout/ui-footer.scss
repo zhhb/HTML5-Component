@@ -1,0 +1,23 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// ui-footer component
+//-----------------------------------------------------
+$baseFooterHight: 50px;
+
+.ui-footer {
+  position: relative;
+  width: 100%;
+  height: $baseFooterHight;
+  background-color: $baseBgColor;
+  text-align: center;
+  .ui-footer-inner {
+    padding: $basePadding;
+    padding-top: 5px;
+  }
+  &-fixed {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: $zindexFixedTopbar;
+  }
+}

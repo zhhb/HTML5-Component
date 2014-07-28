@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------
+// ui-scroll component
+//-----------------------------------------------------
+$baseWidth: 40px;
+.ui-scroll-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+  .ui-scroller {
+    position: relative;
+    z-index: 10;
+  }
+}
+.ui-loading-bar {
+  @include box-sizing(content-box);
+	padding: 5px 12px;
+	height: $baseWidth;
+	line-height: $baseWidth;
+	background-color: $white;
+	border-bottom: $borderDark;
+	font-weight: bold;
+	font-size: $baseFontSize;
+	color: $grayDark9;
+	.ui-loading-icon {
+		@include float;
+		width: $baseWidth;
+		height: $baseWidth;
+		background: url(../img/pull-icon@2x.png) 0 0 no-repeat;
+		background-size: $baseWidth $baseWidth*2;
+		@include transition-property(transform);
+		@include transition-duration(250ms);
+		@include transform(rotate(-180deg) translateZ(0));
+	}
+}
+.ui-loading-flip {
+	.ui-loading-icon {
+		@include transform(rotate(0) translateZ(0));
+	}
+}
+.ui-loading {
+	.ui-loading-icon {
+		background-position: 0 100%;
+		@include transform(rotate(0) translateZ(0));
+		@include animation(loading 2s linear infinite);
+	}
+}
+@-webkit-keyframes loading {
+	from {
+		-webkit-transform: rotate(0) translateZ(0);
+	}
+	to {
+		-webkit-transform: rotate(360deg) translateZ(0);
+	}
+}
+@-keyframes loading {
+	from {
+		transform: rotate(0) translateZ(0);
+	}
+	to {
+		transform: rotate(360deg) translateZ(0);
+	}
+}

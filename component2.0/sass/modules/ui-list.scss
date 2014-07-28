@@ -1,0 +1,94 @@
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------
+// ui-list component
+// 列表组件包含多种形式，默认为纯文字列表格式，扩展为图文混排，bubble格式，以及checkbox的可选模式
+//-----------------------------------------------------
+.ui-list {
+  li {
+    padding: 5px 12px;
+    min-height: 34px;
+    background-color: $white;
+    border-bottom: $baseBorder;
+    text-align: left;
+    a {
+      position: relative;
+      display: block;
+      color: $grayDarker;
+      font-size: $baseFontSize;
+    }
+    h4 {
+      max-height: 72px;
+      line-height: 24px;
+      overflow: hidden;
+    }
+    p {
+      line-height: 18px;
+      font-size: $fontSizeSmall;
+      color: $grayDark9;
+      span {
+        padding-left: 20px;
+      }
+    }
+    .status {
+      color: $emphatic;
+    }
+  }
+  // 图文混排格式
+  &-img {
+    li {
+      min-height: 52px;
+    }
+    a {
+      padding-left: 52px;
+      .img {
+        position: absolute;
+        left: 0;
+        top: 4px;
+        display: block;
+        width: 44px;
+        height: 44px;
+        overflow: hidden;
+      }
+    }
+  }
+  // 竖排
+  &-bubble {
+    li {
+      margin-bottom: 12px;
+      height: 56px;
+      background-color: $white;
+      border: $baseBorder;
+      @include border-radius(5px);
+      text-align: center;
+      a {
+        display: block;
+        padding-top: 12px;
+        font-size: $fontSizeLarge;
+        color: $grayDarker;
+        .sub {
+          display: block;
+          font-size: $baseFontSize;
+          color: $grayDark9;
+        }
+      }
+      &:first-child {
+        a {
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+  // 可选模式
+  &-checkbox {
+    li {
+      position: relative;
+      padding-left: 42px;
+      .ui-checkbox {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+      }
+    }
+  }
+}

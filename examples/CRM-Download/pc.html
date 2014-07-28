@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>移动工作平台</title>
+		<link rel="stylesheet" href="css/pc.css" />
+	</head>
+	
+	<body>
+		<header>
+			<div class="area">
+				<nav>
+					<ul>
+						<li>
+							<a href=""><i class="icon-mobile"></i>手机版</a>
+						</li>
+						<li>
+							<span></span>
+						</li>
+						<li>
+							<a href="">首页</a>
+						</li>
+						<li>
+							<span></span>
+						</li>
+						<li>
+							<a href="">售前系统</a>
+						</li>
+						<li>
+							<span></span>
+						</li>
+						<li>
+							<a href="">售中系统</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		
+		<section class="bodyContent">
+			<div class="area">
+				<div class="logo">
+					<a href=""><img src="img/logo.png" alt="" /></a>
+					<h1>移动工作平台</h1>
+				</div>
+				<div class="download-wrap">
+					<h2>随时随地&nbsp;&nbsp;乐享办公</h2>
+					<p>为销售人员随身打造的移动化办公平台</p>
+					<div class="download">
+						<a href="" class="btnAndroid"><i class="icon-android"></i>Android版下载</a>
+						<a href="javascript:;" class="btnIOS"><i class="icon-ios"></i>IOS版扫描下载</a>
+						<img src="img/qr-code.png" alt="" class="QRCode" />
+					</div>
+				</div>
+				<div class="mobileIcon">
+					<img src="img/bg01.png" alt="" />
+				</div>
+			</div>
+		</section>
+		
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				if (!isPC()) {
+					window.location.href = 'mobile.html';
+				}
+			});
+
+			function isPC() {
+				var userAgentInfo = navigator.userAgent,
+				Agents = new Array("Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"),
+				flag = true;
+				for (var v = 0; v < Agents.length; v++) {
+					if (userAgentInfo.indexOf(Agents[v]) > -1) {
+						flag = false;
+						break;
+					}
+				}
+				return flag;
+			}
+		</script>
+	</body>
+</html>

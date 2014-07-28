@@ -1,0 +1,52 @@
+.ui-button, .ui-button-primary, .ui-button-disabled, .ui-button-warning {
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 36px;
+	background-color: #fff;
+	border: 1px solid #999;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 16px;
+	color: #333
+}
+.ui-small-button, .ui-small-button-primary {
+	padding: 0 8px;
+	min-width: 60px;
+	display: block;
+	width: 100%;
+	height: 28px;
+	line-height: 24px;
+	background-color: #fff;
+	border: 1px solid #999;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 14px;
+	color: #333
+}
+.ui-button-primary, .ui-small-button-primary {
+	background-color: #f60;
+	border-color: #f60;
+	color: #FFF
+}
+.ui-button-disabled {
+	background-color: #eee;
+	border-color: #ddd;
+	color: #ccc
+}
+.ui-button-active {
+	background-color: #ddd
+}
+.ui-button-primary-active {
+	background-color: #F40;
+	border-color: #F40
+}
+.ui-button-warning {
+	background-color: #f33;
+	border-color: #f33;
+	color: #f33
+}
+.ui-button-warning-active {
+	background-color: #900;
+	border-color: #900
+}

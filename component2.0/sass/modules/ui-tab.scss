@@ -1,0 +1,64 @@
+@charset "UTF-8";
+@import '../function';
+//-----------------------------------------------------
+// ui-tab component
+//-----------------------------------------------------
+.ui-tab {
+  @extend %clearfix;
+  position: relative;
+  height: 40px;
+  background-color: $white;
+  border-bottom: $baseBorder;
+  .ui-tab-item {
+    @include float;
+    padding: $basePadding;
+    padding-bottom: 7px;
+    width: 50%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    a {
+      display: block;
+      border-right: $baseBorder;
+      font-size: $baseFontSize;
+      color: $grayDark6;
+    }
+    &:last-child {
+      a {
+        border-right: none;
+      }
+    }
+  }
+  .current {
+    border-bottom: 2px solid $emphatic;
+    a {
+      color: $emphatic;
+    }
+  }
+  &-3-col {
+    .ui-tab-item {
+      width: 33%;
+      &:nth-child(2) {
+        width: 34%;
+      }
+    }
+  }
+  &-4-col {
+    .ui-tab-item {
+      width: 25%;
+    }
+  }
+  &-5-col {
+    .ui-tab-item {
+      width: 20%;
+    }
+  }
+  &-panel {
+    .ui-tab-content {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: $white
+    }
+  }
+}
