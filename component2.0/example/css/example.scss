@@ -1,0 +1,33 @@
+@import '../../sass/base.scss';
+// layout
+$gridMargin: false;
+@import '../../sass/layout/ui-grid.scss';
+.grid-system {
+  margin: 0 auto;
+  width: 320px;
+  .grid-wrap {
+    margin-bottom: 20px;
+    background-color: $gray;
+    div {
+      background-color: $red;
+    }
+  }
+}
+@import '../../sass/layout/ui-header.scss';
+@import '../../sass/layout/ui-footer.scss';
+// modules
+@import '../../sass/modules/ui-accordion.scss';
+@import '../../sass/modules/ui-button.scss';
+@import '../../sass/modules/ui-checkbox.scss';
+@import '../../sass/modules/ui-form.scss';
+@import '../../sass/modules/ui-icon.scss';
+@import '../../sass/modules/ui-list.scss';
+@import '../../sass/modules/ui-modal.scss';
+@import '../../sass/modules/ui-radio.scss';
+@import '../../sass/modules/ui-scroll.scss';
+@import '../../sass/modules/ui-search.scss';
+@import '../../sass/modules/ui-switch.scss';
+@import '../../sass/modules/ui-tab.scss';
+@import '../../sass/modules/ui-timeline.scss';
+@import '../../sass/modules/ui-triangle.scss';
+@import '../../sass/modules/ui-upload.scss';
