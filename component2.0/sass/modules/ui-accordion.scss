@@ -17,10 +17,12 @@ $baseHeight: 44px;
   width: 100%;
   color: $grayDarker;
   font-size: $baseFontSize;
-  text-align: left;
+  text-align: left;gui
+  
   .ui-accordion-title {
     @extend %clearfix;
     @extend %accordion;
+    
     h3 {
       @extend %inline-block;
       font-size: $baseFontSize;
@@ -37,6 +39,7 @@ $baseHeight: 44px;
     display: none;
     width: 100%;
     background-color: $white;
+    
     li {
       position: relative;
       @extend %accordion;
