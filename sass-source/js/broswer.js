@@ -20,4 +20,4 @@ var browser = {
 		};
 	}(),
 	language : (navigator.browserLanguage || navigator.language).toLowerCase()
-};
+}; 
