@@ -45,13 +45,12 @@ $gridPaddingWidth: 12px;        // 默认网格左右间距为12px
   .#{$gridClass}-#{$i} {
     @extend %gridItem;
     @if $i > 1 {
-      @if $i == 3 {
-        $gridGutter: 10px;
-      } @else {
-        $gridGutter: 8px;
-      }
       @if $gridMargin == false {
-        margin-right: $gridGutter;
+        @if $i == 3 {
+          margin-right: 10px;
+        } @else {
+          margin-right: $gridGutter;
+        }
         &:last-child {
           @extend %gridItemClear;
         }

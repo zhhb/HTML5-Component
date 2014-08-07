@@ -1,0 +1,85 @@
+// base
+@import '../../sass/base';
+
+// iconfont
+@import '../../sass/modules/iconfont';
+
+// header
+@import '../../sass/layout/ui-header';
+.ui-header {
+  .icon-search {
+    position: absolute;
+    right: 45px;
+    top: 0;
+  }
+  .icon-filter {
+    position: absolute;
+    right: 10px;
+    top: 0;
+  }
+}
+
+// footer
+@import '../../sass/layout/ui-footer';
+.ui-footer {
+  .icon-menu {
+    float: left;
+  }
+  .more-wrap {
+    float: right;
+    .more-list {
+      position: absolute;
+      right: 0;
+      bottom: 50px;
+      display: none;
+      padding: 5px 12px;
+      width: 80px;
+      background-color: $grayDarker;
+      li {
+        height: 22px;
+        line-height: 22px;
+        border-bottom: 1px solid #515151;
+        &:last-child {
+          border-bottom: 0 none;
+        }
+        a {
+          font-size: $fontSizeSmall;
+          color: $white;
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        right: 10px;
+        bottom: -10px;
+        display: block;
+        height: 0;
+        border-top: 10px solid $grayDarker;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+      }
+    }
+  }
+}
+
+// tab
+@import '../../sass/modules/ui-tab';
+.arrow {
+  display: inline-block;
+  margin-left: 3px;
+  vertical-align: middle;
+  @extend %iconfont;
+  &:before {
+    content: '\e603';
+  }
+}
+
+// scroll
+@import '../../sass/modules/ui-scroll';
+.ui-scroll-wrapper {
+  top: 86px;
+  bottom: 50px;
+}
+
+// list
+@import '../../sass/modules/ui-list';
