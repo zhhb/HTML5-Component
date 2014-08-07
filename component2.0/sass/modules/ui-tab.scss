@@ -11,8 +11,7 @@
   border-bottom: $baseBorder;
   .ui-tab-item {
     @include float;
-    padding: $basePadding;
-    padding-bottom: 7px;
+    padding: 11px 0 8px;
     width: 50%;
     height: 20px;
     line-height: 20px;

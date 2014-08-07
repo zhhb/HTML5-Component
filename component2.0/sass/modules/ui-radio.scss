@@ -4,14 +4,14 @@
 // ui-radio component
 //-----------------------------------------------------
 .ui-radio {
-  @include inline-block;
+  display: inline-block;
   padding: $basePadding;
   min-width: 60px;
-  height: 26px;
-  line-height: 26px;
+  height: 28px;
+  line-height: 28px;
   overflow: hidden;
   background-color: $white;
-  border: 1px solid #999;
+  border: $baseBorder;
   @include border-radius($smallRadius);
   text-align: center;
   font-size: $baseFontSize;

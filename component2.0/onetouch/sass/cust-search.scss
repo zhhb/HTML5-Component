@@ -1,0 +1,61 @@
+// base
+@import '../../sass/base';
+
+body {
+  background-color: $baseBgColor;
+}
+
+// iconfont
+@import '../../sass/modules/iconfont';
+
+// header
+@import '../../sass/layout/ui-header';
+
+// search module
+@import "../../sass/modules/ui-search";
+
+// ui-radio
+@import "../../sass/modules/ui-radio";
+
+.condition {
+  background-color: $white;
+  &:last-child {
+    margin-top: 20px;
+  }
+  h3 {
+    padding: $basePadding;
+    line-height: 30px;
+    font-size: $baseFontSize;
+    color: $grayDark9;
+  }
+  .con-bd {
+    padding: 5px 12px;
+  }
+  .ui-search-history {
+    background-color: $white;
+    li {
+      padding: $basePadding;
+      height: 44px;
+      line-height: 44px;
+      border-bottom: $baseBorder;
+      a {
+        color: $grayDarker;
+      }
+    }
+  }
+  p {
+    text-align: center;
+  }
+  .button-empty {
+    display: inline-block;
+    margin: 10px 0;
+    width: 120px;
+    height: 26px;
+    line-height: 26px;
+    background-color: $white;
+    border: 1px solid $grayDark9;
+    @include border-radius($smallRadius);
+    text-align: center;
+    color: $grayDarker;
+  }
+}
