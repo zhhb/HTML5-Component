@@ -15,7 +15,7 @@
                     <form class="ui-search-form">
                         <div class="ui-search-txt">
                             <label class="icon-search-lbl"><i></i></label>
-                            <input type="text" />
+                            <input type="text" placeholder="公司名称，地址，区号，电话" />
                             <a class="icon-empty" href="javascript:;"><i></i></a>
                         </div>
                         <input type="button" value="搜索" />
@@ -41,23 +41,23 @@
                 <div class="condition">
                     <h3>常用搜索条件</h3>
                     <div class="con-bd">
-                        <a class="ui-radio" href="">全部客户</a>
-                        <a class="ui-radio" href="">一周内新客户</a>
-                        <a class="ui-radio" href="">全部客户</a>
-                        <a class="ui-radio" href="">一周内待强开客户</a>
+                        <a class="ui-radio" href="javascript:;">全部客户</a>
+                        <a class="ui-radio" href="javascript:;">一周内新客户</a>
+                        <a class="ui-radio" href="javascript:;">全部客户</a>
+                        <a class="ui-radio" href="javascript:;">一周内待强开客户</a>
                     </div>
                 </div>
                 <div class="condition">
                     <h3>常用搜索条件</h3>
                     <ul class="ui-search-history">
                         <li>
-                            <a href="">杭州abc有限公司</a>
+                            <a href="javascript:;">杭州abc有限公司</a>
                         </li>
                         <li>
-                            <a href="">杭州abc有限公司</a>
+                            <a href="javascript:;">杭州abc有限公司</a>
                         </li>
                         <li>
-                            <a href="">杭州abc有限公司</a>
+                            <a href="javascript:;">杭州abc有限公司</a>
                         </li>
                     </ul>
                     <p>
@@ -66,5 +66,59 @@
                 </div>
             </section>
         </div>
+        
+        <script src="../../js/jquery-1.7.2.min.js"></script>
+        <script>
+        		jQuery(document).ready(function($) {
+				var searchWrap = $('.ui-search-wrapper'), conditionWrap = $('.condition');
+				
+				searchWrap.delegate('input[type=text]', 'input focus', function() {
+                    // 搜索框绑定输入和聚焦事件
+                    // 输入时，显示清空按钮和搜索建议列表
+                    // 聚焦时，若内容不为空，显示清空按钮
+                    var txt = $(this);
+
+                    if ($.trim(txt.val()).length > 0) {
+                        txt.siblings('.icon-empty').show();
+                        txt.parents('.ui-search-form').siblings('.ui-suggest-list').show();
+                    } else {
+                        txt.siblings('.icon-empty').hide();
+                        txt.parents('.ui-search-form').siblings('.ui-suggest-list').hide();
+                    }
+                }).delegate('.icon-empty', 'click', function(event) {
+                    // 清空按钮绑定点击事件，点击时清空搜索框和常用搜索条件
+                    var icon = $(this);
+
+                    icon.siblings('input').val('').focus().end().hide();
+                    conditionWrap.find('.ui-radio').removeClass('ui-radio-checked');
+                });
+
+                conditionWrap.delegate('.ui-radio', 'click', function(event) {
+                    // 常用搜索条件绑定点击事件，点击时将点击项的内容赋值到搜索框并选中当前点击项
+                    event.preventDefault();
+
+                    var radioItem = $(this);
+
+                    if (radioItem.hasClass('ui-radio-checked')) {
+                        return;
+                    }
+                    radioItem.siblings().removeClass('ui-radio-checked').end().addClass('ui-radio-checked');
+                    searchWrap.find('input[type=text]').val('"' + radioItem.text() + '"').siblings('.icon-empty').show();
+                }).delegate('li', 'click', function(event) {
+                    // 搜索
+                    event.preventDefault();
+
+                    var historyItem = $(this);
+
+                    searchWrap.find('input[type=text]').val('"' + historyItem.children('a').text() + '"').siblings('.icon-empty').show();
+                }).delegate('.button-empty', 'click', function(event) {
+                    event.preventDefault();
+
+                    var button = $(this);
+
+                    button.parent().siblings('.ui-search-history').empty().end().parents('.condition').hide();
+                });
+			});
+        </script>
     </body>
 </html>
