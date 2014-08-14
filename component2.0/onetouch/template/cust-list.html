@@ -17,10 +17,10 @@
 			</header>
 			<ul class="ui-tab">
 				<li class="ui-tab-item current">
-					<a href="javascript:;">分发时间<i class="arrow"></i></a>
+					<a href="javascript:;">分发时间<i class="icon-arrow"></i></a>
 				</li>
 				<li class="ui-tab-item">
-					<a href="javascript:;">拜访时间<i class="arrow"></i></a>
+					<a href="javascript:;">拜访时间<i class="icon-arrow"></i></a>
 				</li>
 			</ul>
 			<section class="ui-scroll-wrapper">
@@ -71,5 +71,24 @@
                 </div>
 			</footer>
 		</div>
+		
+		<script src="../../js/jquery-1.7.2.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				var tab = $('.ui-tab');
+				tab.delegate('li', 'click', function() {
+					var li = $(this);
+
+					li.siblings().removeClass('current').end().addClass('current');
+				});
+				
+				var moreWrap = $('.more-wrap');
+				moreWrap.delegate('.icon-more', 'click', function(event) {
+					var icon = $(this);
+
+					icon.parent().toggleClass('more-wrap-active');
+				});
+			});
+		</script>
 	</body>
 </html>

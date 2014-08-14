@@ -6,6 +6,49 @@
   clear: both;
 }
 
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../iconfont/iconfont.eot");
+  src: url("../../iconfont/iconfont.eot?#iefix") format("eot"), url("../../iconfont/iconfont.svg#iconfont") format("svg"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype");
+}
+.ui-header .icon-back, .ui-header .icon-search, .ui-header .icon-filter {
+  display: block;
+  width: 35px;
+  height: 44px;
+}
+
+.ui-footer .icon-menu, .ui-footer .more-wrap .icon-more {
+  display: block;
+  width: 35px;
+  height: 50px;
+}
+
+.ui-header .icon-back i, .ui-header .icon-search i, .ui-header .icon-filter i {
+  display: block;
+  padding-top: 4px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ff6600;
+}
+
+.ui-footer .icon-menu i, .ui-footer .more-wrap .icon-more i {
+  display: block;
+  padding-top: 8px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #999999;
+}
+
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -123,8 +166,8 @@ dfn {
  * Address styling not present in IE 8/9.
  */
 mark {
-  background: #ff0;
-  color: #000;
+  background-color: #ff0;
+  color: black;
 }
 
 /**
@@ -254,8 +297,6 @@ button, select {
  * 2. Correct inability to style clickable `input` types in iOS.
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
- * 4. Remove inner spacing in IE 7 without affecting normal text inputs.
- *    Known issue: inner spacing remains in IE 6.
  */
 button, html input[type="button"],
 input[type="reset"], input[type="submit"] {
@@ -294,8 +335,6 @@ input {
  *
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
- * 3. Remove excess padding in IE 7.
- *    Known issue: excess padding remains in IE 6.
  */
 input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
@@ -451,101 +490,55 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #cccccc;
 }
 
-@font-face {
-  font-family: "iconfont";
-  src: url("../../iconfont/iconfont.eot");
-  src: url("../../iconfont/iconfont.eot?#iefix") format("embedded-opentype"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype"), url("../../iconfont/iconfont.svg#iconfont") format("svg");
-}
-.icon-back i, .icon-search i, .icon-filter i, .icon-menu i, .icon-more i, .icon-search-lbl i, .icon-empty i, .arrow {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-back, .icon-search, .icon-filter, .icon-menu, .icon-more {
-  display: block;
-  width: 35px;
-  height: 44px;
-}
-
-.icon-back i, .icon-search i, .icon-filter i, .icon-menu i, .icon-more i {
-  display: block;
-  padding-top: 4px;
-  font-size: 24px;
-  color: #ff6600;
-}
-
-.icon-back i {
-  font-weight: bold;
-}
-.icon-back i:before {
-  content: "\e606";
-}
-
-.icon-search i:before {
-  content: "\e600";
-}
-
-.icon-filter i:before {
-  content: "\e607";
-}
-
-.icon-menu {
-  height: 50px;
-}
-.icon-menu i {
-  padding-top: 8px;
-  color: #999;
-}
-.icon-menu i:before {
-  content: "\e608";
-}
-
-.icon-more {
-  height: 50px;
-}
-.icon-more i {
-  display: block;
-  padding-top: 8px;
-  color: #999999;
-}
-.icon-more i:before {
-  content: "\e60a";
-}
-
-.icon-search-lbl {
-  display: block;
-}
-.icon-search-lbl i {
-  display: block;
-  color: #999999;
-  font-size: 18px;
-}
-.icon-search-lbl i:before {
-  content: "\e600";
-}
-
-.icon-empty {
-  display: block;
-}
-.icon-empty i {
-  display: block;
-  color: #999999;
-  font-size: 24px;
-}
-.icon-empty i:before {
-  content: "\e60c";
-}
-
 .ui-tab:before, .ui-tab:after {
   content: "";
   display: table;
 }
 .ui-tab:after {
   clear: both;
+}
+
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../iconfont/iconfont.eot");
+  src: url("../../iconfont/iconfont.eot?#iefix") format("eot"), url("../../iconfont/iconfont.svg#iconfont") format("svg"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype");
+}
+.ui-header .icon-back, .ui-header .icon-search, .ui-header .icon-filter {
+  display: block;
+  width: 35px;
+  height: 44px;
+}
+
+.ui-footer .icon-menu, .ui-footer .more-wrap .icon-more {
+  display: block;
+  width: 35px;
+  height: 50px;
+}
+
+.ui-header .icon-back i, .ui-header .icon-search i, .ui-header .icon-filter i {
+  display: block;
+  padding-top: 4px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ff6600;
+}
+
+.ui-footer .icon-menu i, .ui-footer .more-wrap .icon-more i {
+  display: block;
+  padding-top: 8px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #999999;
 }
 
 .ui-header {
@@ -565,10 +558,11 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   left: 0;
   top: 0;
 }
-.ui-header .icon-new {
-  position: absolute;
-  right: 0;
-  top: 0;
+.ui-header .icon-back i {
+  font-weight: bold;
+}
+.ui-header .icon-back i:before {
+  content: "\e606";
 }
 .ui-header-fixed {
   position: absolute;
@@ -582,10 +576,16 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   right: 45px;
   top: 0;
 }
+.ui-header .icon-search i:before {
+  content: "\e600";
+}
 .ui-header .icon-filter {
   position: absolute;
   right: 10px;
   top: 0;
+}
+.ui-header .icon-filter i:before {
+  content: "\e607";
 }
 
 .ui-tab:before, .ui-tab:after {
@@ -594,6 +594,49 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 .ui-tab:after {
   clear: both;
+}
+
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../iconfont/iconfont.eot");
+  src: url("../../iconfont/iconfont.eot?#iefix") format("eot"), url("../../iconfont/iconfont.svg#iconfont") format("svg"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype");
+}
+.ui-header .icon-back, .ui-header .icon-search, .ui-header .icon-filter {
+  display: block;
+  width: 35px;
+  height: 44px;
+}
+
+.ui-footer .icon-menu, .ui-footer .more-wrap .icon-more {
+  display: block;
+  width: 35px;
+  height: 50px;
+}
+
+.ui-header .icon-back i, .ui-header .icon-search i, .ui-header .icon-filter i {
+  display: block;
+  padding-top: 4px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ff6600;
+}
+
+.ui-footer .icon-menu i, .ui-footer .more-wrap .icon-more i {
+  display: block;
+  padding-top: 8px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #999999;
 }
 
 .ui-footer {
@@ -617,8 +660,14 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .ui-footer .icon-menu {
   float: left;
 }
+.ui-footer .icon-menu i:before {
+  content: "\e608";
+}
 .ui-footer .more-wrap {
   float: right;
+}
+.ui-footer .more-wrap .icon-more i:before {
+  content: "\e60a";
 }
 .ui-footer .more-wrap .more-list {
   position: absolute;
@@ -652,6 +701,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 }
+.ui-footer .more-wrap-active .icon-more i {
+  color: #ff6600;
+}
+.ui-footer .more-wrap-active .more-list {
+  display: block;
+}
 
 .ui-tab:before, .ui-tab:after {
   content: "";
@@ -659,6 +714,49 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 .ui-tab:after {
   clear: both;
+}
+
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../iconfont/iconfont.eot");
+  src: url("../../iconfont/iconfont.eot?#iefix") format("eot"), url("../../iconfont/iconfont.svg#iconfont") format("svg"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype");
+}
+.ui-header .icon-back, .ui-header .icon-search, .ui-header .icon-filter {
+  display: block;
+  width: 35px;
+  height: 44px;
+}
+
+.ui-footer .icon-menu, .ui-footer .more-wrap .icon-more {
+  display: block;
+  width: 35px;
+  height: 50px;
+}
+
+.ui-header .icon-back i, .ui-header .icon-search i, .ui-header .icon-filter i {
+  display: block;
+  padding-top: 4px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ff6600;
+}
+
+.ui-footer .icon-menu i, .ui-footer .more-wrap .icon-more i {
+  display: block;
+  padding-top: 8px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #999999;
 }
 
 .ui-tab {
@@ -709,12 +807,18 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   background-color: white;
 }
 
-.arrow {
+.icon-arrow {
   display: inline-block;
   margin-left: 3px;
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
   vertical-align: middle;
 }
-.arrow:before {
+.icon-arrow:before {
   content: '\e603';
 }
 
@@ -724,6 +828,49 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 .ui-tab:after {
   clear: both;
+}
+
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../iconfont/iconfont.eot");
+  src: url("../../iconfont/iconfont.eot?#iefix") format("eot"), url("../../iconfont/iconfont.svg#iconfont") format("svg"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype");
+}
+.ui-header .icon-back, .ui-header .icon-search, .ui-header .icon-filter {
+  display: block;
+  width: 35px;
+  height: 44px;
+}
+
+.ui-footer .icon-menu, .ui-footer .more-wrap .icon-more {
+  display: block;
+  width: 35px;
+  height: 50px;
+}
+
+.ui-header .icon-back i, .ui-header .icon-search i, .ui-header .icon-filter i {
+  display: block;
+  padding-top: 4px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ff6600;
+}
+
+.ui-footer .icon-menu i, .ui-footer .more-wrap .icon-more i {
+  display: block;
+  padding-top: 8px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #999999;
 }
 
 .ui-scroll-wrapper {
@@ -808,6 +955,49 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 }
 .ui-tab:after {
   clear: both;
+}
+
+@font-face {
+  font-family: "iconfont";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../../iconfont/iconfont.eot");
+  src: url("../../iconfont/iconfont.eot?#iefix") format("eot"), url("../../iconfont/iconfont.svg#iconfont") format("svg"), url("../../iconfont/iconfont.woff") format("woff"), url("../../iconfont/iconfont.ttf") format("truetype");
+}
+.ui-header .icon-back, .ui-header .icon-search, .ui-header .icon-filter {
+  display: block;
+  width: 35px;
+  height: 44px;
+}
+
+.ui-footer .icon-menu, .ui-footer .more-wrap .icon-more {
+  display: block;
+  width: 35px;
+  height: 50px;
+}
+
+.ui-header .icon-back i, .ui-header .icon-search i, .ui-header .icon-filter i {
+  display: block;
+  padding-top: 4px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ff6600;
+}
+
+.ui-footer .icon-menu i, .ui-footer .more-wrap .icon-more i {
+  display: block;
+  padding-top: 8px;
+  font-family: "iconfont" !important;
+  font-size: 24px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #999999;
 }
 
 .ui-list li {

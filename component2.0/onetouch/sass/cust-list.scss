@@ -1,9 +1,6 @@
 // base
 @import '../../sass/base';
 
-// iconfont
-@import '../../sass/modules/iconfont';
-
 // header
 @import '../../sass/layout/ui-header';
 .ui-header {
@@ -11,11 +8,13 @@
     position: absolute;
     right: 45px;
     top: 0;
+    @include icon-search;
   }
   .icon-filter {
     position: absolute;
     right: 10px;
     top: 0;
+    @include icon-filter;
   }
 }
 
@@ -24,9 +23,13 @@
 .ui-footer {
   .icon-menu {
     float: left;
+    @include icon-menu;
   }
   .more-wrap {
     float: right;
+    .icon-more {
+      @include icon-more;
+    }
     .more-list {
       position: absolute;
       right: 0;
@@ -60,18 +63,25 @@
       }
     }
   }
+  .more-wrap-active {
+    .icon-more {
+      i {
+        color: $emphatic;
+      }
+    }
+    .more-list {
+      display: block;
+    }
+  }
 }
 
 // tab
 @import '../../sass/modules/ui-tab';
-.arrow {
+.icon-arrow {
   display: inline-block;
   margin-left: 3px;
+  @include icon-arrow;
   vertical-align: middle;
-  @extend %iconfont;
-  &:before {
-    content: '\e603';
-  }
 }
 
 // scroll
