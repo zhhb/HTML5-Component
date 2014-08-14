@@ -1,1 +1,99 @@
-.ui-search-wrapper{position:relative;padding-left:40px}.ui-search-wrapper .ui-search-form{position:relative}.ui-search-wrapper .ui-search-form .ui-search-txt{position:relative;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;padding:6px 50px 6px 0;overflow:hidden}.ui-search-wrapper .ui-search-form input[type=text]{flex:1;padding:0 30px 0 35px;width:calc(100% - 65px);height:30px;line-height:30px;background-color:#fff;border:1px solid #ddd;border-radius:20px;font-size:14px}.ui-search-wrapper .ui-search-form input[type=button]{position:absolute;right:0;top:0;display:block;width:48px;height:44px;line-height:44px;background-color:#efeff4;border:0 none;border-radius:0;text-align:center;color:#f60}.ui-search-wrapper .ui-search-form .icon-search-lbl{position:absolute;left:10px;top:10px}.ui-search-wrapper .ui-search-form .icon-empty{position:absolute;right:55px;top:4px;display:none}.ui-search-wrapper .ui-suggest-list{position:fixed;left:0;top:45px;display:none;width:100%;background-color:#fff;text-align:left}.ui-search-wrapper .ui-suggest-list li{padding:0 12px;height:44px;line-height:44px;border-bottom:1px solid #ddd}.ui-search-wrapper .ui-suggest-list li a{font-size:14px;color:#333}
+.ui-search-wrapper {
+	position: relative;
+	padding-left: 40px
+}
+.ui-search-wrapper .ui-search-form {
+	position: relative
+}
+.ui-search-wrapper .ui-search-form .ui-search-txt {
+	position: relative;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	padding: 6px 50px 6px 0;
+	overflow: hidden
+}
+.ui-search-wrapper .ui-search-form input[type=text] {
+	flex: 1;
+	padding: 0 30px 0 35px;
+	width: calc(100% - 65px);
+	height: 30px;
+	line-height: 30px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 20px;
+	font-size: 14px
+}
+.ui-search-wrapper .ui-search-form input[type=button] {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 48px;
+	height: 44px;
+	line-height: 44px;
+	background-color: #efeff4;
+	border: 0 none;
+	border-radius: 0;
+	text-align: center;
+	color: #f60
+}
+.ui-search-wrapper .ui-search-form .icon-search-lbl {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	display: block
+}
+.ui-search-wrapper .ui-search-form .icon-search-lbl i {
+	display: block;
+	font-family: "iconfont" !important;
+	font-size: 18px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+	color: #999
+}
+.ui-search-wrapper .ui-search-form .icon-search-lbl i:before {
+	content: "\e600"
+}
+.ui-search-wrapper .ui-search-form .icon-empty {
+	position: absolute;
+	right: 55px;
+	top: 4px;
+	display: none;
+	display: block
+}
+.ui-search-wrapper .ui-search-form .icon-empty i {
+	display: block;
+	font-family: "iconfont" !important;
+	font-size: 24px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+	color: #999
+}
+.ui-search-wrapper .ui-search-form .icon-empty i:before {
+	content: "\e60c"
+}
+.ui-search-wrapper .ui-suggest-list {
+	position: fixed;
+	left: 0;
+	top: 45px;
+	display: none;
+	width: 100%;
+	background-color: #fff;
+	text-align: left
+}
+.ui-search-wrapper .ui-suggest-list li {
+	padding: 0 12px;
+	height: 44px;
+	line-height: 44px;
+	border-bottom: 1px solid #ddd
+}
+.ui-search-wrapper .ui-suggest-list li a {
+	font-size: 14px;
+	color: #333
+}
