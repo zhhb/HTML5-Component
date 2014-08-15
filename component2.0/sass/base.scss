@@ -1,11 +1,10 @@
 @charset "UTF-8";
 //----------------------------------------------------- 
 // base scss
-// 提供所有的基础功能，包括：变量设置，css3前缀填充，基础mixin，常用icon，reset样式
+// 提供所有的基础功能，包括：变量设置，css3前缀填充，基础mixin，reset样式
 // 默认会输出reset样式一份
 //-----------------------------------------------------
 @import "base/_config";
 @import "base/_css3";
 @import "base/_mixin";
-@import "base/_iconfont";
 @import "base/_reset";
