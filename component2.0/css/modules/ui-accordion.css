@@ -1,14 +1,11 @@
-.ui-accordion .ui-accordion-title h3 {
-	display: inline-block
-}
-.ui-accordion .ui-accordion-title:before, .ui-accordion .ui-accordion-title:after {
+.ui-accordion gui .ui-accordion-title:before, .ui-accordion gui .ui-accordion-title:after {
 	content: "";
 	display: table
 }
-.ui-accordion .ui-accordion-title:after {
+.ui-accordion gui .ui-accordion-title:after {
 	clear: both
 }
-.ui-accordion .ui-accordion-title, .ui-accordion .ui-accordion-list li {
+.ui-accordion gui .ui-accordion-title, .ui-accordion .ui-accordion-list li {
 	padding: 0 12px;
 	height: 44px;
 	line-height: 44px;
@@ -22,10 +19,11 @@
 	font-size: 14px;
 	text-align: left
 }
-.ui-accordion .ui-accordion-title h3 {
+.ui-accordion gui .ui-accordion-title h3 {
+	display: inline-block;
 	font-size: 14px
 }
-.ui-accordion .ui-accordion-title .icon-down {
+.ui-accordion gui .ui-accordion-title .icon-down {
 	float: right;
 	margin-top: 18px
 }

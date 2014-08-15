@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>Template: upload page</title>
+        <link rel="stylesheet" href="../css/cust-upload.css" />
+    </head>
+
+    <body>
+        <div class="page-wrap">
+            <h1>图片上传组件</h1>
+            <article class="ui-upload" data-type="gs_onetouch_drawer_business_license">
+                <h3>开票人营业执照</h3>
+                <div class="ui-upload-list">
+                    <div class="ui-upload-item">
+                        <a class="ui-upload-img" href=""><img src="" alt=""/></a>
+                    </div>
+                    <a href="javascript:;" class="ui-upload-item ui-upload-item-plus"><i></i></a>
+                </div>
+            </article>
+            <article class="ui-upload" data-type="gs_onetouch_drawer_tax_registration_certificate">
+                <h3>开票人税务登记证</h3>
+                <div class="ui-upload-list">
+                    <a href="javascript:;" class="ui-upload-item ui-upload-item-plus"><i></i></a>
+                </div>
+            </article>
+            <article class="ui-upload" data-type="gs_onetouch_drawer_taxpayer_proof">
+                <h3>开票人纳税证明</h3>
+                <div class="ui-upload-list">
+                    <a href="javascript:;" class="ui-upload-item ui-upload-item-plus"><i></i></a>
+                </div>
+            </article>
+        </div>
+
+        <script src="../../js/jquery-1.7.2.min.js"></script>
+        <script src="../js/upload.module.js"></script>
+        <script>
+        	$(document).ready(function() {
+                var newPicObj = {}, scrollObj = {};
+				crmuploader.init({
+                    globalId: 'xxxxx',
+                    photoObj: newPicObj,
+                    scrollObj: scrollObj
+                });
+			});
+        </script>
+    </body>
+</html>

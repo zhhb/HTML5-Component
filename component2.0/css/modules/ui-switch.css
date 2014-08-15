@@ -22,8 +22,8 @@
 	height: 28px;
 	overflow: hidden;
 	background-color: #fff;
-	border-radius: 50%;
 	border: 1px solid #e6e6e6;
+	border-radius: 50%;
 	-webkit-transition: all 0.1s linear;
 	transition: all 0.1s linear
 }

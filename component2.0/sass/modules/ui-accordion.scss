@@ -3,7 +3,10 @@
 //-----------------------------------------------------
 // ui-accordion component
 //-----------------------------------------------------
+// accordion结构，默认高度为44px
 $baseHeight: 44px;
+// 默认隐藏accordion的列表
+$accordionListSwitch: true;
 
 %accordion {
   padding: $basePadding;
@@ -24,7 +27,7 @@ $baseHeight: 44px;
     @extend %accordion;
     
     h3 {
-      @extend %inline-block;
+      display: inline-block;
       font-size: $baseFontSize;
     }
     .icon-down {
@@ -32,11 +35,14 @@ $baseHeight: 44px;
       margin-top: 18px;
     }
   }
+  // 默认列表隐藏
   .ui-accordion-list {
     position: absolute;
     left: 0;
     top: 45px;
-    display: none;
+    @if $accordionListSwitch {
+      display: none;
+    }
     width: 100%;
     background-color: $white;
     
@@ -55,6 +61,7 @@ $baseHeight: 44px;
       background-size: 16px 13px;
     }
   }
+  // active状态，将下拉icon反转，同时将列表显示
   &-active {
     .ui-accordion-title {
       .icon-down {

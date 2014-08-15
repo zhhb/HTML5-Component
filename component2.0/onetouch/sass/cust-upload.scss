@@ -1,0 +1,13 @@
+// base
+@import '../../sass/base';
+
+// iconfont
+@import '../../sass/modules/iconfont';
+
+// ui-upload
+@import '../../sass/modules/ui-upload';
+
+h1 {
+	margin: 10px 0;
+	padding: $basePadding;
+}

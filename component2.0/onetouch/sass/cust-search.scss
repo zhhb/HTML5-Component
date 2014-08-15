@@ -1,12 +1,12 @@
 // base
 @import '../../sass/base';
 
+// iconfont
+@import '../../sass/modules/iconfont';
+
 body {
   background-color: $baseBgColor;
 }
-
-// iconfont
-@import '../../sass/modules/iconfont';
 
 // header
 @import '../../sass/layout/ui-header';

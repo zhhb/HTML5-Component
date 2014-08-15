@@ -3,6 +3,7 @@
 //-----------------------------------------------------
 // ui-header component
 //-----------------------------------------------------
+// header部分，默认高度为44px
 $baseHeaderHight: 44px;
 
 .ui-header {
@@ -16,15 +17,12 @@ $baseHeaderHight: 44px;
     line-height: $baseHeaderHight;
     font-size: $fontSizeLarger;
   }
+  // 返回按钮，默认固定在头部左侧
   .icon-back {
     position: absolute;
     left: 0;
     top: 0;
-  }
-  .icon-new {
-    position: absolute;
-    right: 0;
-    top: 0;
+    @include icon-back;
   }
   // 固定头部时，增加ui-header-fixed这个class即可
   &-fixed {

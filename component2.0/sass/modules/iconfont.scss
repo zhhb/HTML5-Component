@@ -1,105 +1,148 @@
-@font-face {
-  font-family: "iconfont";
-  src: url('../../iconfont/iconfont.eot');
-  src: url('../../iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
-  url('../../iconfont/iconfont.woff') format('woff'),
-  url('../../iconfont/iconfont.ttf') format('truetype'),
-  url('../../iconfont/iconfont.svg#iconfont') format('svg');
-}
-%iconfont {
+@charset "UTF-8";
+//-----------------------------------------------------
+// iconfont
+// 定义icon字体
+//-----------------------------------------------------
+
+// 引入字体文件，定义字体
+@include font-face('iconfont', '../../iconfont/iconfont');
+
+// 定义公用字体样式
+// 初始字体设置为16px
+@mixin iconfont($fontSize: 16px) {
   font-family: "iconfont" !important;
-  font-size: 16px;
+  font-size: $fontSize;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-%iconBasic {
+
+// 头部icon，传递默认宽度和高度
+@mixin headerIcon($width: 35px, $height: 44px) {
   display: block;
-  width: 35px;
-  height: 44px;
+  width: $width;
+  height: $height;
 }
-%icon {
+%headerIcon {
+  @include headerIcon;
+}
+
+// 底部icon，重置高度
+%footerIcon {
+  @include headerIcon($height: 50px);
+}
+@mixin headerIcon-i($paddingTop: 4px, $color: $emphatic) {
   display: block;
-  padding-top: 4px;
-  @extend %iconfont;
-  font-size: 24px;
-  color: $emphatic;
+  padding-top: $paddingTop;
+  @include iconfont(24px);
+  color: $color;
 }
-.icon-back {
-  @extend %iconBasic;
+%headerIcon-i {
+  @include headerIcon-i;
+}
+%footerIcon-i {
+  @include headerIcon-i(8px, $grayDark9);
+}
+
+// 返回icon
+@mixin icon-back {
+  @extend %headerIcon;
   i {
-    @extend %icon;
+    @extend %headerIcon-i;
     font-weight: bold;
     &:before {
       content: "\e606";
     }
   }
 }
-.icon-search {
-  @extend %iconBasic;
+
+// 搜索icon
+@mixin icon-search {
+  @extend %headerIcon;
   i {
-    @extend %icon;
+    @extend %headerIcon-i;
     &:before {
       content: "\e600";
     }
   }
 }
-.icon-filter {
-  @extend %iconBasic;
+
+// 过滤icon
+@mixin icon-filter {
+  @extend %headerIcon;
   i {
-    @extend %icon;
+    @extend %headerIcon-i;
     &:before {
       content: "\e607";
     }
   }
 }
-.icon-menu {
-  @extend %iconBasic;
-  height: 50px;
+
+// 菜单icon
+@mixin icon-menu {
+  @extend %footerIcon;
   i {
-    @extend %icon;
-    padding-top: 8px;
-    color: #999;
+    @extend %footerIcon-i;
     &:before {
       content: "\e608";
     }
   }
 }
-.icon-more {
-  @extend %iconBasic;
-  height: 50px;
+
+// 更多icon
+@mixin icon-more {
+  @extend %footerIcon;
   i {
-    display: block;
-    @extend %icon;
-    padding-top: 8px;
-    color: $grayDark9;
+    @extend %footerIcon-i;
     &:before {
       content: "\e60a";
     }
   }
 }
-.icon-search-lbl {
+
+// 搜索框，搜索icon
+@mixin icon-search-lbl {
   display: block;
   i {
     display: block;
-    @extend %iconfont;
+    @include iconfont(18px);
     color: $grayDark9;
-    font-size: 18px;
     &:before {
       content: "\e600";
     }
   }
 }
-.icon-empty {
+
+// 搜索框，清空icon
+@mixin icon-empty {
   display: block;
   i {
     display: block;
-    @extend %iconfont;
+    @include iconfont(24px);
     color: $grayDark9;
-    font-size: 24px;
     &:before {
       content: "\e60c";
+    }
+  }
+}
+
+// 下箭头icon
+@mixin icon-arrow {
+  @include iconfont;
+  &:before {
+    content: '\e603';
+  }
+}
+
+// 新建icon
+@mixin icon-new {
+  i {
+    display: block;
+    @include iconfont(24px);
+    color: $emphatic;
+    &:before {
+      cotent: "\e601";
     }
   }
 }

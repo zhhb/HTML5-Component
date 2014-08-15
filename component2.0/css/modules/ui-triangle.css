@@ -1,1 +1,21 @@
-.ui-triangle-top,.ui-triangle-bottom{display:inline-block}.ui-triangle-top,.ui-triangle-bottom{content:"";height:0;width:0;overflow:hidden}.ui-triangle-top{border-color:transparent;border-style:solid;border-width:6px;border-bottom-color:#aaa}.ui-triangle-bottom{border-color:transparent;border-style:solid;border-width:6px;border-top-color:#aaa}
+.ui-triangle-top, .ui-triangle-bottom {
+	display: inline-block
+}
+.ui-triangle-top, .ui-triangle-bottom {
+	content: "";
+	height: 0;
+	width: 0;
+	overflow: hidden
+}
+.ui-triangle-top {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	border-bottom-color: #aaa
+}
+.ui-triangle-bottom {
+	border-color: transparent;
+	border-style: solid;
+	border-width: 6px;
+	border-top-color: #aaa
+}
